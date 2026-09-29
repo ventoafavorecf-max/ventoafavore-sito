@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vianova Oleodinamica — esempio di sito costruito da Vento a Favore</title>
+
+<meta name="description" content="Pagina dimostrativa: come Vento a Favore costruisce il sito di un'azienda meccanica. Azienda e dati inventati.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="Un sito d'esempio, costruito da Vento a Favore">
+<meta property="og:description" content="Pagina dimostrativa per un'azienda inventata di oleodinamica.">
+<meta property="og:image" content="https://ventoafavore.it/anteprima-social-it.jpg">
+<style>
+@font-face{font-family:"VN Cond";src:url("/font/heroscn-bold.woff") format("woff");font-weight:700;font-display:swap}
+@font-face{font-family:"VN Cond";src:url("/font/heroscn-regular.woff") format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"VN Mono";src:url("/font/mono-regular.woff") format("woff");font-weight:400;font-display:swap}
+:root{
+  --ink:#0E1216; --steel:#1B2229; --line:#2C363F; --pale:#E9ECEE; --mid:#98A4AE;
+  --amber:#D08422; --amber-soft:#F0C078; --paper:#F5F6F7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);
+     font-family:Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;
+     -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+.mono{font-family:"VN Mono",ui-monospace,monospace;letter-spacing:.06em}
+.cond{font-family:"VN Cond",Haettenschweiler,"Arial Narrow",sans-serif}
+
+/* fascia di avviso: è nostra, non del cliente */
+.demo{background:#7B2D26;color:#fff;font-size:13px;line-height:1.45;padding:10px 0}
+.demo b{font-weight:700}
+.demo a{color:#fff}
+
+header{background:var(--ink);color:var(--pale)}
+.bar{display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:22px 0 20px;flex-wrap:wrap}
+.brand{font-family:"VN Cond",sans-serif;font-weight:700;font-size:27px;letter-spacing:.04em;text-transform:uppercase}
+.brand span{color:var(--amber)}
+nav{display:flex;gap:26px;flex-wrap:wrap}
+nav a{color:var(--mid);text-decoration:none;font-size:14px;letter-spacing:.09em;text-transform:uppercase}
+nav a:hover{color:var(--amber-soft)}
+
+.hero{background:var(--ink);color:var(--pale);border-top:1px solid var(--line);padding:54px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.kicker{color:var(--amber);font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+h1{font-family:"VN Cond",sans-serif;font-weight:700;font-size:58px;line-height:1.02;
+   letter-spacing:.005em;margin:18px 0 16px;text-wrap:balance}
+.lede{color:#C3CCD4;font-size:19px;max-width:30em}
+.figures{display:flex;gap:0;margin:34px 0 0;border-top:1px solid var(--line)}
+.fig{flex:1;padding:18px 18px 22px 0;border-right:1px solid var(--line)}
+.fig:last-child{border-right:0;padding-right:0}
+.fig b{display:block;font-family:"VN Cond",sans-serif;font-size:40px;font-weight:700;color:#fff;line-height:1}
+.fig i{display:block;font-style:normal;color:var(--mid);font-size:13px;letter-spacing:.08em;
+       text-transform:uppercase;padding-top:7px}
+.draw{padding:8px 0 40px}
+.draw svg{width:100%;height:auto;display:block}
+
+section{padding:64px 0}
+h2{font-family:"VN Cond",sans-serif;font-weight:700;font-size:34px;letter-spacing:.01em;
+   text-transform:uppercase;margin-bottom:8px}
+.sub{color:#5C6770;max-width:40em;margin-bottom:30px}
+
+table{width:100%;border-collapse:collapse}
+caption{text-align:left;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+        color:#5C6770;padding-bottom:12px}
+th,td{text-align:left;padding:13px 14px 13px 0;border-bottom:1px solid #D7DBDE;vertical-align:top}
+thead th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#5C6770;font-weight:400}
+td.v{font-family:"VN Mono",monospace;white-space:nowrap;text-align:right;padding-right:0}
+tbody tr:hover{background:#EDEFF1}
+
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.app{background:#fff;border:1px solid #DDE1E4;border-top:3px solid var(--amber);padding:22px 22px 24px}
+.app h3{font-family:"VN Cond",sans-serif;font-size:21px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px}
+.app p{font-size:15.5px;color:#4A545C}
+.app .n{font-family:"VN Mono",monospace;font-size:12px;color:var(--amber);letter-spacing:.1em}
+
+.cta{background:var(--steel);color:var(--pale)}
+.cta .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;
+           padding-top:40px;padding-bottom:40px;flex-wrap:wrap}
+.cta h2{color:#fff;margin:0}
+.cta p{color:#AEB9C2;font-size:15px;max-width:34em}
+.btn{display:inline-block;background:var(--amber);color:#14181C;text-decoration:none;
+     font-family:"VN Cond",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+     font-size:17px;padding:14px 26px;border:0}
+.btn:hover{background:var(--amber-soft)}
+
+footer{background:var(--ink);color:#8C98A2;font-size:13.5px;padding:34px 0 40px}
+footer b{color:var(--pale)}
+footer a{color:var(--amber-soft)}
+
+@media (max-width:430px){
+  .wrap{padding:0 18px}
+  .hero-grid{display:block}
+  .hero-grid > *{min-width:0}
+  h1{overflow-wrap:break-word}
+  .fig{min-width:0}
+  h1{font-size:34px}
+  .figures{flex-direction:column}
+  .fig{min-width:100%;border-right:0;border-bottom:1px solid var(--line);padding:14px 0}
+  .fig:last-child{border-bottom:0}
+  .fig b{font-size:34px}
+  .brand{font-size:22px}
+  nav{gap:14px}
+}
+@media (max-width:820px){
+  .hero-grid{grid-template-columns:1fr;gap:20px}
+  h1{font-size:42px}
+  .apps{grid-template-columns:1fr}
+  .figures{flex-wrap:wrap}
+  .fig{min-width:45%}
+}
+</style>
+</head>
+<body>
+
+<div class="demo"><div class="wrap"><b>Pagina dimostrativa.</b> Vianova Oleodinamica non esiste: azienda, modelli e dati sono inventati. È un esempio di come <a href="https://ventoafavore.it">Vento a Favore</a> costruisce il sito di un'azienda meccanica.</div></div>
+
+<header>
+  <div class="wrap bar">
+    <div class="brand">Vianova <span>Oleodinamica</span></div>
+    <nav>
+      <a href="#prodotto">Prodotto</a>
+      <a href="#dati">Dati tecnici</a>
+      <a href="#dove">Dove lavora</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker mono">Centraline idrauliche · Modena · dal 1974</div>
+      <h1>Venti litri, duecentocinquanta bar, dodici giorni.</h1>
+      <p class="lede">Costruiamo centraline oleodinamiche compatte per macchine mobili e impianti fissi. Su misura, in lotti da cinquanta pezzi, con il disegno approvato prima di toccare il metallo.</p>
+      <div class="figures">
+        <div class="fig"><b>±0,01</b><i>mm di tolleranza</i></div>
+        <div class="fig"><b>50</b><i>pezzi, lotto minimo</i></div>
+        <div class="fig"><b>12</b><i>giorni lavorativi</i></div>
+      </div>
+    </div>
+    <div class="draw">
+      <svg viewBox="0 0 520 360" role="img" aria-label="Disegno quotato della centralina HPU-20/250-C">
+        <g fill="none" stroke="#3A4650" stroke-width="1">
+          <path d="M60 300h400M60 300V90M460 300V90"/>
+        </g>
+        <!-- serbatoio -->
+        <rect x="110" y="190" width="300" height="100" fill="#151B21" stroke="#4E5C67" stroke-width="1.5"/>
+        <rect x="126" y="206" width="120" height="16" fill="none" stroke="#3A4650"/>
+        <line x1="110" y1="236" x2="410" y2="236" stroke="#3A4650" stroke-dasharray="4 5"/>
+        <!-- motore -->
+        <rect x="196" y="112" width="128" height="62" rx="6" fill="#1D252C" stroke="#5B6B77" stroke-width="1.5"/>
+        <g stroke="#3A4650"><path d="M206 112v62M222 112v62M238 112v62M254 112v62M270 112v62M286 112v62M302 112v62"/></g>
+        <rect x="236" y="174" width="48" height="16" fill="#151B21" stroke="#5B6B77"/>
+        <!-- pompa e raccordi -->
+        <circle cx="356" cy="168" r="22" fill="#151B21" stroke="#D08422" stroke-width="2"/>
+        <path d="M356 146v-18M356 190v12" stroke="#D08422" stroke-width="2"/>
+        <path d="M378 168h28v34" stroke="#D08422" stroke-width="2" fill="none"/>
+        <!-- quote -->
+        <g stroke="#D08422" stroke-width="1">
+          <path d="M110 320h300"/><path d="M110 314v12"/><path d="M410 314v12"/>
+          <path d="M486 190v100"/><path d="M480 190h12"/><path d="M480 290h12"/>
+        </g>
+        <g font-family="ui-monospace,monospace" font-size="12" fill="#98A4AE" letter-spacing="1">
+          <text x="236" y="342">500 mm</text>
+          <text x="470" y="236" transform="rotate(-90 470 236)">380</text>
+          <text x="196" y="104">MOTORE 4 kW</text>
+          <text x="330" y="212" fill="#D08422">POMPA</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<section id="prodotto">
+  <div class="wrap">
+    <h2>HPU-20/250-C</h2>
+    <p class="sub">La centralina che costruiamo più spesso: venti litri di serbatoio, duecentocinquanta bar di pressione massima, motore da quattro chilowatt. Sta dentro un vano da mezzo metro e pesa quanto due sacchi di cemento.</p>
+    <div class="apps">
+      <div class="app"><div class="n mono">01</div><h3>Il disegno prima</h3><p>Il progetto arriva approvato e quotato prima che il metallo venga toccato. Le modifiche costano in sala disegno, non in officina.</p></div>
+      <div class="app"><div class="n mono">02</div><h3>Collaudo a banco</h3><p>Ogni unità gira a banco per venti minuti alla pressione di targa. Il foglio di collaudo viaggia con il pezzo, numerato.</p></div>
+      <div class="app"><div class="n mono">03</div><h3>Ricambi, dieci anni</h3><p>Guarnizioni, cartucce e pompa restano a magazzino per dieci anni dalla consegna dell'ultimo lotto.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="dati" style="background:#fff;border-top:1px solid #E1E5E8;border-bottom:1px solid #E1E5E8">
+  <div class="wrap">
+    <h2>Dati tecnici</h2>
+    <p class="sub">Quello che un ufficio acquisti mette in tabella accanto agli altri preventivi, senza doverlo chiedere per email.</p>
+    <table>
+      <caption>Modello HPU-20/250-C · scheda 4471-B rev. 3 · emissione 09/2026</caption>
+      <thead><tr><th scope="col">Voce</th><th scope="col">Valore</th></tr></thead>
+      <tbody>
+        <tr><td>Capacità serbatoio</td><td class="v">20 l</td></tr>
+        <tr><td>Pressione massima di esercizio</td><td class="v">250 bar</td></tr>
+        <tr><td>Portata alla pressione di targa</td><td class="v">12 l/min</td></tr>
+        <tr><td>Motore elettrico</td><td class="v">4 kW · 400 V · 50 Hz</td></tr>
+        <tr><td>Tolleranza di lavorazione dichiarata</td><td class="v">±0,01 mm</td></tr>
+        <tr><td>Ingombro (L × P × H)</td><td class="v">500 × 380 × 420 mm</td></tr>
+        <tr><td>Massa a secco</td><td class="v">48 kg</td></tr>
+        <tr><td>Lotto minimo</td><td class="v">50 pezzi</td></tr>
+        <tr><td>Tempo di consegna medio</td><td class="v">12 giorni lavorativi</td></tr>
+        <tr><td>Codice doganale</td><td class="v">8412 21 20</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="dove">
+  <div class="wrap">
+    <h2>Dove lavora</h2>
+    <p class="sub">Tre impieghi su cui la stessa unità è montata da anni, con le modifiche che ciascuno ha richiesto.</p>
+    <div class="apps">
+      <div class="app"><div class="n mono">MOBILE</div><h3>Sollevatori da cantiere</h3><p>Serbatoio maggiorato e scambiatore aggiunto: la centralina lavora a quaranta gradi ambiente senza fermarsi.</p></div>
+      <div class="app"><div class="n mono">FISSO</div><h3>Presse da banco</h3><p>Blocco valvole dedicato e avviamento morbido, perché lo stampo non veda il colpo di pressione.</p></div>
+      <div class="app"><div class="n mono">AGRICOLO</div><h3>Attrezzature portate</h3><p>Attacchi rapidi secondo il disegno del costruttore e verniciatura nel suo colore, lotti da cinquanta.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta" id="contatti">
+  <div class="wrap">
+    <div>
+      <h2>Il disegno, entro due giorni</h2>
+      <p>Ci mandi il vano disponibile e la pressione che le serve: rispondiamo con un disegno quotato e un prezzo, senza impegno.</p>
+    </div>
+    <a class="btn" href="#contatti">Scrivere all'ufficio tecnico</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><b>Vianova Oleodinamica</b> — azienda inventata per questo esempio. Via e recapiti non esistono.</p>
+    <p style="padding-top:10px">Pagina costruita da <a href="https://ventoafavore.it">Vento a Favore</a>, Modena: testi, impaginazione, disegno tecnico e dati d'esempio. Nessun sistema da aggiornare, nessun pannello: pagine vere, che si aprono in un istante e si leggono dal telefono.</p>
+  </div>
+</footer>
+
+</body>
+</html>
