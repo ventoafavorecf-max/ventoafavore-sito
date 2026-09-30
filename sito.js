@@ -190,19 +190,20 @@
       if (!ok) return;
       var v = function (n) { var c = f.elements[n]; return c ? (c.value || "").trim() : ""; };
       var scelta = (f.querySelector("input[name=lavoro]:checked") || {}).value || "";
+      var d = f.dataset;                                  /* le pagine straniere danno le frasi nella loro lingua */
       var righe = [
-        "Buongiorno,", "",
-        v("messaggio") || "vorrei sapere come lavora Vento a Favore sui nostri testi.", "",
-        "Azienda: " + v("azienda"),
-        v("pagina") ? "Pagina da leggere: " + v("pagina") : "",
-        scelta ? "Mi interessa: " + scelta : "",
-        v("lingua") ? "Lingua: " + v("lingua") : "", "",
+        d.saluto || "Buongiorno,", "",
+        v("messaggio") || d.predefinito || "vorrei sapere come lavora Vento a Favore sui nostri testi.", "",
+        (d.azienda || "Azienda") + ": " + v("azienda"),
+        v("pagina") ? (d.pagina || "Pagina da leggere") + ": " + v("pagina") : "",
+        scelta ? (d.interesse || "Mi interessa") + ": " + scelta : "",
+        v("lingua") ? (d.lingua || "Lingua") + ": " + v("lingua") : "", "",
         v("nome"), v("email")
       ].filter(function (r, i, a) { return r !== "" || (a[i - 1] !== ""); });
-      var oggetto = (scelta || "Richiesta") + " · " + v("azienda");
+      var oggetto = (scelta || d.richiesta || "Richiesta") + " · " + v("azienda");
       location.href = "mailto:ventoafavorecf@gmail.com?subject=" + encodeURIComponent(oggetto) + "&body=" + encodeURIComponent(righe.join("\n"));
       var esito = f.parentNode.querySelector(".modulo-esito");
-      if (esito) esito.textContent = "Si è aperto il programma di posta con il messaggio già scritto. Se non si apre, scriva a ventoafavorecf@gmail.com.";
+      if (esito) esito.textContent = d.esito || "Si è aperto il programma di posta con il messaggio già scritto. Se non si apre, scriva a ventoafavorecf@gmail.com.";
     });
     $$("[required]", f).forEach(function (c) { c.addEventListener("input", function () { c.removeAttribute("aria-invalid"); }); });
   });

@@ -3,881 +3,256 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Des sites italiens petits et rapides pour les entreprises étrangères qui vendent en Italie&nbsp;: pages réécrites en italien et prêtes à mettre en ligne, ou site construit de zéro. Prix entiers, délais annoncés.">
+<title>Le site en italien · Vento a Favore</title>
+<meta name="description" content="De petits sites rapides pour vendre en Italie : vos pages réécrites en italien, prêtes à mettre en ligne, ou un site créé à partir de zéro. Prix fixes.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#7B2D26">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:title" content="Vento a Favore">
-<meta property="og:description" content="Le site italien qu&rsquo;un acheteur peut vraiment utiliser.">
-<meta property="og:type" content="website">
+<link rel="canonical" href="https://ventoafavore.it/fr/site-web/">
 <link rel="alternate" hreflang="it" href="https://ventoafavore.it/sito/">
 <link rel="alternate" hreflang="en" href="https://ventoafavore.it/en/website/">
 <link rel="alternate" hreflang="de" href="https://ventoafavore.it/de/website/">
 <link rel="alternate" hreflang="fr" href="https://ventoafavore.it/fr/site-web/">
 <link rel="alternate" hreflang="es" href="https://ventoafavore.it/es/sitio-web/">
 <link rel="alternate" hreflang="x-default" href="https://ventoafavore.it/sito/">
-<meta property="og:image" content="https://ventoafavore.it/anteprima-social-fr.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="627">
-<link rel="canonical" href="https://ventoafavore.it/fr/site-web/">
+<meta property="og:title" content="Le site en italien">
+<meta property="og:description" content="De petits sites rapides pour vendre en Italie : vos pages réécrites en italien, prêtes à mettre en ligne, ou un site créé à partir de zéro. Prix fixes.">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://ventoafavore.it/fr/site-web/">
+<meta property="og:image" content="https://ventoafavore.it/anteprima-social-fr.jpg">
+<meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Le site italien &middot; Vento a Favore</title>
-<style>
-  @font-face { font-family:"VF Serif"; src:url("/font/pagella-regular.woff") format("woff");
-               font-weight:300 500; font-style:normal; font-display:swap; }
-  @font-face { font-family:"VF Serif"; src:url("/font/pagella-italic.woff") format("woff");
-               font-weight:300 500; font-style:italic; font-display:swap; }
-  @font-face { font-family:"VF Serif"; src:url("/font/pagella-bold.woff") format("woff");
-               font-weight:600 800; font-style:normal; font-display:swap; }
-  @font-face { font-family:"VF Sans"; src:url("/font/heroscn-regular.woff") format("woff");
-               font-weight:300 600; font-style:normal; font-display:swap; }
-  @font-face { font-family:"VF Sans"; src:url("/font/heroscn-bold.woff") format("woff");
-               font-weight:601 900; font-style:normal; font-display:swap; }
-  @font-face { font-family:"VF Mono"; src:url("/font/mono-regular.woff") format("woff");
-               font-weight:300 600; font-style:normal; font-display:swap; }
-</style>
-<style>
-  :root {
-    --paper:      #F4F2EE;
-    --card:       #FFFFFF;
-    --ink:        #1C1917;
-    --ink-2:      #55504A;
-    --mut:        #8B847C;
-    --rule:       #DDD7CE;
-    --rule-soft:  #E9E4DC;
-    --oxblood:    #7B2D26;
-    --moss:       #37533C;
-    --band:       #221F1B;
-    --band-ink:   #EFEAE2;
-    --band-mut:   #A29A8F;
+<link rel="preload" href="/font/pagella-regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/font/pagella-italic.woff" as="font" type="font/woff" crossorigin>
+<script>document.documentElement.classList.add("mv");</script>
+<link rel="stylesheet" href="/stile.css">
+<script src="/lib/gsap.min.js" defer></script>
+<script src="/lib/ScrollTrigger.min.js" defer></script>
+<script src="/sito.js" defer></script>
 
-    --serif: "VF Serif", Palatino, Georgia, serif;
-    --sans:  "VF Sans", "Helvetica Neue", Arial, sans-serif;
-    --mono:  "VF Mono", "SF Mono", Consolas, monospace;
-
-    --wrap: 1080px;
-    --read: 62ch;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper:     #141310;
-      --card:      #1D1B17;
-      --ink:       #EFEBE4;
-      --ink-2:     #B8B1A6;
-      --mut:       #8A8377;
-      --rule:      #35312A;
-      --rule-soft: #2A2721;
-      --oxblood:   #D4877A;
-      --moss:      #9BBFA0;
-      --band:      #0C0B09;
-      --band-ink:  #EFEAE2;
-      --band-mut:  #8A8377;
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper:     #141310;
-    --card:      #1D1B17;
-    --ink:       #EFEBE4;
-    --ink-2:     #B8B1A6;
-    --mut:       #8A8377;
-    --rule:      #35312A;
-    --rule-soft: #2A2721;
-    --oxblood:   #D4877A;
-    --moss:      #9BBFA0;
-    --band:      #0C0B09;
-    --band-ink:  #EFEAE2;
-    --band-mut:  #8A8377;
-  }
-
-  * { box-sizing: border-box; }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--serif);
-    font-size: 17px;
-    line-height: 1.62;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .wrap {
-    max-width: var(--wrap);
-    margin: 0 auto;
-    padding-inline: 22px;
-  }
-
-  a { color: inherit; }
-  a:focus-visible, button:focus-visible {
-    outline: 2px solid var(--oxblood);
-    outline-offset: 3px;
-  }
-
-  .eyebrow {
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    color: var(--mut);
-  }
-
-  /* ---------- masthead ---------- */
-
-  .masthead { border-bottom: 1px solid var(--rule); }
-  .masthead .wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 24px;
-    align-items: baseline;
-    justify-content: space-between;
-    padding-block: 20px;
-  }
-  .mark {
-    font-family: var(--sans);
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: .01em;
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-  }
-  .mark img {
-    width: 26px; height: 26px; display: block; border-radius: 2px;
-  }
-  .mark .wm span { color: var(--oxblood); }
-  .masthead .meta {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--mut);
-  }
-
-  /* ---------- hero ---------- */
-
-  .hero .wrap { padding-block: 62px 52px; }
-
-  h1 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(2.3rem, 6.4vw, 4rem);
-    line-height: 1.04;
-    letter-spacing: -0.018em;
-    text-wrap: balance;
-    margin: 16px 0 0;
-    max-width: 17ch;
-  }
-  h1 em { font-style: italic; color: var(--oxblood); }
-  .standfirst {
-    margin: 22px 0 0;
-    max-width: var(--read);
-    font-size: 1.14rem;
-    color: var(--ink-2);
-  }
-
-  /* ---------- section frame ---------- */
-
-  section { border-top: 1px solid var(--rule); }
-  section > .wrap { padding-block: 54px; }
-
-  h2 {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(1.6rem, 3.4vw, 2.15rem);
-    line-height: 1.12;
-    letter-spacing: -0.012em;
-    text-wrap: balance;
-    margin: 12px 0 0;
-    max-width: 22ch;
-  }
-  .lede { margin: 14px 0 0; max-width: var(--read); color: var(--ink-2); }
-
-  /* ---------- comparison ---------- */
-
-  .pairs { display: grid; gap: 18px; margin-top: 34px; }
-  .pair {
-    background: var(--card);
-    border: 1px solid var(--rule-soft);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .pair > div { padding: 20px 22px 22px; }
-  .pair .before { border-right: 1px solid var(--rule-soft); }
-  .pair .src {
-    grid-column: 1 / -1;
-    border-bottom: 1px solid var(--rule-soft);
-    padding-block: 13px 14px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 14px;
-    align-items: baseline;
-  }
-  .pair .src .who { font-family: var(--mono); font-size: 12px; color: var(--mut); }
-  .pair .src .it { font-size: 15px; color: var(--ink-2); font-style: italic; }
-  .tag {
-    font-family: var(--sans);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 9px;
-  }
-  .before .tag { color: var(--oxblood); }
-  .after  .tag { color: var(--moss); }
-  .before p { margin: 0; font-style: italic; color: var(--ink-2); }
-  .after p { margin: 0; }
-  .why {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    line-height: 1.5;
-    color: var(--mut);
-    margin: 12px 0 0;
-  }
-
-  /* ---------- services ---------- */
-
-  .services {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    margin-top: 34px;
-    background: var(--rule-soft);
-    border: 1px solid var(--rule-soft);
-  }
-  .svc {
-    background: var(--card);
-    padding: 24px 22px 26px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .svc h3 {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.28rem;
-    line-height: 1.2;
-    margin: 0;
-  }
-  .svc p { margin: 0; font-size: 15.5px; color: var(--ink-2); }
-  .svc dl {
-    margin: 0;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 6px 14px;
-    font-size: 13px;
-    border-top: 1px solid var(--rule-soft);
-    padding-top: 14px;
-    margin-top: auto;
-  }
-  .svc dt {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 10px;
-    letter-spacing: .11em;
-    text-transform: uppercase;
-    color: var(--mut);
-    padding-top: 3px;
-  }
-  .svc dd { margin: 0; font-family: var(--mono); font-size: 12.5px; color: var(--ink-2); }
-
-
-  /* ---------- esempi ---------- */
-
-  .samples {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-    margin-top: 34px;
-  }
-  .sample {
-    display: flex; flex-direction: column; gap: 12px;
-    text-decoration: none; color: inherit;
-  }
-  .sample .shot {
-    border: 1px solid var(--rule-soft);
-    background: var(--card);
-    overflow: hidden;
-    aspect-ratio: 620 / 877;
-    box-shadow: 0 1px 2px rgba(20,16,12,.05), 0 8px 20px -12px rgba(20,16,12,.22);
-    transition: box-shadow .18s ease, transform .18s ease;
-  }
-  .sample .shot img { display: block; width: 100%; height: auto; }
-  .sample:hover .shot, .sample:focus-visible .shot {
-    box-shadow: 0 1px 2px rgba(20,16,12,.06), 0 14px 30px -14px rgba(20,16,12,.34);
-    transform: translateY(-2px);
-  }
-  .sample h3 {
-    font-family: var(--serif); font-weight: 500; font-size: 1.08rem;
-    line-height: 1.25; margin: 0;
-  }
-  .sample p { margin: 0; font-size: 13.6px; color: var(--ink-2); line-height: 1.5; }
-  .sample .open {
-    font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em;
-    color: var(--oxblood); margin-top: auto; padding-top: 4px;
-  }
-  .samples-note { margin-top: 26px; font-size: 14px; color: var(--mut); max-width: 70ch; }
-
-  @media (max-width: 900px) { .samples { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
-  @media (max-width: 520px) { .samples { grid-template-columns: 1fr; } }
-
-  /* ---------- listino ---------- */
-
-  .price-wrap { margin-top: 30px; overflow-x: auto; }
-  table.price { width: 100%; border-collapse: collapse; min-width: 460px; }
-  table.price th, table.price td {
-    text-align: left;
-    padding: 14px 16px 14px 0;
-    border-bottom: 1px solid var(--rule-soft);
-    vertical-align: baseline;
-  }
-  table.price th {
-    font-family: var(--sans);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-    color: var(--mut);
-    border-bottom-color: var(--rule);
-    padding-bottom: 10px;
-  }
-  table.price td.n {
-    text-align: right;
-    padding-right: 0;
-    font-family: var(--mono);
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
-  table.price .item { font-size: 16.5px; }
-  table.price .note {
-    display: block;
-    font-family: var(--mono);
-    font-size: 11.5px;
-    color: var(--mut);
-    margin-top: 3px;
-  }
-  .price-foot {
-    margin: 18px 0 0;
-    font-size: 14.5px;
-    color: var(--ink-2);
-    max-width: var(--read);
-  }
-
-  /* ---------- lingue ---------- */
-
-  .langs {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-  .lang { border-top: 2px solid var(--ink); padding-top: 13px; }
-  .lang.secondary { border-top-color: var(--rule); }
-  .lang h3 {
-    font-family: var(--sans);
-    font-weight: 700;
-    font-size: 14px;
-    margin: 0 0 5px;
-    letter-spacing: .01em;
-  }
-  .lang p { margin: 0; font-size: 14.5px; color: var(--ink-2); line-height: 1.5; }
-  .lang .badge {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--mut);
-    display: block;
-    margin-top: 8px;
-  }
-
-  /* ---------- steps ---------- */
-
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-top: 34px;
-  }
-  .step { border-top: 2px solid var(--ink); padding-top: 14px; }
-  .step .day {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    letter-spacing: .04em;
-    color: var(--oxblood);
-    display: block;
-    margin-bottom: 6px;
-  }
-  .step h3 {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 15px;
-    margin: 0 0 7px;
-    letter-spacing: -0.005em;
-  }
-  .step p { margin: 0; font-size: 15px; color: var(--ink-2); }
-
-  /* ---------- trial band ---------- */
-
-  .band {
-    background: var(--band);
-    color: var(--band-ink);
-    border-top: 1px solid var(--rule);
-  }
-  .band .wrap { padding-block: 54px; }
-  .band .eyebrow { color: var(--band-mut); }
-  .band h2 { color: var(--band-ink); }
-  .band .lede { color: var(--band-mut); }
-  .band .cta {
-    margin-top: 26px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px 26px;
-    align-items: center;
-  }
-  .btn {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 14px;
-    letter-spacing: .01em;
-    text-decoration: none;
-    background: var(--band-ink);
-    color: var(--band);
-    padding: 12px 20px;
-    display: inline-block;
-  }
-  .btn:hover { background: #fff; }
-  .band .fineprint { font-family: var(--mono); font-size: 12px; color: var(--band-mut); }
-
-  /* ---------- contact + footer ---------- */
-
-  .contact .wrap { padding-block: 54px; }
-  .contact .rows {
-    margin-top: 26px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-  }
-  .contact .rows > div { border-top: 1px solid var(--rule); padding-top: 13px; }
-  .contact dt {
-    font-family: var(--sans);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-    color: var(--mut);
-    margin-bottom: 5px;
-  }
-  .contact dd { margin: 0; font-family: var(--mono); font-size: 14px; }
-  .contact dd.plain { font-family: var(--serif); font-size: 16px; color: var(--ink-2); }
-
-  footer { border-top: 1px solid var(--rule); }
-  footer .wrap { padding-block: 28px 44px; }
-  footer p {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    line-height: 1.66;
-    color: var(--mut);
-    max-width: 80ch;
-    margin: 0 0 8px;
-  }
-
-  /* ---------- responsive ---------- */
-
-  @media (max-width: 860px) {
-    .services { grid-template-columns: 1fr; }
-    .steps, .langs { grid-template-columns: repeat(2, 1fr); }
-    .contact .rows { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 560px) {
-    body { font-size: 16px; }
-    .hero .wrap { padding-block: 44px 38px; }
-    section > .wrap, .band .wrap, .contact .wrap { padding-block: 40px; }
-    .pair { grid-template-columns: 1fr; }
-    .pair .before { border-right: 0; border-bottom: 1px solid var(--rule-soft); }
-    .steps, .langs { grid-template-columns: 1fr; }
-    .contact .rows { grid-template-columns: 1fr; }
-
-    /* il listino diventa un elenco: in tabella la colonna prezzo
-       finiva fuori schermo e bisognava scorrere di lato per vederla */
-    .price-wrap { overflow-x: visible; }
-    table.price { min-width: 0; }
-    table.price thead { display: none; }
-    table.price tbody, table.price tr, table.price td { display: block; }
-    table.price tr {
-      border-bottom: 1px solid var(--rule-soft);
-      padding-block: 15px 16px;
-    }
-    table.price tr:first-child { border-top: 1px solid var(--rule); }
-    table.price td { border-bottom: 0; padding: 0; }
-    table.price td.n {
-      text-align: left;
-      margin-top: 7px;
-      font-size: 1.24rem;
-      font-weight: 500;
-      color: var(--oxblood);
-    }
-  }
-
-  .hero-lettura { margin-top: 14px; font-size: 0.95em; }
-  .price tr.first .item a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; animation: none !important; }
-  }
-
-  /* --- schede e passaggi della pagina "prima lettura" --- */
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 26px; }
-  .cards .c { background: var(--card); border: 1px solid var(--rule-soft);
-              border-left: 2px solid var(--oxblood); padding: 17px 20px 19px; }
-  .cards .c .k { display: block; font-family: var(--mono); font-size: 11px; font-weight: 600;
-                 letter-spacing: .1em; text-transform: uppercase; color: var(--oxblood);
-                 margin: 0 0 9px; }
-  .cards .c p { margin: 0; font-size: 14.8px; line-height: 1.6; color: var(--ink-2); max-width: none; }
-
-  .steps { margin-top: 26px; border-top: 1px solid var(--rule); }
-  .steps .s { display: grid; grid-template-columns: 32px 1fr; gap: 0 18px; align-items: start;
-              padding: 17px 0; border-bottom: 1px solid var(--rule-soft); }
-  .steps .s .n { font-family: var(--mono); font-size: 12.5px; font-weight: 600; color: var(--oxblood);
-                 width: 32px; height: 32px; border: 1px solid var(--rule); border-radius: 999px;
-                 display: grid; place-items: center; }
-  .steps .s .t { font-weight: 600; font-size: 1rem; color: var(--ink); margin: 5px 0 5px; }
-  .steps .s p { margin: 0; font-size: 14.8px; line-height: 1.6; color: var(--ink-2); max-width: none; }
-
-  @media (max-width: 720px) {
-    .cards { grid-template-columns: 1fr; }
-    .steps .s { grid-template-columns: 28px 1fr; gap: 0 14px; }
-    .steps .s .n { width: 28px; height: 28px; font-size: 11.5px; }
-  }
-
-</style>
-<style>
-  .langbar { border-bottom: 1px solid var(--rule-soft); background: var(--card); }
-  .langbar .wrap {
-    display: flex; flex-wrap: wrap; gap: 6px 20px;
-    align-items: baseline; justify-content: space-between;
-    padding-block: 9px;
-  }
-  .langbar nav { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
-  .langbar .lab {
-    font-family: var(--sans); font-size: 10.5px; font-weight: 600;
-    letter-spacing: .14em; text-transform: uppercase; color: var(--mut);
-    margin-right: 2px;
-  }
-  .langbar a {
-    font-family: var(--sans); font-size: 13px; text-decoration: none;
-    color: var(--ink-2); border-bottom: 1px solid transparent; padding-bottom: 1px;
-  }
-  .langbar a:hover { border-bottom-color: var(--rule); }
-  .langbar a.on { color: var(--oxblood); font-weight: 600; border-bottom-color: var(--oxblood); }
-  .langbar .other { font-family: var(--sans); font-size: 12.5px; color: var(--mut); }
-  .langbar .other:hover { border-bottom-color: var(--rule-soft); }
-  @media (max-width: 620px) {
-    .langbar .wrap { gap: 4px 14px; }
-    .langbar a { font-size: 12.5px; }
-    .langbar .other { font-size: 12px; }
-  }
-
-  /* --- menu del sito --- */
-  .sitenav { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; }
-  .sitenav a { font-family: var(--sans); font-size: 13.5px; text-decoration: none;
-               color: var(--ink-2); border-bottom: 1px solid transparent; padding-bottom: 2px; }
-  .sitenav a:hover { border-bottom-color: var(--rule); }
-  .sitenav a[aria-current] { color: var(--oxblood); font-weight: 600; border-bottom-color: var(--oxblood); }
-  @media (max-width: 620px) { .sitenav { gap: 3px 14px; } .sitenav a { font-size: 13px; } }
-
-  /* --- piede con i collegamenti --- */
-  .footnav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 34px;
-             padding-block: 34px 30px; border-bottom: 1px solid var(--rule-soft); }
-  .footnav .fh { display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 600;
-                 letter-spacing: .14em; text-transform: uppercase; color: var(--mut); padding-bottom: 10px; }
-  .footnav a { display: block; font-family: var(--sans); font-size: 14px; color: var(--ink-2);
-               text-decoration: none; padding: 3px 0; border-bottom: 1px solid transparent; width: fit-content; }
-  .footnav a:hover { border-bottom-color: var(--rule); }
-  .footnav p { font-family: var(--sans); font-size: 13.5px; line-height: 1.6; color: var(--mut);
-               max-width: 34ch; margin: 3px 0 0; }
-  @media (max-width: 720px) { .footnav { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 460px) { .footnav { grid-template-columns: 1fr; gap: 22px; } }
-
-  /* --- rimando di coda fra le pagine --- */
-  .nextup { border-top: 1px solid var(--rule); }
-  .nextup .wrap { padding-block: 34px; display: flex; flex-wrap: wrap;
-                  gap: 10px 28px; align-items: baseline; justify-content: space-between; }
-  .nextup .k { font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .14em;
-               text-transform: uppercase; color: var(--mut); }
-  .nextup .t { font-family: var(--serif); font-size: 21px; color: var(--ink); }
-  .nextup a { font-family: var(--sans); font-size: 14px; color: var(--oxblood); text-decoration: none;
-              border-bottom: 1px solid var(--rule); padding-bottom: 2px; }
-  .nextup a:hover { border-bottom-color: var(--oxblood); }
-
-  /* --- grafico del censimento --- */
-  .census { margin-top: 20px; display: grid; grid-template-columns: auto 1fr; gap: 10px 30px; align-items: end; }
-  .census .big { font-family: var(--serif); font-size: 104px; line-height: .82; color: var(--oxblood); }
-  .census .cap { font-family: var(--serif); font-size: 22px; line-height: 1.35; color: var(--ink); max-width: 30ch; }
-  .ticks { margin-top: 26px; width: 100%; height: auto; display: block; }
-  .census-legend { margin-top: 12px; border-top: 1px solid var(--rule); }
-  .census-legend .row { display: flex; align-items: center; gap: 14px; padding: 11px 0;
-                        border-bottom: 1px solid var(--rule-soft); }
-  .census-legend .sw { width: 22px; height: 10px; flex: none; }
-  .census-legend .lb { font-family: var(--sans); font-size: 14.5px; color: var(--ink-2); flex: 1; }
-  .census-legend .nb { font-family: var(--mono); font-size: 15px; color: var(--ink); }
-  .census-note { font-family: var(--mono); font-size: 11.5px; line-height: 1.66; color: var(--mut);
-                 max-width: 80ch; margin-top: 14px; }
-  @media (max-width: 620px) {
-    .census { grid-template-columns: 1fr; gap: 6px; }
-    .census .big { font-size: 76px; }
-    .census .cap { font-size: 19px; }
-  }
-
-  /* --- domande --- */
-  .faq { border-top: 1px solid var(--rule); margin-top: 8px; }
-  .faq details { border-bottom: 1px solid var(--rule-soft); }
-  .faq summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto;
-                 align-items: baseline; gap: 16px; padding: 17px 0;
-                 font-family: var(--serif); font-size: 19px; color: var(--ink); }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; font-family: var(--mono); font-size: 17px; color: var(--mut); }
-  .faq details[open] summary::after { content: "\2212"; }
-  .faq details[open] summary { color: var(--oxblood); }
-  .faq .ans { padding: 0 0 20px; max-width: var(--read); }
-  .faq .ans p { font-family: var(--serif); font-size: 16.5px; line-height: 1.6; color: var(--ink-2); margin: 0 0 10px; }
-  .faq .ans p:last-child { margin-bottom: 0; }
-  .faq .ans a { color: var(--oxblood); }
-  @media (max-width: 620px) { .faq summary { font-size: 17.5px; } }
-
-  /* --- documenti --- */
-  .docs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px 26px; margin-top: 30px; }
-  @media (max-width: 860px) { .docs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 520px) { .docs { grid-template-columns: 1fr; } }
-
-  /* --- proporzioni riviste 23/09: il marchio conta, i collegamenti si vedono --- */
-  .masthead .wrap { align-items: center; padding-block: 18px; }
-  .mark { font-family: var(--serif); font-weight: 400; font-size: 28px;
-          letter-spacing: -.005em; gap: 14px; color: var(--ink); }
-  .mark img { width: 44px; height: 44px; border-radius: 3px; }
-  .mark .wm span { color: var(--oxblood); }
-
-  /* i collegamenti di servizio portano sempre un filetto: senza, da telefono
-     non si capisce che sono cliccabili, perche' il passaggio del dito non esiste */
-  .sitenav a, .langbar a, .footnav a {
-    color: var(--ink); border-bottom: 1px solid var(--rule);
-  }
-  .sitenav a:hover, .langbar a:hover, .footnav a:hover { border-bottom-color: var(--oxblood); color: var(--oxblood); }
-  .sitenav a { font-size: 14.5px; }
-  .sitenav a[aria-current], .langbar a.on { color: var(--oxblood); border-bottom-width: 2px; border-bottom-color: var(--oxblood); }
-  .footnav a { font-size: 14.5px; }
-  .langbar a { font-size: 13.5px; }
-  .langbar .other { border-bottom: 1px solid var(--rule); color: var(--ink-2); }
-
-  /* i rimandi di coda e il "tutti i documenti" devono sembrare bottoni di testo */
-  .more a, .nextup a { border-bottom-width: 2px; border-bottom-color: var(--oxblood); font-weight: 600; }
-
-  @media (max-width: 720px) {
-    .masthead .wrap { align-items: flex-start; }
-    .mark { font-size: 24px; gap: 11px; }
-    .mark img { width: 38px; height: 38px; }
-    .sitenav { width: 100%; }
-  }
-</style>
-<style>
-  .langbar { border-bottom: 1px solid var(--rule-soft); background: var(--card); }
-  .langbar .wrap {
-    display: flex; flex-wrap: wrap; gap: 6px 20px;
-    align-items: baseline; justify-content: space-between;
-    padding-block: 9px;
-  }
-  .langbar nav { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; }
-  .langbar .lab {
-    font-family: var(--sans); font-size: 10.5px; font-weight: 600;
-    letter-spacing: .14em; text-transform: uppercase; color: var(--mut);
-    margin-right: 2px;
-  }
-  .langbar a {
-    font-family: var(--sans); font-size: 13px; text-decoration: none;
-    color: var(--ink-2); border-bottom: 1px solid transparent; padding-bottom: 1px;
-  }
-  .langbar a:hover { border-bottom-color: var(--rule); }
-  .langbar a.on { color: var(--oxblood); font-weight: 600; border-bottom-color: var(--oxblood); }
-  .langbar .other { font-family: var(--sans); font-size: 12.5px; color: var(--mut); }
-  .langbar .other:hover { border-bottom-color: var(--rule-soft); }
-  @media (max-width: 620px) {
-    .langbar .wrap { gap: 4px 14px; }
-    .langbar a { font-size: 12.5px; }
-    .langbar .other { font-size: 12px; }
-  }
-
-tr.sur td{border-top:2px solid var(--rule)}tr.sur .n{color:var(--oxblood);font-weight:600}tr.sur .item{font-weight:600}
-</style>
-
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ventoafavore.it/fr/"}, {"@type": "ListItem", "position": 2, "name": "Site web", "item": "https://ventoafavore.it/fr/site-web/"}]}</script>
 </head>
-<body>
-<header class="masthead">
+<body class="">
+<a class="salta" href="#contenuto">Aller au contenu</a>
+<div class="avanzamento" aria-hidden="true"></div>
+
+<div class="lingue-su">
   <div class="wrap">
-    <div class="mark"><img src="/logo-email.png" width="26" height="26" alt="" decoding="async"><span class="wm">Vento a Favore<span>.</span></span></div>
-    <nav class="sitenav" aria-label="Pages du site">
-      <a href="/fr/">La m&eacute;thode</a>
-      <a href="/fr/premiere-lecture/">Premi&egrave;re lecture</a>
-      <a href="/fr/site-web/" aria-current="page">Votre site</a>
-      <a href="/fr/documents/">Documents</a>
-      <a href="/fr/questions/">Questions</a>
-      <a href="/fr/chinois-arabe/">Chinois &amp; arabe</a>
-    </nav>
+    <a class="novita-su" href="/fr/exportateurs-italiens/">Une entreprise italienne qui exporte&nbsp;? <span aria-hidden="true">&rarr;</span></a>
+    <a href="/sito/" hreflang="it" lang="it"><img class="bandiera" src="/img/bandiere/it.svg" alt="" width="21" height="14">Italiano</a><a href="/en/website/" hreflang="en" lang="en"><img class="bandiera" src="/img/bandiere/gb.svg" alt="" width="21" height="14">English</a><a href="/de/website/" hreflang="de" lang="de"><img class="bandiera" src="/img/bandiere/de.svg" alt="" width="21" height="14">Deutsch</a><a href="/es/sitio-web/" hreflang="es" lang="es"><img class="bandiera" src="/img/bandiere/es.svg" alt="" width="21" height="14">Espa&ntilde;ol</a>
+  </div>
+</div>
+
+<header class="testata">
+  <div class="wrap">
+    <a class="marchio" href="/fr/" aria-label="Vento a Favore"><img src="/logo-email.png" width="50" height="50" alt=""><span class="nome">Vento a Favore</span></a>
+    <nav class="navigazione" aria-label="Pages du site"><ul class="menu"><li><a class="voce" href="/fr/premiere-lecture/">Première lecture</a></li><li><a class="voce" href="/fr/tarifs/">Tarifs</a></li><li><a class="voce" href="/fr/documents/">Documents</a></li><li><a class="voce" href="/fr/site-web/" aria-current="page">Sites web</a></li><li><a class="voce punta-voce" href="/fr/chinois-arabe/" aria-label="Chinois et arabe"><span lang="zh-Hans">中文</span> · <span lang="ar">العربية</span></a></li><li><a class="voce" href="/fr/questions/">Questions</a></li><li><a class="voce" href="/fr/contact/">Contact</a></li></ul></nav>
+    <a class="tasto" href="/fr/premiere-lecture/">Premi&egrave;re lecture, 39&nbsp;&euro;</a>
+    <button class="apri-menu" type="button" aria-expanded="false" aria-controls="tendina">Menu <span class="righe" aria-hidden="true"></span></button>
   </div>
 </header>
-
-<div class="langbar">
-  <div class="wrap">
-    <nav aria-label="Langue">
-      <span class="lab">Lire cette page en</span>
-      <a href="/en/website/" hreflang="en">English</a>
-      <a href="/de/website/" hreflang="de">Deutsch</a>
-      <a class="on" aria-current="page" href="/fr/site-web/" hreflang="fr">Fran&ccedil;ais</a>
-      <a href="/es/sitio-web/" hreflang="es">Espa&ntilde;ol</a>
-    </nav>
-    <a class="other" href="/sito/">Une entreprise italienne qui exporte ? &#8594;</a>
+<nav class="tendina" id="tendina" aria-label="Menu" aria-hidden="true">
+  <div class="tendina-dentro"><a class="tv tv-punta" href="/fr/chinois-arabe/">Chinois et arabe <span lang="zh-Hans">中文</span> <span lang="ar">العربية</span></a><a class="tv" href="/fr/premiere-lecture/">Première lecture</a><a class="tv" href="/fr/tarifs/">Tarifs</a><a class="tv" href="/fr/documents/">Documents</a><a class="tv" href="/fr/site-web/">Sites web</a><a class="tv" href="/fr/questions/">Questions</a><a class="tv" href="/fr/contact/">Contact</a>
+    <a class="tasto" href="/fr/premiere-lecture/">Premi&egrave;re lecture, 39&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a>
   </div>
-</div>
-
-<div class="hero">
+</nav>
+<nav class="briciole" aria-label="Fil d&rsquo;Ariane"><div class="wrap"><a href="/fr/">Accueil</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Site web</span></div></nav>
+<main id="contenuto">
+<section class="testa-pagina">
   <div class="wrap">
-    <div class="eyebrow">Le site</div>
-    <h1>Le site italien qu&rsquo;un acheteur peut vraiment utiliser.</h1>
-    <p class="standfirst">Des sites petits et vrais&nbsp;: peu de pages, les chiffres en haut, rien à mettre à jour et rien qui casse tout seul. Ils s&rsquo;ouvrent en un instant et se lisent depuis un téléphone.</p>
-  </div>
-</div>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Ce que vous recevez</div>
-    <h2>Des pages, pas un système</h2>
-    <p class="lede">Soit vos pages actuelles réécrites en italien et livrées prêtes à mettre en ligne, soit le site italien construit de zéro lorsqu&rsquo;il n&rsquo;y a rien.</p>
-    <div class="cards">
-      <div class="c"><span class="k">Rien à entretenir</span><p>Pas de panneau, pas de mots de passe, pas d&rsquo;extensions qui cessent de fonctionner un matin. Les pages restent telles quelles jusqu&rsquo;à ce que nous les changions.</p></div>
-      <div class="c"><span class="k">Les chiffres avant l&rsquo;histoire</span><p>L&rsquo;ordre des informations est celui dont un acheteur a besoin&nbsp;: la norme, les dimensions, le délai, qui répond au téléphone. L&rsquo;histoire de l&rsquo;entreprise vient après, là où elle sert.</p></div>
-      <div class="c"><span class="k">Le domaine reste le vôtre</span><p>Enregistré à votre nom. Nous l&rsquo;avançons et le refacturons au prix coûtant, sans marge. L&rsquo;hébergement est gratuit et lui aussi à votre nom.</p></div>
-      <div class="c"><span class="k">Rapide, et qui le reste</span><p>Aucune bibliothèque à télécharger, rien qui suive le lecteur&nbsp;: les pages sont légères et s&rsquo;ouvrent même avec la ligne d&rsquo;un atelier.</p></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Tarifs</div>
-    <h2>Des prix entiers, sans devis</h2>
-    <div class="price-wrap">
-      <table class="price">
-        <thead>
-          <tr><th scope="col">Prestation</th><th scope="col" class="n">Prix</th></tr>
-        </thead>
-        <tbody>
-          <tr class="first">
-            <td class="item">Le site italien, construit de zéro<span class="note">jusqu&rsquo;à six pages &middot; trois semaines</span></td>
-            <td class="n">790&nbsp;&euro;</td>
-          </tr>
-          <tr>
-            <td class="item">Un site d&rsquo;une seule page<span class="note">pour une entreprise qui n&rsquo;a encore rien en italien &middot; 10 jours ouvrés</span></td>
-            <td class="n">390&nbsp;&euro;</td>
-          </tr>
-          <tr>
-            <td class="item">Une page de votre site, r&eacute;&eacute;crite en italien<span class="note">jusqu&rsquo;&agrave; 400 mots, mise en page et pr&ecirc;te &agrave; charger &middot; 5 jours</span></td>
-            <td class="n">79&nbsp;&euro;</td>
-          </tr>
-          <tr>
-            <td class="item">Trois pages de votre site, r&eacute;&eacute;crites en italien<span class="note">jusqu&rsquo;&agrave; 1&nbsp;200 mots, mises en page et pr&ecirc;tes &agrave; charger &middot; 8 jours</span></td>
-            <td class="n">225&nbsp;&euro;</td>
-          </tr>
-          <tr>
-            <td class="item">Les pages de votre site actuel, réécrites en italien<span class="note">jusqu&rsquo;à cinq pages, mises en page et prêtes à mettre en ligne &middot; 10 jours ouvrés</span></td>
-            <td class="n">349&nbsp;&euro;</td>
-          </tr>
-          <tr>
-            <td class="item">Chaque langue supplémentaire sur le même site<span class="note">commandée avec la première &middot; une semaine</span></td>
-            <td class="n">320&nbsp;&euro;</td>
-          </tr>
-                  <tr class="sur">
-            <td class="item">Chinois simplifi&eacute; ou arabe<span class="note">suppl&eacute;ment sur la ligne correspondante &middot; comprend la relecture par un réviseur expert &middot; cinq jours de plus</span></td>
-            <td class="n">+50&nbsp;%</td>
-          </tr>
-</tbody>
-      </table>
-    </div>
-    <p class="price-foot">Une série de corrections est comprise dans les trente jours qui suivent la livraison&nbsp;; ensuite, chaque modification coûte 60&nbsp;&euro;. Les jours ouvrés comptent à partir de la réception des textes et des photos, non de la commande. Paiement à la livraison, avec un reçu en bonne et due forme.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Le déroulement</div>
-    <h2>Quatre étapes, sans surprise</h2>
-    <div class="steps">
-      <div class="s"><div class="n">1</div><div><div class="t">La demande</div><p>Un courriel avec l&rsquo;adresse de votre site actuel ou deux lignes sur ce que vous fabriquez. Aucun formulaire.</p></div></div>
-      <div class="s"><div class="n">2</div><div><div class="t">La proposition</div><p>Dans la journée&nbsp;: combien de pages sont nécessaires, ce qu&rsquo;on y met, le prix du tarif et le nombre de jours ouvrés.</p></div></div>
-      <div class="s"><div class="n">3</div><div><div class="t">Les matériaux</div><p>Les textes que vous avez, des photos s&rsquo;il y en a, les données produit. Le décompte part d&rsquo;ici. S&rsquo;il n&rsquo;y a pas de photos utilisables, nous le disons avant&nbsp;: le site se construit alors sur le texte, les chiffres et le dessin.</p></div></div>
-      <div class="s"><div class="n">4</div><div><div class="t">La livraison</div><p>Le site en ligne, le domaine à votre nom et une série de corrections dans les trente jours.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Les limites</div>
-    <h2>Ce que nous ne faisons pas</h2>
-    <p class="lede">Pas de boutique en ligne, pas de système de réservation, pas d&rsquo;espace réservé, aucun contrat d&rsquo;entretien. Ce sont des travaux à suivre tous les jours, et ce n&rsquo;est pas ce que nous savons faire de mieux&nbsp;: mieux vaut le dire maintenant qu&rsquo;après l&rsquo;acceptation du devis.</p>
-    <p class="price-foot">Les documents réglementés restent eux aussi en dehors &mdash; notices d&rsquo;instructions, étiquettes alimentaires, déclarations de conformité&nbsp;: la langue y est imposée par la réglementation et la responsabilité reste celle du fabricant.</p>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <div class="eyebrow">Un exemple</div>
-    <h2>Voyez le résultat</h2>
-    <p class="lede">Nous avons construit un site d&rsquo;exemple pour une entreprise d&rsquo;hydraulique inventée&nbsp;: aucune photo, un dessin technique coté à leur place, les chiffres en haut. L&rsquo;entreprise n&rsquo;existe pas, et la page le dit en haut.</p>
-    <div class="cta">
-      <a class="btn" href="/esempio-sito/">Le site d&rsquo;exemple &#8594;</a>
-      <a class="btn ghost" href="/fr/">Retour à la page principale</a>
-    </div>
-  </div>
-</section>
-
-<div class="nextup">
-  <div class="wrap">
-    <div><div class="k">Avant de d&eacute;cider</div><div class="t">On peut partir d&rsquo;une lecture du texte italien d&eacute;j&agrave; en ligne.</div></div>
-    <a href="/fr/premiere-lecture/">La premi&egrave;re lecture, 39&nbsp;&euro; &#8594;</a>
-  </div>
-</div>
-
-<footer>
-  <div class="wrap">
-    <div class="footnav">
-      <div>
-        <span class="fh">Les pages</span>
-        <a href="/fr/">La m&eacute;thode</a>
-        <a href="/fr/premiere-lecture/">Premi&egrave;re lecture</a>
-        <a href="/fr/site-web/">Votre site</a>
-        <a href="/fr/documents/">Documents</a>
-        <a href="/fr/questions/">Questions</a>
-      <a href="/fr/chinois-arabe/">Chinois &amp; arabe</a>
-        </div>
-      <div>
-        <span class="fh">Langues</span>
-        <a href="/" hreflang="it">Italiano</a>
-        <a href="/en/" hreflang="en">English</a>
-        <a href="/de/" hreflang="de">Deutsch</a>
-        <a href="/es/" hreflang="es">Espa&ntilde;ol</a>
+    <div>
+      <p class="occhiello rv">Le site en italien</p>
+      <h1 class="spezza">Le site qu’un acheteur italien <em>peut utiliser jusqu’au bout</em></h1>
+      <p class="lede rv">De petits sites&nbsp;: peu de pages, les données en haut, rien à mettre à jour et rien qui tombe en panne tout seul. Ils sont légers et se lisent bien, même sur un téléphone.</p>
+      <div class="azioni rv">
+        <a class="tasto" href="/fr/contact/?lavoro=Pages%20du%20site">Demander les pages du site <span class="freccia" aria-hidden="true">&rarr;</span></a>
+        <a class="collegamento" href="/esempio-sito/">Voir le site d’exemple</a>
       </div>
+    </div>
+    <dl class="dati-rapidi rv">
+      <div><dt>Une page réécrite</dt><dd class="accento">79&nbsp;&euro;</dd></div>
+      <div><dt>Un site neuf</dt><dd>790&nbsp;&euro;</dd></div>
+      <div><dt>Délais</dt><dd>de 5&nbsp;jours à trois semaines</dd></div>
+      <div><dt>Corrections</dt><dd>comprises pendant 30&nbsp;jours</dd></div>
+    </dl>
+  </div>
+</section>
+
+<figure class="testa-foto" aria-hidden="true">
+  <div class="par" data-par="-0.12"><img src="/img/settore-meccanica-1600.jpg" srcset="/img/settore-meccanica-800.jpg 800w, /img/settore-meccanica-1600.jpg 1600w" sizes="100vw" alt="" loading="lazy" width="1600" height="1069"></div>
+</figure>
+
+<section class="sez">
+  <div class="wrap due-testi">
+    <div>
+      <p class="occhiello rv">Le problème</p>
+      <h2 class="spezza">Quand le problème n’est pas la langue, <em>c’est la page</em></h2>
+    </div>
+    <div class="prosa rv">
+      <p>Cela arrive&nbsp;: une entreprise qui travaille bien, et une page italienne produite par une machine, restée à moitié traduite, ou pas de page italienne du tout.</p>
+      <p>L’acheteur qui vous cherche depuis l’Italie trouve quand même cette page, et à ce moment-là, elle est tout ce qu’il sait de vous.</p>
+      <p>Vento a Favore travaille donc de deux façons&nbsp;: les pages que vous avez déjà, réécrites en italien et livrées prêtes à mettre en ligne, ou le site créé à partir de zéro quand il n’y a rien sur quoi s’appuyer.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="wrap due-testi">
+    <div>
+      <p class="occhiello rv">Ce que vous recevez</p>
+      <h2 class="spezza">Des pages, <em>pas un système</em></h2>
+      <p class="lede rv">Qu’il s’agisse de vos pages actuelles ou d’un site neuf, ces quatre règles s’appliquent.</p>
+    </div>
+    <ol class="elenco-segni">
+      <li class="rv"><span class="num">01</span><div><h3>Rien à entretenir</h3><p>Pas d’interface d’administration, pas de mot de passe, pas d’extension qui cesse de fonctionner un matin. Les pages restent identiques jusqu’à ce que Vento a Favore les modifie à votre demande.</p></div></li>
+      <li class="rv"><span class="num">02</span><div><h3>Les données avant l’histoire</h3><p>L’ordre des informations est celui de la personne qui doit décider&nbsp;: la norme, les dimensions, les délais, qui répond au téléphone. L’histoire de l’entreprise vient après, là où elle sert.</p></div></li>
+      <li class="rv"><span class="num">03</span><div><h3>Le domaine reste le vôtre</h3><p>Enregistré à votre nom. Vento a Favore l’avance et le refacture au prix coûtant, sans marge. L’hébergement, gratuit, est lui aussi à votre nom.</p></div></li>
+      <li class="rv"><span class="num">04</span><div><h3>Rapide, et qui le reste</h3><p>Aucune bibliothèque à télécharger, aucun outil de pistage des visiteurs&nbsp;: les pages sont légères et s’ouvrent même avec la connexion d’un entrepôt.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sez stretta-sez" aria-label="Le principe">
+  <div class="wrap">
+    <p class="manifesto">D’abord les données, <em>ensuite l’histoire de l’entreprise</em>.</p>
+  </div>
+</section>
+
+<section class="sez" id="tarifs">
+  <div class="wrap due-colonne">
+    <div class="attacca">
+      <p class="occhiello rv">Tarifs</p>
+      <h2 class="spezza">Des prix fixes, <em>sans devis</em></h2>
+      <p class="listino-nota rv">Une série de corrections est comprise dans les trente jours qui suivent la livraison&nbsp;; ensuite, chaque modification coûte 60&nbsp;&euro;. Les jours sont ouvrés et se comptent à partir de l’arrivée des textes et des photos, pas de la commande. Paiement à la livraison, par virement&nbsp;; un reçu en bonne et due forme est émis pour chaque travail.</p>
+      <p class="listino-nota rv">Deux lignes se ressemblent&nbsp;: 349&nbsp;&euro;, ce sont les pages d’un site existant, réécrites en italien&nbsp;; 390&nbsp;&euro;, c’est un site d’une seule page créé à partir de zéro, pour qui n’a encore rien.</p>
+      <p class="rv" style="margin-top:26px"><a class="collegamento" href="/fr/tarifs/">Tous les tarifs &rarr;</a></p>
+    </div>
+    <div>
+      <div class="listino" role="table" aria-label="Le site qui n’existe pas encore">
+        <div class="voce prima rv" role="row"><div role="cell"><span class="cosa">Le site créé à partir de zéro</span><span class="etichetta">s’il n’y a rien</span><span class="dettaglio">jusqu’à six pages, une langue &middot; trois semaines</span></div><div class="prezzo" role="cell">790&nbsp;&euro;</div></div>
+        <div class="voce rv" role="row"><div role="cell"><span class="cosa">Le site d’une seule page</span><span class="dettaglio">pour qui n’a encore rien &middot; 10&nbsp;jours</span></div><div class="prezzo" role="cell">390&nbsp;&euro;</div></div>
+      </div>
+      <div class="listino" role="table" aria-label="Le site qui existe déjà" style="margin-top:34px">
+        <div class="voce rv" role="row"><div role="cell"><span class="cosa">Une page de votre site, réécrite en italien</span><span class="dettaglio">jusqu’à 400 mots, mise en page et prête à mettre en ligne &middot; 5&nbsp;jours</span></div><div class="prezzo" role="cell">79&nbsp;&euro;</div></div>
+        <div class="voce rv" role="row"><div role="cell"><span class="cosa">Trois pages de votre site, réécrites en italien</span><span class="dettaglio">jusqu’à 1&nbsp;200 mots, mises en page et prêtes à mettre en ligne &middot; 8&nbsp;jours</span></div><div class="prezzo" role="cell">225&nbsp;&euro;</div></div>
+        <div class="voce rv" role="row"><div role="cell"><span class="cosa">Les pages d’un site existant, réécrites en italien</span><span class="dettaglio">jusqu’à cinq pages, mises en page et prêtes à mettre en ligne &middot; 10&nbsp;jours</span></div><div class="prezzo" role="cell">349&nbsp;&euro;</div></div>
+        <div class="voce rv" role="row"><div role="cell"><span class="cosa">Chaque langue supplémentaire sur le même site</span><span class="dettaglio">commandée avec la première &middot; une semaine</span></div><div class="prezzo" role="cell">320&nbsp;&euro;</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="wrap">
+    <div class="testa-sez">
       <div>
-        <span class="fh">&Eacute;crire</span>
+        <p class="occhiello rv">Comment ça se passe</p>
+        <h2 class="spezza">Quatre étapes, <em>sans surprise</em></h2>
+      </div>
+      <p class="lede rv">Le prix est celui du tarif, connu avant la première ligne. Le décompte des jours part de la troisième étape, pas de la première.</p>
+    </div>
+    <ol class="passi">
+      <li class="passo rv"><span class="quando">Pour commencer</span><h3>La demande</h3><p>Un e-mail avec l’adresse de votre site actuel, s’il existe, ou deux lignes sur ce que vous faites. Aucun formulaire obligatoire.</p></li>
+      <li class="passo rv"><span class="quando">Sous un jour ouvré</span><h3>La proposition</h3><p>Combien de pages, ce qu’elles contiennent, le prix tiré du tarif et le nombre de jours ouvrés.</p></li>
+      <li class="passo rv"><span class="quando">Ensuite</span><h3>Les documents</h3><p>Les textes que vous avez, les photos s’il y en a, les données produit. Le décompte des jours part d’ici. S’il n’y a pas de photos utilisables, vous le savez d’avance&nbsp;: le site se construit alors sur le texte, les données et le dessin.</p></li>
+      <li class="passo rv"><span class="quando">À la livraison</span><h3>La livraison</h3><p>Le site en ligne, le domaine à votre nom, et une série de corrections dans les trente jours.</p></li>
+    </ol>
+
+    <div class="percorsi">
+      <p class="rv">Le site créé à partir de zéro, semaine par semaine.</p>
+      <details class="rv"><summary><span>Semaine 1</span><span class="quando">documents et page principale</span><span class="segno" aria-hidden="true"></span></summary>
+        <div class="corpo"><p><b>Semaine 1</b> Les documents, la liste des pages et une première version de la page principale, à regarder ensemble.</p></div></details>
+      <details class="rv"><summary><span>Semaine 2</span><span class="quando">les autres pages</span><span class="segno" aria-hidden="true"></span></summary>
+        <div class="corpo"><p><b>Semaine 2</b> Les autres pages, sur le modèle de la page principale.</p></div></details>
+      <details class="rv"><summary><span>Semaine 3</span><span class="quando">essais et mise en ligne</span><span class="segno" aria-hidden="true"></span></summary>
+        <div class="corpo"><p><b>Semaine 3</b> Essais de lecture sur téléphone et sur ordinateur, le domaine à votre nom, mise en ligne.</p></div></details>
+      <details class="rv"><summary><span>Après la livraison</span><span class="quando">trente jours</span><span class="segno" aria-hidden="true"></span></summary>
+        <div class="corpo"><p><b>Ensuite</b> Trente jours pour demander des corrections, comprises dans le prix. Passé ce délai, chaque modification coûte 60&nbsp;&euro;.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sez scura" aria-labelledby="t-exemple">
+  <div class="wrap">
+    <p class="occhiello rv">Un exemple</p>
+    <h2 class="spezza" id="t-exemple">Un site d’exemple, <em>à ouvrir</em></h2>
+    <p class="lede rv">Vento a Favore a construit un site d’exemple, en italien, pour une entreprise d’hydraulique inventée&nbsp;: pas une seule photo, mais un dessin technique coté, et les chiffres en haut de page. L’entreprise n’existe pas, et la page le dit dès la première ligne.</p>
+    <div class="azioni rv" style="margin-top:34px">
+      <a class="tasto chiaro" href="/esempio-sito/">Le site d’exemple <span class="freccia" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="wrap">
+    <div class="testa-sez">
+      <div>
+        <p class="occhiello rv">Les limites</p>
+        <h2 class="spezza">Ce qui <em>reste en dehors</em></h2>
+      </div>
+      <p class="lede rv">Certains travaux demandent un suivi quotidien, d’autres obéissent à des règles qui ne dépendent pas de celui qui écrit. Vento a Favore ne les prend pas en charge et le dit avant d’accepter un travail, en indiquant à qui vous adresser si vous en avez besoin.</p>
+    </div>
+    <ul class="elenco-segni no">
+      <li class="rv"><span class="num"></span><div><h3>Boutiques en ligne</h3><p>Pas de panier, de paiement ni de gestion de stock sur le site. Les descriptions des produits d’une boutique qui existe déjà, oui&nbsp;: <a href="/fr/documents/#e-commerce">descriptions e-commerce</a>.</p></div></li>
+      <li class="rv"><span class="num"></span><div><h3>Réservations et espaces clients</h3><p>Pas de calendrier à gérer, pas d’accès par mot de passe pour les clients ou les revendeurs.</p></div></li>
+      <li class="rv"><span class="num"></span><div><h3>Contrats de maintenance</h3><p>Aucun abonnement mensuel et aucune interface à mettre à jour&nbsp;: les pages restent telles qu’elles ont été livrées.</p></div></li>
+      <li class="rv"><span class="num"></span><div><h3>Documents réglementés</h3><p>Notices d’utilisation, étiquettes alimentaires, déclarations de conformité&nbsp;: la norme en fixe la langue, et la responsabilité reste celle du fabricant.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="wrap">
+    <div class="testa-sez">
+      <div>
+        <p class="occhiello rv">Autres travaux</p>
+        <h2 class="spezza">Souvent commandés <em>avec le site</em></h2>
+      </div>
+    </div>
+    <div class="carte">
+      <a class="carta rv" href="/fr/premiere-lecture/"><span class="etich">Le point de départ</span><h3>Première lecture</h3><p>Dix observations sur vos pages italiennes déjà publiées. Déduite du premier travail.</p><div class="piede-carta"><span class="prezzo">39&nbsp;&euro;</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/fr/documents/#presentation"><span class="etich">Document</span><h3>Page de présentation</h3><p>La page &laquo;&nbsp;à propos&nbsp;&raquo;, réécrite en faits plutôt qu’en adjectifs.</p><div class="piede-carta"><span class="prezzo">180&nbsp;&euro;</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/fr/documents/#fiche-produit"><span class="etich">Document</span><h3>Fiche produit</h3><p>Le PDF d’une page qu’un distributeur italien réclame dès son premier message.</p><div class="piede-carta"><span class="prezzo">140&nbsp;&euro;</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/fr/questions/"><span class="etich">Avant de décider</span><h3>Questions</h3><p>Paiement, reçu, confidentialité, délais&nbsp;: les réponses en entier.</p><div class="piede-carta"><span class="prezzo">14 réponses</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="sez stretta-sez">
+  <div class="wrap">
+    <div class="richiamo rv">
+      <div><h3>Avant de décider</h3><p>Vous pouvez commencer par une lecture de vos pages italiennes déjà en ligne&nbsp;: dix observations en 48&nbsp;heures, 39&nbsp;&euro;, déduits du premier travail.</p></div>
+      <a class="tasto" href="/fr/premiere-lecture/">La première lecture <span class="freccia" aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="piede">
+  <div class="wrap">
+    <div class="piede-alto">
+      <div>
+        <p class="piede-titolo">Dix observations sur vos pages en italien, <em>sous 48&nbsp;heures</em>.</p>
+        <p><a class="tasto chiaro" href="/fr/premiere-lecture/">La premi&egrave;re lecture, 39&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a></p>
+      </div>
+      <div class="piede-contatti">
+        <p class="ph">&Eacute;crire</p>
         <a href="mailto:ventoafavorecf@gmail.com">ventoafavorecf@gmail.com</a>
-        <p>Vento a Favore &middot; Mod&egrave;ne, Italie. Tout &agrave; distance, &agrave; prix de catalogue et avec des d&eacute;lais annonc&eacute;s.</p>
+        <a href="/fr/contact/">Formulaire de contact</a>
+        <p class="breve">Mod&egrave;ne, Italie. Travail &agrave; distance, prix affich&eacute;s et d&eacute;lais annonc&eacute;s. R&eacute;ponse sous un jour ouvr&eacute;.</p>
       </div>
     </div>
-    <p>Activité exercée sous forme de prestation occasionnelle au sens de l'art. 2222 du Code civil italien : un reçu en bonne et due forme est émis pour chaque travail. La retenue à la source italienne ne s'applique pas aux clients établis hors d'Italie ; elle n'est prévue que lorsque le client est un substitut d'impôt italien. Il ne s'agit pas d'une activité d'entreprise et il n'y a pas de numéro de TVA.</p>
-    <p>Le document d'exemple li&eacute; depuis cette page est une d&eacute;monstration : l'entreprise qu'il d&eacute;crit est fictive et les donn&eacute;es sont vraisemblables mais invent&eacute;es.</p>
+    <div class="piede-griglia"><nav aria-label="Vento a Favore"><p class="ph">Vento a Favore</p><a href="/fr/premiere-lecture/">Première lecture</a><a href="/fr/tarifs/">Tarifs</a><a href="/fr/documents/">Documents</a><a href="/fr/site-web/">Sites web</a><a href="/fr/chinois-arabe/">Chinois et arabe</a><a href="/fr/questions/">Questions</a><a href="/fr/contact/">Contact</a><a href="/fr/exportateurs-italiens/">Une entreprise italienne qui exporte&nbsp;?</a></nav>
+      <nav aria-label="Autres langues"><p class="ph">Autres langues</p><a href="/sito/" hreflang="it" lang="it"><img class="bandiera" src="/img/bandiere/it.svg" alt="" width="21" height="14">Italiano</a><a href="/en/website/" hreflang="en" lang="en"><img class="bandiera" src="/img/bandiere/gb.svg" alt="" width="21" height="14">English</a><a href="/de/website/" hreflang="de" lang="de"><img class="bandiera" src="/img/bandiere/de.svg" alt="" width="21" height="14">Deutsch</a><a href="/es/sitio-web/" hreflang="es" lang="es"><img class="bandiera" src="/img/bandiere/es.svg" alt="" width="21" height="14">Espa&ntilde;ol</a></nav>
+    </div>
+    <div class="legale">
+      <p>Activit&eacute; exerc&eacute;e sous forme de prestation occasionnelle au sens de l&rsquo;article 2222 du Code civil italien&nbsp;: un re&ccedil;u en bonne et due forme est &eacute;mis pour chaque travail, avec une retenue &agrave; la source de 20&nbsp;% lorsque le client est un agent de retenue italien et un droit de timbre de 2&nbsp;&euro; au-del&agrave; de 77,47&nbsp;&euro;. Il ne s&rsquo;agit pas d&rsquo;une activit&eacute; commerciale&nbsp;; la personne qui l&rsquo;exerce n&rsquo;a pas de num&eacute;ro de TVA.</p>
+      <p>Les exemples de ce site sont des d&eacute;monstrations&nbsp;: les phrases et les traductions litt&eacute;rales reproduisent des erreurs courantes et n&rsquo;appartiennent &agrave; aucune entreprise en particulier. Photos&nbsp;: Pexels.</p>
+    </div>
+    <p class="firma-grande" aria-hidden="true">Vento a Favore</p>
   </div>
 </footer>
-
 </body>
 </html>
