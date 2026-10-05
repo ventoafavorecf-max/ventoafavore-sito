@@ -137,7 +137,7 @@ p { text-wrap: pretty; }
 .menu { display: flex; gap: 4px; align-items: center; list-style: none; margin: 0; padding: 0; }
 .menu > li { position: relative; }
 .menu .voce { display: inline-flex; align-items: center; gap: 7px; font: 500 17.5px/1 var(--sans); text-decoration: none;
-              color: var(--ink-2); padding: 12px 11px; border-radius: 999px; position: relative;
+              color: var(--ink-2); padding: 12px 10px; border-radius: 999px; position: relative;
               transition: color .3s ease, background-color .3s ease; }
 .menu .voce:hover, .menu .aperto > .listino .voce { color: var(--ink); background: var(--rule-soft); }
 .menu .voce[aria-current] { color: var(--accent); }
@@ -213,7 +213,7 @@ p { text-wrap: pretty; }
 .apertura { position: relative; overflow: clip; }
 .apertura .wrap { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: 40px 72px;
                   align-items: center; min-height: min(calc(100svh - 114px), 860px); padding-block: 64px 72px; }
-.apertura h1 { max-width: 13.5ch; }
+.apertura h1 { max-width: 15ch; font-size: clamp(2.7rem, 5.4vw, 4.9rem); }  /* 05/10: più piccolo, così le due porte si vedono subito */
 .apertura .lede { max-width: 50ch; }
 .azioni { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 30px; margin-top: 38px; }
 .apertura .piccolo { margin-top: 26px; font: 400 15.5px/1.6 var(--mono); color: var(--mut); }
@@ -634,8 +634,31 @@ p { text-wrap: pretty; }
 .fila-binario { display: flex; gap: 18px; padding-inline: max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))); width: max-content; }
 .fila .carta { width: min(78vw, 380px); flex: none; min-height: 330px; }
 .fila-fine { width: 1px; flex: none; }
+/* il segno sotto la fila: a che scheda si è, e quante sono */
+.fila-segno { display: none; align-items: center; gap: 14px; margin: 18px auto 0; width: 100%; max-width: var(--wrap);
+              padding-inline: var(--gutter); font: 400 14px/1 var(--mono); color: var(--mut); }
+.fila-segno .traccia { flex: 1; height: 2px; background: var(--rule); position: relative; overflow: hidden; border-radius: 2px; }
+.fila-segno .riempi { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--accent); transition: width .2s linear; }
+.fila-segno .conta { font-variant-numeric: tabular-nums; min-width: 4.5ch; text-align: right; }
+.fila-segno button { width: 44px; height: 44px; border: 1px solid var(--rule); border-radius: 50%; background: transparent;
+                     color: var(--ink); font: 400 18px/1 var(--sans); cursor: pointer; }
+.fila-segno button:disabled { opacity: .35; cursor: default; }
+.scura .fila-segno { color: var(--band-mut); }
+.scura .fila-segno .traccia { background: #3A352E; }
+.scura .fila-segno .riempi { background: var(--band-accent); }
+.scura .fila-segno button { border-color: #3A352E; color: var(--band-ink); }
+/* telefono, tablet, movimento ridotto o GSAP assente: la fila si sfoglia col dito, una scheda alla volta, e la successiva
+   si vede già sul bordo (prima era tagliata: si vedeva solo la prima scheda) */
+@media (max-width: 899.98px), (prefers-reduced-motion: reduce) {
+  .fila { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
+          -webkit-overflow-scrolling: touch; scroll-padding-inline: var(--gutter); }
+  .fila::-webkit-scrollbar { display: none; }
+  .fila .carta { scroll-snap-align: start; width: min(80vw, 360px); min-height: 300px; }
+  .fila-segno { display: flex; }
+}
 .no-gsap .fila { overflow-x: auto; scroll-snap-type: x mandatory; }
 .no-gsap .fila .carta { scroll-snap-align: start; }
+.no-gsap .fila-segno { display: flex; }
 
 /* ---------- manifesto: le parole si accendono mentre si scorre ---------- */
 .manifesto { font: 400 clamp(1.9rem, 4.2vw, 3.6rem)/1.18 var(--serif); letter-spacing: -.02em; max-width: 24ch; margin: 0; }
@@ -863,6 +886,14 @@ a.lingua:hover h3 { color: var(--accent); }
 .listino .voce .prezzo { text-align: right; }
 .in-punta { display: block; margin-top: 6px; font: 400 14px/1.2 var(--mono); color: var(--accent); white-space: nowrap; letter-spacing: 0; }
 .scura .in-punta { color: var(--band-accent); }
+/* listino sul telefono: la descrizione prende tutta la riga, il prezzo va sotto (prima la colonna del prezzo
+   schiacciava la descrizione in una striscia di due parole) */
+@media (max-width: 560px) {
+  .listino .voce { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .listino .voce .prezzo { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .listino .voce .in-punta { display: inline; margin-top: 0; }
+  .listino .voce.prima .etichetta { display: block; margin: 8px 0 0; vertical-align: 0; width: max-content; }
+}
 .nastro li[lang="zh-Hans"], .nastro li[lang="ar"] { color: var(--accent); }
 .punta-apertura { margin: 26px 0 0; }
 .punta-apertura a { display: inline-flex; align-items: center; gap: 14px; padding: 10px 18px 10px 10px; border-radius: 999px; text-decoration: none;
@@ -914,3 +945,24 @@ a.lingua .badge { color: var(--accent); border-color: var(--accent-soft); }
 .bandiera-ar { display: inline-grid; place-items: center; width: 30px; height: 20px; background: var(--accent); color: #fff;
                font-size: 15px; line-height: 1; box-shadow: none; }
 .carta .etich .bandiera { width: 18px; height: 12px; margin-right: 8px; vertical-align: -1px; }
+
+/* ---------- le due porte dell'apertura: testi in lingua e sito da zero, di pari peso (Francesco, 05/10) ---------- */
+.porte { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 34px; max-width: 640px; }
+.porta { display: flex; flex-direction: column; gap: 8px; padding: 22px 22px 16px; border: 1px solid var(--rule); border-radius: 4px;
+         background: var(--card); color: var(--ink); text-decoration: none;
+         transition: transform .5s var(--curva), border-color .3s ease, box-shadow .5s var(--curva); }
+.porta:hover, .porta:focus-visible { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 14px 30px -18px rgba(28, 25, 23, .35); }
+.porta-n { font: 400 13px/1 var(--mono); letter-spacing: .12em; color: var(--accent); }
+.porta-tit { font: 400 1.6rem/1.15 var(--serif); letter-spacing: -.01em; }
+.porta-txt { flex: 1; font-size: 16px; line-height: 1.5; color: var(--ink-2); }
+.porta-piede { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 8px; padding-top: 12px;
+               border-top: 1px solid var(--rule); font: 400 15px/1.2 var(--sans); color: var(--mut); }
+.porta-piede b { margin-left: 4px; font: 400 1.5rem/1 var(--serif); color: var(--accent); font-variant-numeric: tabular-nums; }
+.porta .freccia { color: var(--accent); transition: transform .4s var(--curva); }
+.porta:hover .freccia { transform: translateX(4px); }
+@media (max-width: 560px) { .porte { grid-template-columns: 1fr; } .porta-tit { font-size: 1.45rem; } }
+@media (prefers-reduced-motion: reduce) { .porta, .porta .freccia { transition: none; } .porta:hover { transform: none; } }
+.azioni-piede { display: flex; flex-wrap: wrap; gap: 12px 14px; }
+.testata .tasto { flex-shrink: 0; }
+/* francese e spagnolo: voci più lunghe, la testata non ci stava (il tasto usciva di 37-55 px) */
+html[lang="fr"] .menu .voce, html[lang="es"] .menu .voce { padding-inline: 6px; font-size: 16.5px; }

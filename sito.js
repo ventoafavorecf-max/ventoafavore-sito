@@ -208,6 +208,42 @@
     $$("[required]", f).forEach(function (c) { c.addEventListener("input", function () { c.removeAttribute("aria-invalid"); }); });
   });
 
+  /* ---------- 10-bis. la fila sul telefono: segno di avanzamento e frecce (si sfoglia col dito) ---------- */
+  var ETICHETTE = { it: ["Scheda precedente", "Scheda successiva"], en: ["Previous card", "Next card"],
+                    de: ["Vorherige Karte", "N\u00e4chste Karte"], fr: ["Fiche pr\u00e9c\u00e9dente", "Fiche suivante"],
+                    es: ["Ficha anterior", "Ficha siguiente"] };
+  $$(".fila").forEach(function (fila) {
+    var schede = $$(".carta", fila); if (schede.length < 2) return;
+    var et = ETICHETTE[(document.documentElement.lang || "it").slice(0, 2)] || ETICHETTE.it;
+    var segno = document.createElement("div"); segno.className = "fila-segno";
+    segno.innerHTML = '<button type="button" data-v="-1" aria-label="' + et[0] + '">&larr;</button>' +
+      '<span class="traccia" aria-hidden="true"><span class="riempi"></span></span>' +
+      '<span class="conta" aria-live="polite"></span>' +
+      '<button type="button" data-v="1" aria-label="' + et[1] + '">&rarr;</button>';
+    fila.parentNode.insertBefore(segno, fila.nextSibling);
+    var riempi = segno.querySelector(".riempi"), conta = segno.querySelector(".conta"), tasti = segno.querySelectorAll("button");
+    var passo = function () { return schede[1].offsetLeft - schede[0].offsetLeft; };
+    var aggiorna = function () {
+      var max = fila.scrollWidth - fila.clientWidth;
+      var i = Math.min(schede.length - 1, Math.round(fila.scrollLeft / Math.max(1, passo())));
+      if (max > 0 && fila.scrollLeft >= max - 4) i = schede.length - 1;
+      riempi.style.width = ((i + 1) / schede.length * 100) + "%";
+      conta.textContent = (i + 1) + " / " + schede.length;
+      tasti[0].disabled = fila.scrollLeft <= 4; tasti[1].disabled = max <= 0 || fila.scrollLeft >= max - 4;
+    };
+    Array.prototype.forEach.call(tasti, function (b) {
+      b.addEventListener("click", function () {
+        var ora = Math.round(fila.scrollLeft / Math.max(1, passo()));
+        var dove = Math.max(0, Math.min(schede.length - 1, ora + +b.getAttribute("data-v")));
+        fila.scrollTo({ left: schede[dove].offsetLeft - schede[0].offsetLeft, behavior: fermo ? "auto" : "smooth" });
+        setTimeout(aggiorna, 450);
+      });
+    });
+    fila.addEventListener("scroll", aggiorna, { passive: true });
+    addEventListener("resize", aggiorna);
+    aggiorna();
+  });
+
   /* ---------- 11. GSAP: fila orizzontale, manifesto, uscita dell'apertura ---------- */
   function conGsap() {
     if (!window.gsap || !window.ScrollTrigger) { radice.classList.add("no-gsap"); return; }
