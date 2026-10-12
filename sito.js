@@ -175,6 +175,9 @@
     if (!ev.target.closest(".con-pannello")) $$(".menu .aperto").forEach(function (x) { x.classList.remove("aperto"); x.querySelector(".voce").setAttribute("aria-expanded", "false"); });
   });
 
+  /* indirizzo dell'app web che riceve il modulo (strumenti/invio-email/Modulo.gs); vuoto = si apre la posta */
+  var INVIO = "https://script.google.com/macros/s/AKfycbxPcA9uTJ1WhuptbTQZJjLeDqvwOoDypayg280ZtceJ_sPQq6qT5tNI6hy_K1HRo0gGzg/exec";
+
   /* ---------- 10. modulo di contatto: prepara l'email già scritta ---------- */
   $$("form.modulo").forEach(function (f) {
     var chiesto = new URLSearchParams(location.search).get("lavoro");     /* arriva da «Chiedere…» */
@@ -201,9 +204,27 @@
         v("nome"), v("email")
       ].filter(function (r, i, a) { return r !== "" || (a[i - 1] !== ""); });
       var oggetto = (scelta || d.richiesta || "Richiesta") + " · " + v("azienda");
-      location.href = "mailto:ventoafavorecf@gmail.com?subject=" + encodeURIComponent(oggetto) + "&body=" + encodeURIComponent(righe.join("\n"));
       var esito = f.parentNode.querySelector(".modulo-esito");
-      if (esito) esito.textContent = d.esito || "Si è aperto il programma di posta con il messaggio già scritto. Se non si apre, scriva a ventoafavorecf@gmail.com.";
+      var conPosta = function () {                         /* com'era prima: apre il programma di posta */
+        location.href = "mailto:ventoafavorecf@gmail.com?subject=" + encodeURIComponent(oggetto) + "&body=" + encodeURIComponent(righe.join("\n"));
+        if (esito) esito.textContent = d.esito || "Si è aperto il programma di posta con il messaggio già scritto. Se non si apre, scriva a ventoafavorecf@gmail.com.";
+      };
+      if (!INVIO || !window.fetch) { conPosta(); return; }
+      /* dal 12/10/2026: il modulo spedisce davvero, tramite lo script strumenti/invio-email/Modulo.gs */
+      var dati = new URLSearchParams();
+      ["nome", "azienda", "email", "telefono", "pagina", "lingua", "messaggio", "sito_web"].forEach(function (n) { dati.append(n, v(n)); });
+      dati.append("lavoro", scelta);
+      dati.append("provenienza", location.pathname);
+      var tasto = f.querySelector("button[type=submit]");
+      if (tasto) tasto.disabled = true;
+      if (esito) esito.textContent = d.invio || "Invio in corso…";
+      fetch(INVIO, { method: "POST", mode: "no-cors", body: dati })
+        .then(function () {
+          f.reset();
+          if (esito) esito.textContent = d.inviato || "Messaggio arrivato a Francesco. La risposta arriva per email entro un giorno lavorativo.";
+        })
+        .catch(conPosta)
+        .then(function () { if (tasto) tasto.disabled = false; });
     });
     $$("[required]", f).forEach(function (c) { c.addEventListener("input", function () { c.removeAttribute("aria-invalid"); }); });
   });
