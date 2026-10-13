@@ -952,6 +952,7 @@ a.lingua .badge { color: var(--accent); border-color: var(--accent-soft); }
          background: var(--card); color: var(--ink); text-decoration: none;
          transition: transform .5s var(--curva), border-color .3s ease, box-shadow .5s var(--curva); }
 .porta:hover, .porta:focus-visible { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 14px 30px -18px rgba(28, 25, 23, .35); }
+.porta-larga { grid-column: 1 / -1; }
 .porta-n { font: 400 13px/1 var(--mono); letter-spacing: .12em; color: var(--accent); }
 .porta-tit { font: 400 1.6rem/1.15 var(--serif); letter-spacing: -.01em; }
 .porta-txt { flex: 1; font-size: 16px; line-height: 1.5; color: var(--ink-2); }
