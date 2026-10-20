@@ -1004,3 +1004,30 @@ html { background: var(--paper); color-scheme: light dark; }
   .mv .pair .after .pw, .mv .prova-dopo .pw { filter: none; }
 }
 picture { display: contents; }   /* 20/10: le foto AVIF dentro <picture> si impaginano come prima */
+/* 20/10, Francesco: col menu del telefono aperto la barra resta fissa in cima, le voci scorrono sotto, la pagina è ferma */
+html.menu-aperto, html.menu-aperto body { overflow: hidden; }
+.menu-aperto .testata { position: fixed; top: 0; left: 0; right: 0; }
+.tendina { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+
+/* 20/10, Francesco: un'icona per ogni parte del sito (menu, tendina, piede, occhiello delle pagine, porte della home) */
+.ico { width: 1.05em; height: 1.05em; flex: none; vertical-align: -.16em; }
+.menu .voce .ico { width: 17px; height: 17px; margin-right: 1px; color: var(--accent); opacity: .85; }
+.menu .voce[aria-current] .ico, .menu .voce:hover .ico { opacity: 1; }
+.tendina .tv .ico { width: .78em; height: .78em; margin-right: .42em; vertical-align: -.06em; color: var(--accent); }
+.piede .ph .ico { width: 15px; height: 15px; margin-right: 8px; vertical-align: -3px; color: var(--band-accent); }
+.occhiello .ico { width: 17px; height: 17px; color: var(--accent); }
+.scura .occhiello .ico { color: var(--band-accent); }
+.porta-n .ico { width: 20px; height: 20px; margin-right: 10px; vertical-align: -5px; }
+.valuta-box { display: flex; gap: 12px; align-items: flex-start; margin-top: 28px; padding: 16px 20px; border: 1px solid var(--rule);
+              border-radius: 8px; background: var(--card); font: 400 16.5px/1.5 var(--sans); color: var(--ink-2); }
+.valuta-box .ico { width: 22px; height: 22px; color: var(--accent); margin-top: 1px; }
+.valuta-box a { color: var(--accent); font-weight: 600; }
+/* 20/10: con le icone il menu del computer è più largo; sugli schermi fino a 1600 px si stringe un poco */
+.menu .voce { gap: 4px; padding: 12px 6px; font-size: 16px; }
+.menu .voce .ico { width: 15px; height: 15px; }
+.menu .voce.punta-voce { padding: 9px 10px; }
+.testata .tasto { padding: 0 15px; margin-left: 6px; font-size: 15.5px; }
+/* la tendina dell'ultima voce (Contatti) si apre verso sinistra, così non esce dallo schermo */
+.menu > li:last-child > .pannello { left: auto; right: 0; transform: translateY(8px); min-width: 380px; }
+.menu > li:last-child.aperto > .pannello { transform: none; }
+.menu .voce .giu { margin-left: 3px; }

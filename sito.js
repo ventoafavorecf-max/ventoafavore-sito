@@ -136,19 +136,28 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
   if (apriT && tendina) {
     // 20/10: col menu aperto il resto della pagina esce dal giro del tasto Tab
     var fuori = function (si) { $$("main, .piede, .briciole, .lingue-su").forEach(function (el) { el.inert = si; }); };
-    var chiudi = function () { radice.classList.remove("menu-aperto"); apriT.setAttribute("aria-expanded", "false"); tendina.setAttribute("aria-hidden", "true"); fuori(false); };
+    // 20/10: si ricorda dove si era nella pagina, così chiudendo il menu si torna esattamente lì
+    var yMenu = 0;
+    var chiudi = function (torna) {
+      if (!radice.classList.contains("menu-aperto")) return;
+      radice.classList.remove("menu-aperto"); apriT.setAttribute("aria-expanded", "false"); tendina.setAttribute("aria-hidden", "true"); fuori(false);
+      if (torna) scrollTo({ top: yMenu, behavior: "instant" });
+    };
     apriT.addEventListener("click", function () {
-      var ora = !radice.classList.contains("menu-aperto");
-      // 20/10: in cima alla pagina la barra sta sotto la fascia «Novità» e le bandiere; il pannello parte sotto il suo bordo vero
+      if (radice.classList.contains("menu-aperto")) { chiudi(true); return; }
+      // 20/10, Francesco: col menu aperto la barra con «Vento a Favore» resta fissa in cima allo schermo (classe menu-aperto
+      // nello stile) e le voci partono subito sotto e scorrono sotto di lei; la pagina dietro non scorre.
+      yMenu = scrollY;
       var testata = document.querySelector(".testata");
-      if (ora && testata) tendina.style.paddingTop = Math.max(118, Math.ceil(testata.getBoundingClientRect().bottom) + 28) + "px";
-      radice.classList.toggle("menu-aperto", ora); apriT.setAttribute("aria-expanded", String(ora));
-      tendina.setAttribute("aria-hidden", String(!ora)); fuori(ora);
-      if (ora) { var primo = tendina.querySelector("a, summary"); if (primo) primo.focus({ preventScroll: true }); }
+      if (testata) tendina.style.paddingTop = (testata.offsetHeight + 28) + "px";
+      tendina.scrollTop = 0;
+      radice.classList.add("menu-aperto"); apriT.setAttribute("aria-expanded", "true");
+      tendina.setAttribute("aria-hidden", "false"); fuori(true);
+      var primo = tendina.querySelector("a, summary"); if (primo) primo.focus({ preventScroll: true });
     });
-    $$("a", tendina).forEach(function (a) { a.addEventListener("click", chiudi); });
-    addEventListener("keydown", function (e) { if (e.key === "Escape" && radice.classList.contains("menu-aperto")) { chiudi(); apriT.focus(); } });
-    addEventListener("resize", function () { if (innerWidth > 1320) chiudi(); });
+    $$("a", tendina).forEach(function (a) { a.addEventListener("click", function () { chiudi(false); }); });   // si va altrove: niente ritorno
+    addEventListener("keydown", function (e) { if (e.key === "Escape" && radice.classList.contains("menu-aperto")) { chiudi(true); apriT.focus(); } });
+    addEventListener("resize", function () { if (innerWidth > 1320) chiudi(true); });
   }
 
   /* ---------- 8. video: parte solo al clic, con l'audio ---------- */
