@@ -260,14 +260,15 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
       dati.append("pubblicare", f.elements.pubblicare && f.elements.pubblicare.checked ? "sì" : "no");
       var tasto = f.querySelector("button[type=submit]");
       if (tasto) tasto.disabled = true;
-      if (esito) esito.textContent = "Invio in corso…";
+      var d = f.dataset;                                  /* le pagine straniere danno le frasi nella loro lingua */
+      if (esito) esito.textContent = d.invio || "Invio in corso…";
       var aMano = function () {
-        location.href = "mailto:ventoafavorecf@gmail.com?subject=" + encodeURIComponent("Valutazione · " + az.value.trim()) +
+        location.href = "mailto:ventoafavorecf@gmail.com?subject=" + encodeURIComponent((d.oggetto || "Valutazione") + " · " + az.value.trim()) +
           "&body=" + encodeURIComponent(dati.toString().replace(/&/g, "\n"));
       };
       if (!INVIO || !window.fetch) { aMano(); return; }
       fetch(INVIO, { method: "POST", mode: "no-cors", body: dati })
-        .then(function () { f.reset(); if (esito) esito.textContent = "Grazie. La valutazione è arrivata a Vento a Favore."; })
+        .then(function () { f.reset(); if (esito) esito.textContent = d.inviato || "Grazie. La valutazione è arrivata a Vento a Favore."; })
         .catch(aMano)
         .then(function () { if (tasto) tasto.disabled = false; });
     });

@@ -8,6 +8,8 @@
 
 <meta name="description" content="Pagina dimostrativa: come Vento a Favore costruisce il sito di un'azienda meccanica. Azienda e dati inventati.">
 <meta name="robots" content="noindex, follow">
+<link rel="alternate" hreflang="it" href="https://ventoafavore.it/esempio-sito/">
+<link rel="alternate" hreflang="en" href="https://ventoafavore.it/esempio-sito/en/">
 <meta property="og:title" content="Un sito d'esempio, costruito da Vento a Favore">
 <meta property="og:description" content="Pagina dimostrativa per un'azienda inventata di oleodinamica.">
 <meta property="og:image" content="https://ventoafavore.it/anteprima-social-it.jpg">
@@ -40,6 +42,10 @@ header{background:var(--ink);color:var(--pale)}
 nav{display:flex;gap:26px;flex-wrap:wrap}
 nav a{color:var(--mid);text-decoration:none;font-size:14px;letter-spacing:.09em;text-transform:uppercase}
 nav a:hover{color:var(--amber-soft)}
+.lang{display:flex;gap:6px;align-items:baseline;font-size:12px;color:var(--line)}
+.lang a{color:var(--mid);text-decoration:none;letter-spacing:.14em}
+.lang a:hover{color:var(--amber-soft)}
+.lang a[aria-current]{color:var(--amber)}
 
 .hero{background:var(--ink);color:var(--pale);border-top:1px solid var(--line);padding:54px 0 0}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
@@ -125,6 +131,7 @@ footer a{color:var(--amber-soft)}
       <a href="#dove">Dove lavora</a>
       <a href="#contatti">Contatti</a>
     </nav>
+    <div class="lang mono" role="navigation" aria-label="Lingua"><a href="/esempio-sito/" hreflang="it" lang="it" aria-current="page">IT</a><span aria-hidden="true">/</span><a href="/esempio-sito/en/" hreflang="en" lang="en">EN</a></div>
   </div>
 </header>
 

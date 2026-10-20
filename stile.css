@@ -1003,3 +1003,4 @@ html { background: var(--paper); color-scheme: light dark; }
   .testata { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--paper); }
   .mv .pair .after .pw, .mv .prova-dopo .pw { filter: none; }
 }
+picture { display: contents; }   /* 20/10: le foto AVIF dentro <picture> si impaginano come prima */
