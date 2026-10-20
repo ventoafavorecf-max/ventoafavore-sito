@@ -113,7 +113,7 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
 
   /* ---------- 6. scorrimento: barra di lettura, testata, parallasse ---------- */
   var barra = document.querySelector(".avanzamento"), testata = document.querySelector(".testata");
-  var par = fermo ? [] : $$("[data-par]");
+  var par = fermo || innerWidth < 900 ? [] : $$("[data-par]");   // 20/10: al telefono le foto restano ferme (scorrimento più fluido)
   var inAttesa = false;
   function suScroll() {
     inAttesa = false;
@@ -348,7 +348,7 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
                              pin: true, scrub: 0.6, invalidateOnRefresh: true, anticipatePin: 1 } });
         });
       }
-      if (c.conditions.mosso) {
+      if (c.conditions.mosso && c.conditions.largo) {   // 20/10: solo su schermi larghi, al telefono pesava sullo scorrimento
         /* l'apertura si allontana piano quando si scende */
         $$(".apertura .wrap, .testa-pagina .wrap").forEach(function (w) {
           gsap.to(w, { yPercent: -6, opacity: .35, ease: "none",

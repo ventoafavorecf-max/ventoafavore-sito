@@ -996,3 +996,10 @@ html[lang="fr"] .menu .voce, html[lang="es"] .menu .voce { padding-inline: 6px; 
 .modulo .voto[aria-invalid="true"] .errore { display: block; }
 /* dentro i pulsanti e gli occhielli (flex) la cifra unita all'euro non deve diventare un blocco a parte */
 .tasto > .nb, .occhiello > .nb { display: contents; }
+/* 20/10, dal telefono di Francesco: niente bianco fra una pagina e l'altra, scorrimento più fluido */
+html { background: var(--paper); color-scheme: light dark; }
+:root[data-theme="light"] { color-scheme: light; }
+@media (max-width: 980px) {
+  .testata { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--paper); }
+  .mv .pair .after .pw, .mv .prova-dopo .pw { filter: none; }
+}
