@@ -4,6 +4,7 @@
    testata che si stringe, menu del telefono, video che parte al clic.
    Reti di sicurezza: senza JavaScript la pagina è intera e ferma; con «meno movimento» nel
    telefono tutto è fermo e visibile; dopo 3 s ogni elemento in vista viene mostrato comunque. */
+window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «mv» se questo file non arriva
 (function () {
   "use strict";
   var radice = document.documentElement;
@@ -133,11 +134,16 @@
   /* ---------- 7. menu del telefono ---------- */
   var apriT = document.querySelector(".apri-menu"), tendina = document.getElementById("tendina");
   if (apriT && tendina) {
-    var chiudi = function () { radice.classList.remove("menu-aperto"); apriT.setAttribute("aria-expanded", "false"); tendina.setAttribute("aria-hidden", "true"); };
+    // 20/10: col menu aperto il resto della pagina esce dal giro del tasto Tab
+    var fuori = function (si) { $$("main, .piede, .briciole, .lingue-su").forEach(function (el) { el.inert = si; }); };
+    var chiudi = function () { radice.classList.remove("menu-aperto"); apriT.setAttribute("aria-expanded", "false"); tendina.setAttribute("aria-hidden", "true"); fuori(false); };
     apriT.addEventListener("click", function () {
       var ora = !radice.classList.contains("menu-aperto");
+      // 20/10: in cima alla pagina la barra sta sotto la fascia «Novità» e le bandiere; il pannello parte sotto il suo bordo vero
+      var testata = document.querySelector(".testata");
+      if (ora && testata) tendina.style.paddingTop = Math.max(118, Math.ceil(testata.getBoundingClientRect().bottom) + 28) + "px";
       radice.classList.toggle("menu-aperto", ora); apriT.setAttribute("aria-expanded", String(ora));
-      tendina.setAttribute("aria-hidden", String(!ora));
+      tendina.setAttribute("aria-hidden", String(!ora)); fuori(ora);
       if (ora) { var primo = tendina.querySelector("a, summary"); if (primo) primo.focus({ preventScroll: true }); }
     });
     $$("a", tendina).forEach(function (a) { a.addEventListener("click", chiudi); });
@@ -179,7 +185,7 @@
   var INVIO = "https://script.google.com/macros/s/AKfycbxPcA9uTJ1WhuptbTQZJjLeDqvwOoDypayg280ZtceJ_sPQq6qT5tNI6hy_K1HRo0gGzg/exec";
 
   /* ---------- 10. modulo di contatto: prepara l'email già scritta ---------- */
-  $$("form.modulo").forEach(function (f) {
+  $$("form.modulo:not([data-tipo])").forEach(function (f) {
     var chiesto = new URLSearchParams(location.search).get("lavoro");     /* arriva da «Chiedere…» */
     if (chiesto) $$("input[name=lavoro]", f).forEach(function (r) { if (r.value === chiesto) r.checked = true; });
     f.addEventListener("submit", function (ev) {
@@ -221,12 +227,50 @@
       fetch(INVIO, { method: "POST", mode: "no-cors", body: dati })
         .then(function () {
           f.reset();
-          if (esito) esito.textContent = d.inviato || "Messaggio arrivato a Francesco. La risposta arriva per email entro un giorno lavorativo.";
+          if (esito) esito.textContent = d.inviato || "Messaggio arrivato. Vento a Favore risponde per email entro un giorno lavorativo.";
         })
         .catch(conPosta)
         .then(function () { if (tasto) tasto.disabled = false; });
     });
     $$("[required]", f).forEach(function (c) { c.addEventListener("input", function () { c.removeAttribute("aria-invalid"); }); });
+  });
+
+  /* ---------- 10-ter. valutazione dei clienti (20/10): voti da 1 a 5, commento, permesso di pubblicare ----------
+     Il collegamento mandato al cliente può portare già azienda e lavoro: /valutazione/?azienda=…&lavoro=… */
+  $$("form.modulo[data-tipo=valutazione]").forEach(function (f) {
+    var q = new URLSearchParams(location.search);
+    if (q.get("azienda") && f.elements.azienda) f.elements.azienda.value = q.get("azienda");
+    if (q.get("lavoro") && f.elements.lavoro) f.elements.lavoro.value = q.get("lavoro");
+    var esito = f.parentNode.querySelector(".modulo-esito");
+    var gruppoVoto = f.querySelector("[data-voto]");
+    $$("input[name=voto]", f).forEach(function (r) { r.addEventListener("change", function () { gruppoVoto.removeAttribute("aria-invalid"); }); });
+    $$("[required]", f).forEach(function (c) { c.addEventListener("input", function () { c.removeAttribute("aria-invalid"); }); });
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var az = f.elements.azienda, voto = f.querySelector("input[name=voto]:checked");
+      az.setAttribute("aria-invalid", String(!az.value.trim()));
+      gruppoVoto.setAttribute("aria-invalid", String(!voto));
+      if (!az.value.trim()) { az.focus(); return; }
+      if (!voto) { f.querySelector("input[name=voto]").focus(); return; }
+      var scelto = function (n) { return (f.querySelector("input[name=" + n + "]:checked") || {}).value || ""; };
+      var dati = new URLSearchParams();
+      dati.append("tipo", "valutazione");
+      ["azienda", "nome", "lavoro", "commento", "sito_web"].forEach(function (n) { dati.append(n, (f.elements[n] ? f.elements[n].value : "").trim()); });
+      ["voto", "chiarezza", "tempi", "qualita"].forEach(function (n) { dati.append(n, scelto(n)); });
+      dati.append("pubblicare", f.elements.pubblicare && f.elements.pubblicare.checked ? "sì" : "no");
+      var tasto = f.querySelector("button[type=submit]");
+      if (tasto) tasto.disabled = true;
+      if (esito) esito.textContent = "Invio in corso…";
+      var aMano = function () {
+        location.href = "mailto:ventoafavorecf@gmail.com?subject=" + encodeURIComponent("Valutazione · " + az.value.trim()) +
+          "&body=" + encodeURIComponent(dati.toString().replace(/&/g, "\n"));
+      };
+      if (!INVIO || !window.fetch) { aMano(); return; }
+      fetch(INVIO, { method: "POST", mode: "no-cors", body: dati })
+        .then(function () { f.reset(); if (esito) esito.textContent = "Grazie. La valutazione è arrivata a Vento a Favore."; })
+        .catch(aMano)
+        .then(function () { if (tasto) tasto.disabled = false; });
+    });
   });
 
   /* ---------- 10-bis. la fila sul telefono: segno di avanzamento e frecce (si sfoglia col dito) ---------- */

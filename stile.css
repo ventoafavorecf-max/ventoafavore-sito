@@ -946,7 +946,7 @@ a.lingua .badge { color: var(--accent); border-color: var(--accent-soft); }
                font-size: 15px; line-height: 1; box-shadow: none; }
 .carta .etich .bandiera { width: 18px; height: 12px; margin-right: 8px; vertical-align: -1px; }
 
-/* ---------- le due porte dell'apertura: testi in lingua e sito da zero, di pari peso (Francesco, 05/10) ---------- */
+/* ---------- le due porte dell'apertura: testi in lingua e sito da zero, di pari peso (05/10) ---------- */
 .porte { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 34px; max-width: 640px; }
 .porta { display: flex; flex-direction: column; gap: 8px; padding: 22px 22px 16px; border: 1px solid var(--rule); border-radius: 4px;
          background: var(--card); color: var(--ink); text-decoration: none;
@@ -967,3 +967,32 @@ a.lingua .badge { color: var(--accent); border-color: var(--accent-soft); }
 .testata .tasto { flex-shrink: 0; }
 /* francese e spagnolo: voci più lunghe, la testata non ci stava (il tasto usciva di 37-55 px) */
 html[lang="fr"] .menu .voce, html[lang="es"] .menu .voce { padding-inline: 6px; font-size: 16.5px; }
+
+/* ============ 20/10, revisione: contrasti e focus (modalità scura, tastiera, campi del modulo) ============ */
+/* Il rosso ossido come FONDO non cambia col tema: in scuro --accent diventa rosato chiaro e il testo chiaro sopra
+   non si leggeva più (2,18:1). Il rosato chiaro resta solo per i testi su fondo scuro. */
+:root { --accento-fondo: #7B2D26; --bordo-campo: #8E8679; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bordo-campo: #77705F; } }
+.carta::before, .lingue-su .novita-su, .menu .voce.punta-voce:hover, .menu .voce.punta-voce[aria-current],
+.fascia-punta, .pa-glifi { background: var(--accento-fondo); }
+.fascia-punta .tasto.chiaro { color: var(--accento-fondo); }
+.fascia-punta .tasto.chiaro::before { background: #1C1917; }
+/* il riquadro di focus si vede anche sui fondi scuri e su quello rosso */
+.lingue-su :focus-visible, .piede :focus-visible, .scura :focus-visible,
+.carta.in-evidenza:focus-visible { outline-color: var(--band-accent); }
+.fascia-punta :focus-visible, .novita-su:focus-visible, .carta:hover:focus-visible { outline-color: #FBF6F1; }
+/* i bordi dei campi si distinguono dal fondo (3:1) */
+.modulo input, .modulo select, .modulo textarea, .modulo .scelte span { border-color: var(--bordo-campo); }
+/* le briciole non si riconoscono solo dal colore */
+.briciole a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+/* 20/10: la barra in cima porta al sito da zero; frase intera sul computer, breve sul telefono */
+.lingue-su .novita-su .breve { display: none; }
+@media (max-width: 700px) { .lingue-su .novita-su .lungo { display: none; } .lingue-su .novita-su .breve { display: inline; } }
+.nb { white-space: nowrap; }
+/* 20/10: riquadro di fiducia (home e contatti) e modulo di valutazione */
+.fiducia { max-width: 74ch; margin-top: 26px; padding: 18px 22px; border-left: 3px solid var(--accento-fondo);
+           background: var(--card); border-radius: 0 6px 6px 0; color: var(--ink); font-size: 17.5px; line-height: 1.55; }
+.modulo .voto .scelte span { min-width: 52px; justify-content: center; }
+.modulo .voto[aria-invalid="true"] .errore { display: block; }
+/* dentro i pulsanti e gli occhielli (flex) la cifra unita all'euro non deve diventare un blocco a parte */
+.tasto > .nb, .occhiello > .nb { display: contents; }

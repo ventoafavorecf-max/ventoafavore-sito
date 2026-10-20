@@ -24,13 +24,17 @@
 <meta property="og:image" content="https://ventoafavore.it/anteprima-social-es.jpg">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Vento a Favore">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preload" href="/font/pagella-regular.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/font/pagella-italic.woff" as="font" type="font/woff" crossorigin>
-<script>document.documentElement.classList.add("mv");</script>
+<script>document.documentElement.classList.add("mv");setTimeout(function(){if(!window.VAF_PRONTO)document.documentElement.classList.remove("mv")},2500);</script>
 <link rel="stylesheet" href="/stile.css">
+<script src="/sito.js" defer></script>
 <script src="/lib/gsap.min.js" defer></script>
 <script src="/lib/ScrollTrigger.min.js" defer></script>
-<script src="/sito.js" defer></script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://ventoafavore.it/es/"}, {"@type": "ListItem", "position": 2, "name": "Primera lectura", "item": "https://ventoafavore.it/es/primera-lectura/"}]}</script>
 </head>
@@ -48,14 +52,14 @@
 <header class="testata">
   <div class="wrap">
     <a class="marchio" href="/es/" aria-label="Vento a Favore"><img src="/logo-email.png" width="50" height="50" alt=""><span class="nome">Vento a Favore</span></a>
-    <nav class="navigazione" aria-label="P&aacute;ginas del sitio"><ul class="menu"><li><a class="voce" href="/es/primera-lectura/" aria-current="page">Primera lectura</a></li><li><a class="voce" href="/es/precios/">Precios</a></li><li><a class="voce" href="/es/documentos/">Documentos</a></li><li><a class="voce" href="/es/sitio-web/">Sitios web</a></li><li><a class="voce punta-voce" href="/es/chino-arabe/" aria-label="Chino y &aacute;rabe"><span lang="zh-Hans">中文</span> · <span lang="ar">العربية</span></a></li><li><a class="voce" href="/es/preguntas/">Preguntas</a></li><li><a class="voce" href="/es/contacto/">Contacto</a></li></ul></nav>
-    <a class="tasto" href="/es/primera-lectura/">Primera lectura, 39&nbsp;&euro;</a>
+    <nav class="navigazione" aria-label="P&aacute;ginas del sitio"><ul class="menu"><li><a class="voce" href="/es/primera-lectura/" aria-current="page">Primera lectura</a></li><li><a class="voce" href="/es/precios/">Precios</a></li><li><a class="voce" href="/es/documentos/">Documentos</a></li><li><a class="voce" href="/es/sitio-web/">Sitios web</a></li><li><a class="voce punta-voce" href="/es/chino-arabe/" aria-label="中文 · العربية, Chino y &aacute;rabe"><span lang="zh-Hans">中文</span> · <span lang="ar">العربية</span></a></li><li><a class="voce" href="/es/preguntas/">Preguntas</a></li><li><a class="voce" href="/es/contacto/">Contacto</a></li></ul></nav>
+    <a class="tasto" href="/es/primera-lectura/">Primera lectura, <span class="nb">39 &euro;</span></a>
     <button class="apri-menu" type="button" aria-expanded="false" aria-controls="tendina">Men&uacute; <span class="righe" aria-hidden="true"></span></button>
   </div>
 </header>
 <nav class="tendina" id="tendina" aria-label="Men&uacute;" aria-hidden="true">
   <div class="tendina-dentro"><a class="tv tv-punta" href="/es/chino-arabe/">Chino y &aacute;rabe <span lang="zh-Hans">中文</span> <span lang="ar">العربية</span></a><a class="tv" href="/es/primera-lectura/">Primera lectura</a><a class="tv" href="/es/precios/">Precios</a><a class="tv" href="/es/documentos/">Documentos</a><a class="tv" href="/es/sitio-web/">Sitios web</a><a class="tv" href="/es/preguntas/">Preguntas</a><a class="tv" href="/es/contacto/">Contacto</a>
-    <a class="tasto" href="/es/primera-lectura/">Primera lectura, 39&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a>
+    <a class="tasto" href="/es/primera-lectura/">Primera lectura, <span class="nb">39 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a>
   </div>
 </nav>
 <nav class="briciole" aria-label="Ruta"><div class="wrap"><a href="/es/">Inicio</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Primera lectura</span></div></nav>
@@ -63,7 +67,7 @@
 <section class="testa-pagina">
   <div class="wrap">
     <div>
-      <p class="occhiello rv">La primera lectura &middot; 39&nbsp;&euro;</p>
+      <p class="occhiello rv">La primera lectura &middot; <span class="nb">39 &euro;</span></p>
       <h1 class="spezza">Diez observaciones sobre sus p&aacute;ginas en italiano, <em>en dos d&iacute;as</em></h1>
       <p class="lede rv">Antes de encargar un texto a alguien a quien no conoce, es razonable pedir una prueba peque&ntilde;a. La primera lectura es esa prueba: Vento a Favore lee las p&aacute;ginas en italiano que su empresa ya tiene publicadas y le devuelve diez observaciones concretas, cada una con la frase tal como est&aacute; hoy y como la escribir&iacute;a para un comprador italiano.</p>
       <div class="azioni rv">
@@ -72,8 +76,8 @@
       </div>
     </div>
     <dl class="dati-rapidi rv">
-      <div><dt>Precio</dt><dd class="accento">39&nbsp;&euro;</dd></div>
-      <div><dt>Plazo</dt><dd>48 horas laborables</dd></div>
+      <div><dt>Precio</dt><dd class="accento"><span class="nb">39 &euro;</span></dd></div>
+      <div><dt>Plazo</dt><dd>dos d&iacute;as laborables</dd></div>
       <div><dt>Qu&eacute; recibe</dt><dd>diez observaciones</dd></div>
       <div><dt>Despu&eacute;s</dt><dd>se descuenta del primer trabajo</dd></div>
     </dl>
@@ -81,7 +85,7 @@
 </section>
 
 <figure class="testa-foto" aria-hidden="true">
-  <div class="par" data-par="-0.12"><img src="/img/macchina-da-scrivere-1600.jpg" srcset="/img/macchina-da-scrivere-800.jpg 800w, /img/macchina-da-scrivere-1600.jpg 1600w" sizes="100vw" alt="" loading="lazy" width="1600" height="1024"></div>
+  <div class="par" data-par="-0.12"><img fetchpriority="high" src="/img/macchina-da-scrivere-1600.jpg" srcset="/img/macchina-da-scrivere-800.jpg 800w, /img/macchina-da-scrivere-1600.jpg 1600w" sizes="100vw" alt="" width="1600" height="1024"></div>
 </figure>
 
 <section class="sez">
@@ -105,7 +109,7 @@
     <div>
       <p class="occhiello rv">Un ejemplo completo</p>
       <h2 class="spezza">La primera lectura, <em>tal como se entrega</em></h2>
-      <p class="lede rv">Diez observaciones sobre las p&aacute;ginas italianas de un fabricante alem&aacute;n de maquinaria agr&iacute;cola. Es el documento de 39&nbsp;&euro;, completo y en italiano. La empresa es inventada y los datos, veros&iacute;miles pero ficticios: sirven para mostrar el formato.</p>
+      <p class="lede rv">Diez observaciones sobre las p&aacute;ginas italianas de un fabricante alem&aacute;n de maquinaria agr&iacute;cola. Es el documento de <span class="nb">39 &euro;</span>, completo y en italiano. La empresa es inventada y los datos, veros&iacute;miles pero ficticios: sirven para mostrar el formato.</p>
       <p class="rv" style="margin-top:28px"><a class="tasto" href="/esempio-it-prima-lettura.pdf" target="_blank" rel="noopener">Abrir el PDF <span class="freccia" aria-hidden="true">&rarr;</span></a></p>
     </div>
     <a class="documento rv" href="/esempio-it-prima-lettura.pdf" target="_blank" rel="noopener" style="max-width:420px">
@@ -121,11 +125,11 @@
         <p class="occhiello rv">C&oacute;mo funciona</p>
         <h2 class="spezza">Cuatro pasos, <em>dos d&iacute;as</em></h2>
       </div>
-      <p class="lede rv">El importe se conoce antes de empezar, y hasta la confirmaci&oacute;n no hay ning&uacute;n compromiso. Las 48 horas son laborables.</p>
+      <p class="lede rv">El importe se conoce antes de empezar, y hasta la confirmaci&oacute;n no hay ning&uacute;n compromiso. Las 48 horas son dos d&iacute;as laborables.</p>
     </div>
     <ol class="passi">
       <li class="passo rv"><span class="quando">Para empezar</span><h3>La petici&oacute;n</h3><p>Un correo con las direcciones de las p&aacute;ginas en italiano que m&aacute;s le importan. Nada m&aacute;s: ni formularios obligatorios ni llamadas.</p></li>
-      <li class="passo rv"><span class="quando">En un d&iacute;a</span><h3>La confirmaci&oacute;n</h3><p>Llega una respuesta con lo que se va a leer y el importe, 39&nbsp;&euro;. Si no le convence, ah&iacute; termina, sin coste.</p></li>
+      <li class="passo rv"><span class="quando">En un d&iacute;a</span><h3>La confirmaci&oacute;n</h3><p>Llega una respuesta con lo que se va a leer y el importe, <span class="nb">39 &euro;</span>. Si no le convence, ah&iacute; termina, sin coste.</p></li>
       <li class="passo rv"><span class="quando">En 48 horas</span><h3>La lectura</h3><p>Llega el documento con las diez observaciones, en PDF y en texto editable.</p></li>
       <li class="passo rv"><span class="quando">En la entrega</span><h3>El pago</h3><p>A la entrega, por transferencia. Por cada trabajo se emite un recibo en regla.</p></li>
     </ol>
@@ -136,8 +140,8 @@
   <div class="fondo" aria-hidden="true"><img src="/img/macchina-da-scrivere-800.jpg" srcset="/img/macchina-da-scrivere-800.jpg 800w, /img/macchina-da-scrivere-1600.jpg 1600w" sizes="50vw" alt="" loading="lazy" width="800" height="534"></div>
   <div class="wrap">
     <p class="occhiello rv">La regla que cuenta</p>
-    <h2 class="spezza" id="t-regola">Los 39&nbsp;&euro; se descuentan <em>del primer trabajo</em></h2>
-    <p class="lede rv">Si despu&eacute;s de la primera lectura su empresa encarga un trabajo en los sesenta d&iacute;as siguientes, los 39&nbsp;&euro; se restan &iacute;ntegros del total. No es un descuento: es un anticipo. Quien empieza por la primera lectura no paga ni un euro m&aacute;s que quien empieza directamente por una ficha.</p>
+    <h2 class="spezza" id="t-regola">Los <span class="nb">39 &euro;</span> se descuentan <em>del primer trabajo</em></h2>
+    <p class="lede rv">Si despu&eacute;s de la primera lectura su empresa encarga un trabajo en los sesenta d&iacute;as siguientes, los <span class="nb">39 &euro;</span> se restan &iacute;ntegros del total. No es un descuento: es un anticipo. Quien empieza por la primera lectura no paga ni un euro m&aacute;s que quien empieza directamente por una ficha.</p>
     <div class="azioni rv">
       <a class="tasto chiaro" href="/es/contacto/?lavoro=Primera%20lectura">Pedir la primera lectura <span class="freccia" aria-hidden="true">&rarr;</span></a>
       <span>ventoafavorecf@gmail.com &middot; respuesta en un d&iacute;a laborable</span>
@@ -176,13 +180,13 @@
       <h2 class="spezza">Sus p&aacute;ginas en italiano, <em>y tambi&eacute;n en el otro sentido</em></h2>
       <div class="prosa senza-capolettera rv">
         <p>La primera lectura se centra en sus p&aacute;ginas en italiano: es el idioma en el que Vento a Favore escribe para las empresas que venden en Italia.</p>
-        <p>&iquest;Es usted una empresa italiana que exporta? La primera lectura de sus textos en ingl&eacute;s, alem&aacute;n, franc&eacute;s o espa&ntilde;ol cuesta lo mismo, 39&nbsp;&euro;; la de una p&aacute;gina en chino o en &aacute;rabe, 59&nbsp;&euro;. <a href="/es/exportadores-italianos/">La p&aacute;gina para exportadores italianos</a>.</p>
+        <p>&iquest;Es usted una empresa italiana que exporta? La primera lectura de sus textos en ingl&eacute;s, alem&aacute;n, franc&eacute;s o espa&ntilde;ol cuesta lo mismo, <span class="nb">39 &euro;</span>; la de una p&aacute;gina en chino o en &aacute;rabe, <span class="nb">59 &euro;</span>. <a href="/es/exportadores-italianos/">La p&aacute;gina para exportadores italianos</a>.</p>
       </div>
     </div>
     <div>
       <div class="listino" role="table" aria-label="Precios de la primera lectura">
-        <div class="voce prima rv" role="row"><div role="cell"><span class="cosa">Primera lectura de sus p&aacute;ginas en italiano</span><span class="dettaglio">diez observaciones &middot; 48 horas</span></div><div class="prezzo" role="cell">39&nbsp;&euro;</div></div>
-        <div class="voce sovra rv" role="row"><div role="cell"><span class="cosa"><a href="/es/chino-arabe/">Primera lectura de una p&aacute;gina en chino o en &aacute;rabe</a></span><span class="dettaglio">para empresas italianas que exportan &middot; diez observaciones escritas sobre el texto ya publicado &middot; 5 d&iacute;as</span></div><div class="prezzo" role="cell">59&nbsp;&euro;</div></div>
+        <div class="voce prima rv" role="row"><div role="cell"><span class="cosa">Primera lectura de sus p&aacute;ginas en italiano</span><span class="dettaglio">diez observaciones &middot; 48 horas</span></div><div class="prezzo" role="cell"><span class="nb">39 &euro;</span></div></div>
+        <div class="voce sovra rv" role="row"><div role="cell"><span class="cosa"><a href="/es/chino-arabe/">Primera lectura de una p&aacute;gina en chino o en &aacute;rabe</a></span><span class="dettaglio">para empresas italianas que exportan &middot; diez observaciones escritas sobre el texto ya publicado &middot; 5 d&iacute;as</span></div><div class="prezzo" role="cell"><span class="nb">59 &euro;</span></div></div>
       </div>
       <p class="listino-nota rv">En los dos casos el importe se descuenta del primer trabajo. Pago a la entrega, por transferencia; por cada trabajo se emite un recibo en regla.</p>
     </div>
@@ -199,9 +203,9 @@
       <p class="lede rv">La &uacute;ltima parte de la primera lectura indica qu&eacute; trabajos har&iacute;an falta, con los precios de la tarifa. Estas son las p&aacute;ginas donde se explican.</p>
     </div>
     <div class="carte">
-      <a class="carta rv" href="/es/documentos/#ficha-producto"><span class="etich">Documento</span><h3>Ficha de producto</h3><p>El PDF de una p&aacute;gina que un distribuidor italiano pide en cuanto escribe. Mitad relato, mitad datos.</p><div class="piede-carta"><span class="prezzo">140&nbsp;&euro;</span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
-      <a class="carta rv" href="/es/documentos/#presentacion"><span class="etich">Documento</span><h3>P&aacute;gina de presentaci&oacute;n</h3><p>La p&aacute;gina &laquo;qui&eacute;nes somos&raquo;, reescrita con hechos en lugar de adjetivos.</p><div class="piede-carta"><span class="prezzo">180&nbsp;&euro;</span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
-      <a class="carta rv" href="/es/sitio-web/"><span class="etich">El sitio</span><h3>P&aacute;ginas web en italiano</h3><p>De una p&aacute;gina reescrita al sitio completo hecho desde cero.</p><div class="piede-carta"><span class="prezzo">desde 79&nbsp;&euro;</span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/es/documentos/#ficha-producto"><span class="etich">Documento</span><h3>Ficha de producto</h3><p>El PDF de una p&aacute;gina que un distribuidor italiano pide en cuanto escribe. Mitad relato, mitad datos.</p><div class="piede-carta"><span class="prezzo"><span class="nb">140 &euro;</span></span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/es/documentos/#presentacion"><span class="etich">Documento</span><h3>P&aacute;gina de presentaci&oacute;n</h3><p>La p&aacute;gina &laquo;qui&eacute;nes somos&raquo;, reescrita con hechos en lugar de adjetivos.</p><div class="piede-carta"><span class="prezzo"><span class="nb">180 &euro;</span></span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/es/sitio-web/"><span class="etich">El sitio</span><h3>P&aacute;ginas web en italiano</h3><p>De una p&aacute;gina reescrita al sitio completo hecho desde cero.</p><div class="piede-carta"><span class="prezzo">desde <span class="nb">79 &euro;</span></span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
       <a class="carta rv" href="/es/documentos/"><span class="etich">Ejemplos</span><h3>Los documentos</h3><p>Cuatro documentos terminados, en italiano, tal como se entregan.</p><div class="piede-carta"><span class="prezzo">PDF</span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
       <a class="carta rv" href="/es/precios/"><span class="etich">Tarifa</span><h3>Todos los precios</h3><p>Documentos, p&aacute;ginas web, chino y &aacute;rabe, con precios cerrados.</p><div class="piede-carta"><span class="prezzo">La tarifa</span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
       <a class="carta rv" href="/es/preguntas/"><span class="etich">Antes de decidir</span><h3>Preguntas</h3><p>Precios, plazos, pago, confidencialidad: las respuestas completas.</p><div class="piede-carta"><span class="prezzo">14 respuestas</span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
@@ -224,7 +228,7 @@
     <div class="piede-alto">
       <div>
         <p class="piede-titolo">Textos en italiano y sitios desde cero, <em>a precios cerrados</em>.</p>
-        <p class="azioni-piede"><a class="tasto chiaro" href="/es/primera-lectura/">La primera lectura, 39&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a> <a class="tasto chiaro" href="/es/sitio-web/">El sitio, desde 290&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a></p>
+        <p class="azioni-piede"><a class="tasto chiaro" href="/es/primera-lectura/">La primera lectura, <span class="nb">39 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a> <a class="tasto chiaro" href="/es/sitio-web/">El sitio, desde <span class="nb">290 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a></p>
       </div>
       <div class="piede-contatti">
         <p class="ph">Escribir</p>
@@ -237,7 +241,7 @@
       <nav aria-label="Otros idiomas"><p class="ph">Otros idiomas</p><a href="/prima-lettura/" hreflang="it" lang="it"><img class="bandiera" src="/img/bandiere/it.svg" alt="" width="21" height="14">Italiano</a><a href="/en/first-reading/" hreflang="en" lang="en"><img class="bandiera" src="/img/bandiere/gb.svg" alt="" width="21" height="14">English</a><a href="/de/erstlektuere/" hreflang="de" lang="de"><img class="bandiera" src="/img/bandiere/de.svg" alt="" width="21" height="14">Deutsch</a><a href="/fr/premiere-lecture/" hreflang="fr" lang="fr"><img class="bandiera" src="/img/bandiere/fr.svg" alt="" width="21" height="14">Fran&ccedil;ais</a></nav>
     </div>
     <div class="legale">
-      <p>Actividad realizada como prestaci&oacute;n ocasional seg&uacute;n el art&iacute;culo 2222 del C&oacute;digo civil italiano: por cada trabajo se emite un recibo en regla, con una retenci&oacute;n del 20&nbsp;% cuando el cliente es un agente de retenci&oacute;n italiano y un impuesto de timbre de 2&nbsp;&euro; en los importes superiores a 77,47&nbsp;&euro;. No es una actividad empresarial, y quien la realiza no tiene n&uacute;mero de IVA.</p>
+      <p>Actividad realizada como prestaci&oacute;n ocasional seg&uacute;n el art&iacute;culo 2222 del C&oacute;digo civil italiano: por cada trabajo se emite un recibo en regla, con una retenci&oacute;n del <span class="nb">20 %</span> cuando el cliente es un agente de retenci&oacute;n italiano y un impuesto de timbre de <span class="nb">2 &euro;</span> en los importes superiores a <span class="nb">77,47 &euro;</span>. No es una actividad empresarial, y quien la realiza no tiene n&uacute;mero de IVA.</p>
       <p>Los ejemplos de este sitio son demostrativos: las frases y las traducciones literales reproducen errores t&iacute;picos y no pertenecen a ninguna empresa en concreto. Fotos de Pexels.</p>
     </div>
     <p class="firma-grande" aria-hidden="true">Vento a Favore</p>

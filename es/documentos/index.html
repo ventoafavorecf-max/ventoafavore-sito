@@ -24,13 +24,17 @@
 <meta property="og:image" content="https://ventoafavore.it/anteprima-social-es.jpg">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Vento a Favore">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preload" href="/font/pagella-regular.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/font/pagella-italic.woff" as="font" type="font/woff" crossorigin>
-<script>document.documentElement.classList.add("mv");</script>
+<script>document.documentElement.classList.add("mv");setTimeout(function(){if(!window.VAF_PRONTO)document.documentElement.classList.remove("mv")},2500);</script>
 <link rel="stylesheet" href="/stile.css">
+<script src="/sito.js" defer></script>
 <script src="/lib/gsap.min.js" defer></script>
 <script src="/lib/ScrollTrigger.min.js" defer></script>
-<script src="/sito.js" defer></script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://ventoafavore.it/es/"}, {"@type": "ListItem", "position": 2, "name": "Documentos", "item": "https://ventoafavore.it/es/documentos/"}]}</script>
 </head>
@@ -48,14 +52,14 @@
 <header class="testata">
   <div class="wrap">
     <a class="marchio" href="/es/" aria-label="Vento a Favore"><img src="/logo-email.png" width="50" height="50" alt=""><span class="nome">Vento a Favore</span></a>
-    <nav class="navigazione" aria-label="P&aacute;ginas del sitio"><ul class="menu"><li><a class="voce" href="/es/primera-lectura/">Primera lectura</a></li><li><a class="voce" href="/es/precios/">Precios</a></li><li><a class="voce" href="/es/documentos/" aria-current="page">Documentos</a></li><li><a class="voce" href="/es/sitio-web/">Sitios web</a></li><li><a class="voce punta-voce" href="/es/chino-arabe/" aria-label="Chino y &aacute;rabe"><span lang="zh-Hans">中文</span> · <span lang="ar">العربية</span></a></li><li><a class="voce" href="/es/preguntas/">Preguntas</a></li><li><a class="voce" href="/es/contacto/">Contacto</a></li></ul></nav>
-    <a class="tasto" href="/es/primera-lectura/">Primera lectura, 39&nbsp;&euro;</a>
+    <nav class="navigazione" aria-label="P&aacute;ginas del sitio"><ul class="menu"><li><a class="voce" href="/es/primera-lectura/">Primera lectura</a></li><li><a class="voce" href="/es/precios/">Precios</a></li><li><a class="voce" href="/es/documentos/" aria-current="page">Documentos</a></li><li><a class="voce" href="/es/sitio-web/">Sitios web</a></li><li><a class="voce punta-voce" href="/es/chino-arabe/" aria-label="中文 · العربية, Chino y &aacute;rabe"><span lang="zh-Hans">中文</span> · <span lang="ar">العربية</span></a></li><li><a class="voce" href="/es/preguntas/">Preguntas</a></li><li><a class="voce" href="/es/contacto/">Contacto</a></li></ul></nav>
+    <a class="tasto" href="/es/primera-lectura/">Primera lectura, <span class="nb">39 &euro;</span></a>
     <button class="apri-menu" type="button" aria-expanded="false" aria-controls="tendina">Men&uacute; <span class="righe" aria-hidden="true"></span></button>
   </div>
 </header>
 <nav class="tendina" id="tendina" aria-label="Men&uacute;" aria-hidden="true">
   <div class="tendina-dentro"><a class="tv tv-punta" href="/es/chino-arabe/">Chino y &aacute;rabe <span lang="zh-Hans">中文</span> <span lang="ar">العربية</span></a><a class="tv" href="/es/primera-lectura/">Primera lectura</a><a class="tv" href="/es/precios/">Precios</a><a class="tv" href="/es/documentos/">Documentos</a><a class="tv" href="/es/sitio-web/">Sitios web</a><a class="tv" href="/es/preguntas/">Preguntas</a><a class="tv" href="/es/contacto/">Contacto</a>
-    <a class="tasto" href="/es/primera-lectura/">Primera lectura, 39&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a>
+    <a class="tasto" href="/es/primera-lectura/">Primera lectura, <span class="nb">39 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a>
   </div>
 </nav>
 <nav class="briciole" aria-label="Ruta"><div class="wrap"><a href="/es/">Inicio</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Documentos</span></div></nav>
@@ -94,7 +98,7 @@
       <a class="documento rv" href="/esempio-it-prima-lettura.pdf" target="_blank" rel="noopener">
         <div class="foglio"><img src="/anteprima-it-prima-lettura.jpg" alt="Vista previa de una primera lectura sobre las p&aacute;ginas italianas de un fabricante alem&aacute;n de maquinaria" loading="lazy" width="620" height="877"></div>
         <h3>Primera lectura</h3>
-        <p>Diez observaciones sobre las p&aacute;ginas italianas de un fabricante alem&aacute;n de maquinaria agr&iacute;cola. Es el documento de 39&nbsp;&euro;, completo.</p>
+        <p>Diez observaciones sobre las p&aacute;ginas italianas de un fabricante alem&aacute;n de maquinaria agr&iacute;cola. Es el documento de <span class="nb">39 &euro;</span>, completo.</p>
         <span class="apri">Abrir el PDF <span aria-hidden="true">&rarr;</span></span>
       </a>
       <a class="documento rv" href="/esempio-it-scheda-prodotto.pdf" target="_blank" rel="noopener">
@@ -128,7 +132,6 @@
     </div>
     <div class="prosa rv">
       <p>Cada archivo se entrega tal cual: maquetado, con los t&iacute;tulos, las tablas y las notas en su sitio. Lo que cambia de una empresa a otra son los datos, y los datos los tiene usted.</p>
-      <p>Las empresas representadas son inventadas y las cifras, veros&iacute;miles pero ficticias: sirven para mostrar el formato, no como contenido utilizable.</p>
       <p>Ning&uacute;n trabajo hecho para un cliente se publica sin su consentimiento por escrito.</p>
     </div>
   </div>
@@ -150,12 +153,12 @@
       <p class="rv" style="margin-top:28px"><a class="tasto" href="/es/contacto/">Pedir un documento <span class="freccia" aria-hidden="true">&rarr;</span></a></p>
     </div>
     <ol class="elenco-segni">
-      <li class="rv" id="primera-lectura"><span class="num">01</span><div><h3><a href="/es/primera-lectura/">Primera lectura</a> &middot; 39&nbsp;&euro;</h3><p>Para quien tiene que decidir si hace reescribir sus textos: diez observaciones sobre las p&aacute;ginas en italiano ya publicadas, cada una con la frase tal como est&aacute; y la frase reescrita. Llega en 48 horas y se descuenta del primer trabajo.</p></div></li>
-      <li class="rv" id="ficha-producto"><span class="num">02</span><div><h3>Ficha de producto &middot; 140&nbsp;&euro;</h3><p>Para el distribuidor que la pide en cuanto escribe. Un PDF de una p&aacute;gina: arriba, unas l&iacute;neas con hechos comprobables; abajo, formatos, datos de embalaje, especificaciones, certificaciones, plazos de entrega e Incoterms, listos para copiar en su tarifa. Usted env&iacute;a la ficha que ya tiene y los datos del producto. Cinco d&iacute;as.</p></div></li>
-      <li class="rv" id="ficha-tecnica"><span class="num">03</span><div><h3>Ficha t&eacute;cnica &middot; 140&nbsp;&euro;</h3><p>Para el departamento de compras que compara una m&aacute;quina o un componente con los de otro proveedor: especificaciones, curvas, versiones y plazos de entrega en Italia, en el orden en que los comprueba. Las cifras se copian id&eacute;nticas y se revisan una a una. Cinco d&iacute;as.</p></div></li>
-      <li class="rv" id="presentacion"><span class="num">04</span><div><h3>P&aacute;gina de presentaci&oacute;n &middot; 180&nbsp;&euro;</h3><p>Para quien quiere saber con qui&eacute;n trata antes de pedir un precio. La p&aacute;gina &laquo;qui&eacute;nes somos&raquo;, reescrita con cuatro respuestas en lugar de adjetivos: desde cu&aacute;ndo, en qu&eacute; planta, con qu&eacute; controles, qu&eacute; hace su empresa que las dem&aacute;s no hacen. Cinco d&iacute;as.</p></div></li>
-      <li class="rv" id="e-commerce"><span class="num">05</span><div><h3>Descripciones de e-commerce &middot; 380&nbsp;&euro;</h3><p>Para quien compra en su tienda en l&iacute;nea, donde no hay un comercial que explique y la descripci&oacute;n es el &uacute;nico vendedor presente. Hasta quince productos con la misma estructura, entregados en CSV o en texto listo para pegar. Diez d&iacute;as desde que llega la lista de productos con sus datos.</p></div></li>
-      <li class="rv" id="paquete-feria"><span class="num">06</span><div><h3>Paquete feria &middot; 540&nbsp;&euro;</h3><p>Para quien pasa por su stand en una feria italiana: la p&aacute;gina de presentaci&oacute;n dice qui&eacute;n es su empresa y las tres fichas, qu&eacute; vende, con el mismo orden y las mismas palabras. Encargados de uno en uno, los cuatro documentos costar&iacute;an 600&nbsp;&euro; y veinte d&iacute;as; escritos juntos, diez d&iacute;as. Conviene empezar al menos un mes antes de la feria.</p></div></li>
+      <li class="rv" id="primera-lectura"><span class="num">01</span><div><h3><a href="/es/primera-lectura/">Primera lectura</a> &middot; <span class="nb">39 &euro;</span></h3><p>Para quien tiene que decidir si hace reescribir sus textos: diez observaciones sobre las p&aacute;ginas en italiano ya publicadas, cada una con la frase tal como est&aacute; y la frase reescrita. Llega en 48 horas y se descuenta del primer trabajo.</p></div></li>
+      <li class="rv" id="ficha-producto"><span class="num">02</span><div><h3>Ficha de producto &middot; <span class="nb">140 &euro;</span></h3><p>Para el distribuidor que la pide en cuanto escribe. Un PDF de una p&aacute;gina: arriba, unas l&iacute;neas con hechos comprobables; abajo, formatos, datos de embalaje, especificaciones, certificaciones, plazos de entrega e Incoterms, listos para copiar en su tarifa. Usted env&iacute;a la ficha que ya tiene y los datos del producto. Cinco d&iacute;as.</p></div></li>
+      <li class="rv" id="ficha-tecnica"><span class="num">03</span><div><h3>Ficha t&eacute;cnica &middot; <span class="nb">140 &euro;</span></h3><p>Para el departamento de compras que compara una m&aacute;quina o un componente con los de otro proveedor: especificaciones, curvas, versiones y plazos de entrega en Italia, en el orden en que los comprueba. Las cifras se copian id&eacute;nticas y se revisan una a una. Cinco d&iacute;as.</p></div></li>
+      <li class="rv" id="presentacion"><span class="num">04</span><div><h3>P&aacute;gina de presentaci&oacute;n &middot; <span class="nb">180 &euro;</span></h3><p>Para quien quiere saber con qui&eacute;n trata antes de pedir un precio. La p&aacute;gina &laquo;qui&eacute;nes somos&raquo;, reescrita con cuatro respuestas en lugar de adjetivos: desde cu&aacute;ndo, en qu&eacute; planta, con qu&eacute; controles, qu&eacute; hace su empresa que las dem&aacute;s no hacen. Cinco d&iacute;as.</p></div></li>
+      <li class="rv" id="e-commerce"><span class="num">05</span><div><h3>Descripciones de e-commerce &middot; <span class="nb">380 &euro;</span></h3><p>Para quien compra en su tienda en l&iacute;nea, donde no hay un comercial que explique y la descripci&oacute;n es el &uacute;nico vendedor presente. Hasta quince productos con la misma estructura, entregados en CSV o en texto listo para pegar. Diez d&iacute;as desde que llega la lista de productos con sus datos.</p></div></li>
+      <li class="rv" id="paquete-feria"><span class="num">06</span><div><h3>Paquete feria &middot; <span class="nb">540 &euro;</span></h3><p>Para quien pasa por su stand en una feria italiana: la p&aacute;gina de presentaci&oacute;n dice qui&eacute;n es su empresa y las tres fichas, qu&eacute; vende, con el mismo orden y las mismas palabras. Encargados de uno en uno, los cuatro documentos costar&iacute;an <span class="nb">600 &euro;</span> y veinte d&iacute;as; escritos juntos, <span class="nb">540 &euro;</span> y diez d&iacute;as. Conviene empezar al menos un mes antes de la feria.</p></div></li>
     </ol>
   </div>
 </section>
@@ -164,13 +167,13 @@
   <div class="wrap due-colonne">
     <div class="attacca">
       <p class="occhiello rv">En otros idiomas</p>
-      <h2 class="spezza">Fichas y especificaciones, <em>tambi&eacute;n en otras lenguas</em></h2>
-      <p class="listino-nota rv">Fuera del italiano, el trabajo se limita a prop&oacute;sito a los documentos t&eacute;cnicos y comerciales, como fichas, tarifas y especificaciones, donde el contenido son datos y no giros idiom&aacute;ticos. La misma ficha en un segundo idioma, pedida junto con la primera, cuesta 84&nbsp;&euro; y tres d&iacute;as m&aacute;s.</p>
+      <h2 class="spezza">Los mismos documentos, <em>tambi&eacute;n en otras lenguas</em></h2>
+      <p class="listino-nota rv">Los mismos documentos se escriben tambi&eacute;n en otros idiomas, a partir del texto que ya tiene. La misma ficha en un segundo idioma, pedida junto con la primera, cuesta <span class="nb">84 &euro;</span> y tres d&iacute;as m&aacute;s.</p>
       <p class="rv" style="margin-top:26px"><a class="collegamento" href="/es/precios/">La tarifa completa &rarr;</a></p>
     </div>
     <div class="listino" role="table" aria-label="Los idiomas de los documentos">
       <div class="voce prima rv" role="row"><div role="cell"><span class="cosa">Italiano</span><span class="dettaglio">todos los documentos de la tarifa &middot; idioma principal</span></div><div class="prezzo" role="cell" lang="it">Italiano</div></div>
-      <div class="voce rv" role="row"><div role="cell"><span class="cosa">Ingl&eacute;s, alem&aacute;n, franc&eacute;s</span><span class="dettaglio">fichas de producto y especificaciones t&eacute;cnicas &middot; bajo petici&oacute;n</span></div><div class="prezzo" role="cell">3 idiomas</div></div>
+      <div class="voce rv" role="row"><div role="cell"><span class="cosa">Ingl&eacute;s, alem&aacute;n, franc&eacute;s</span><span class="dettaglio">los mismos documentos &middot; a petici&oacute;n</span></div><div class="prezzo" role="cell">3 idiomas</div></div>
       <div class="voce sovra rv" role="row"><div role="cell"><span class="cosa"><a href="/es/chino-arabe/">Chino simplificado</a></span><span class="dettaglio">a partir del italiano o del ingl&eacute;s &middot; con revisi&oacute;n experta</span></div><div class="prezzo" role="cell" lang="zh-Hans">简体中文</div></div>
       <div class="voce sovra rv" role="row"><div role="cell"><span class="cosa"><a href="/es/chino-arabe/">&Aacute;rabe</a></span><span class="dettaglio">de derecha a izquierda, con la misma revisi&oacute;n experta</span></div><div class="prezzo" role="cell" lang="ar">العربية</div></div>
     </div>
@@ -187,9 +190,9 @@
       <p class="lede rv">Precio cerrado, plazo indicado y lo que hace falta para empezar.</p>
     </div>
     <div class="carte">
-      <a class="carta rv" href="/es/primera-lectura/"><span class="etich">Por aqu&iacute; se empieza</span><h3>Primera lectura</h3><p>Diez observaciones sobre sus p&aacute;ginas en italiano, en 48 horas.</p><div class="piede-carta"><span class="prezzo">39&nbsp;&euro;</span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/es/primera-lectura/"><span class="etich">Por aqu&iacute; se empieza</span><h3>Primera lectura</h3><p>Diez observaciones sobre sus p&aacute;ginas en italiano, en 48 horas.</p><div class="piede-carta"><span class="prezzo"><span class="nb">39 &euro;</span></span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
       <a class="carta rv" href="/es/precios/"><span class="etich">Tarifa</span><h3>Todos los precios</h3><p>Documentos, p&aacute;ginas web, chino y &aacute;rabe: precios cerrados y reglas sobre plazos y pagos.</p><div class="piede-carta"><span class="prezzo">La tarifa</span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
-      <a class="carta rv" href="/es/sitio-web/"><span class="etich">El sitio</span><h3>P&aacute;ginas web en italiano</h3><p>De una p&aacute;gina reescrita al sitio completo hecho desde cero, con el dominio a nombre de su empresa.</p><div class="piede-carta"><span class="prezzo">desde 79&nbsp;&euro;</span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/es/sitio-web/"><span class="etich">El sitio</span><h3>P&aacute;ginas web en italiano</h3><p>De una p&aacute;gina reescrita al sitio completo hecho desde cero, con el dominio a nombre de su empresa.</p><div class="piede-carta"><span class="prezzo">desde <span class="nb">79 &euro;</span></span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
       <a class="carta rv" href="/es/preguntas/"><span class="etich">Antes de decidir</span><h3>Preguntas</h3><p>Precios, plazos, pago, confidencialidad: las respuestas completas.</p><div class="piede-carta"><span class="prezzo">14 respuestas</span><span class="vai">Abrir <span aria-hidden="true">&rarr;</span></span></div></a>
     </div>
   </div>
@@ -198,8 +201,8 @@
 <section class="sez stretta-sez">
   <div class="wrap">
     <div class="richiamo rv">
-      <div><h3>Por d&oacute;nde se empieza</h3><p>Diez observaciones sobre sus p&aacute;ginas en italiano, en 48 horas. 39&nbsp;&euro;, que se descuentan del primer trabajo.</p></div>
-      <a class="tasto" href="/es/primera-lectura/">La primera lectura, 39&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a>
+      <div><h3>Por d&oacute;nde se empieza</h3><p>Diez observaciones sobre sus p&aacute;ginas en italiano, en 48 horas. <span class="nb">39 &euro;</span>, que se descuentan del primer trabajo.</p></div>
+      <a class="tasto" href="/es/primera-lectura/">La primera lectura, <span class="nb">39 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -210,7 +213,7 @@
     <div class="piede-alto">
       <div>
         <p class="piede-titolo">Textos en italiano y sitios desde cero, <em>a precios cerrados</em>.</p>
-        <p class="azioni-piede"><a class="tasto chiaro" href="/es/primera-lectura/">La primera lectura, 39&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a> <a class="tasto chiaro" href="/es/sitio-web/">El sitio, desde 290&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a></p>
+        <p class="azioni-piede"><a class="tasto chiaro" href="/es/primera-lectura/">La primera lectura, <span class="nb">39 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a> <a class="tasto chiaro" href="/es/sitio-web/">El sitio, desde <span class="nb">290 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a></p>
       </div>
       <div class="piede-contatti">
         <p class="ph">Escribir</p>
@@ -223,7 +226,7 @@
       <nav aria-label="Otros idiomas"><p class="ph">Otros idiomas</p><a href="/documenti/" hreflang="it" lang="it"><img class="bandiera" src="/img/bandiere/it.svg" alt="" width="21" height="14">Italiano</a><a href="/en/documents/" hreflang="en" lang="en"><img class="bandiera" src="/img/bandiere/gb.svg" alt="" width="21" height="14">English</a><a href="/de/dokumente/" hreflang="de" lang="de"><img class="bandiera" src="/img/bandiere/de.svg" alt="" width="21" height="14">Deutsch</a><a href="/fr/documents/" hreflang="fr" lang="fr"><img class="bandiera" src="/img/bandiere/fr.svg" alt="" width="21" height="14">Fran&ccedil;ais</a></nav>
     </div>
     <div class="legale">
-      <p>Actividad realizada como prestaci&oacute;n ocasional seg&uacute;n el art&iacute;culo 2222 del C&oacute;digo civil italiano: por cada trabajo se emite un recibo en regla, con una retenci&oacute;n del 20&nbsp;% cuando el cliente es un agente de retenci&oacute;n italiano y un impuesto de timbre de 2&nbsp;&euro; en los importes superiores a 77,47&nbsp;&euro;. No es una actividad empresarial, y quien la realiza no tiene n&uacute;mero de IVA.</p>
+      <p>Actividad realizada como prestaci&oacute;n ocasional seg&uacute;n el art&iacute;culo 2222 del C&oacute;digo civil italiano: por cada trabajo se emite un recibo en regla, con una retenci&oacute;n del <span class="nb">20 %</span> cuando el cliente es un agente de retenci&oacute;n italiano y un impuesto de timbre de <span class="nb">2 &euro;</span> en los importes superiores a <span class="nb">77,47 &euro;</span>. No es una actividad empresarial, y quien la realiza no tiene n&uacute;mero de IVA.</p>
       <p>Los ejemplos de este sitio son demostrativos: las frases y las traducciones literales reproducen errores t&iacute;picos y no pertenecen a ninguna empresa en concreto. Fotos de Pexels.</p>
     </div>
     <p class="firma-grande" aria-hidden="true">Vento a Favore</p>

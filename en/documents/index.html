@@ -24,13 +24,17 @@
 <meta property="og:image" content="https://ventoafavore.it/anteprima-social-en.jpg">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Vento a Favore">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preload" href="/font/pagella-regular.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/font/pagella-italic.woff" as="font" type="font/woff" crossorigin>
-<script>document.documentElement.classList.add("mv");</script>
+<script>document.documentElement.classList.add("mv");setTimeout(function(){if(!window.VAF_PRONTO)document.documentElement.classList.remove("mv")},2500);</script>
 <link rel="stylesheet" href="/stile.css">
+<script src="/sito.js" defer></script>
 <script src="/lib/gsap.min.js" defer></script>
 <script src="/lib/ScrollTrigger.min.js" defer></script>
-<script src="/sito.js" defer></script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ventoafavore.it/en/"}, {"@type": "ListItem", "position": 2, "name": "Documents", "item": "https://ventoafavore.it/en/documents/"}]}</script>
 </head>
@@ -48,7 +52,7 @@
 <header class="testata">
   <div class="wrap">
     <a class="marchio" href="/en/" aria-label="Vento a Favore"><img src="/logo-email.png" width="50" height="50" alt=""><span class="nome">Vento a Favore</span></a>
-    <nav class="navigazione" aria-label="Site pages"><ul class="menu"><li><a class="voce" href="/en/first-reading/">First reading</a></li><li><a class="voce" href="/en/prices/">Prices</a></li><li><a class="voce" href="/en/documents/" aria-current="page">Documents</a></li><li><a class="voce" href="/en/website/">Websites</a></li><li><a class="voce punta-voce" href="/en/chinese-arabic/" aria-label="Chinese and Arabic"><span lang="zh-Hans">中文</span> · <span lang="ar">العربية</span></a></li><li><a class="voce" href="/en/questions/">Questions</a></li><li><a class="voce" href="/en/contact/">Contact</a></li></ul></nav>
+    <nav class="navigazione" aria-label="Site pages"><ul class="menu"><li><a class="voce" href="/en/first-reading/">First reading</a></li><li><a class="voce" href="/en/prices/">Prices</a></li><li><a class="voce" href="/en/documents/" aria-current="page">Documents</a></li><li><a class="voce" href="/en/website/">Websites</a></li><li><a class="voce punta-voce" href="/en/chinese-arabic/" aria-label="中文 · العربية, Chinese and Arabic"><span lang="zh-Hans">中文</span> · <span lang="ar">العربية</span></a></li><li><a class="voce" href="/en/questions/">Questions</a></li><li><a class="voce" href="/en/contact/">Contact</a></li></ul></nav>
     <a class="tasto" href="/en/first-reading/">First reading, &euro;39</a>
     <button class="apri-menu" type="button" aria-expanded="false" aria-controls="tendina">Menu <span class="righe" aria-hidden="true"></span></button>
   </div>
@@ -191,11 +195,11 @@
   <div class="wrap">
     <div class="piede-alto">
       <div>
-        <p class="piede-titolo">Italian copy and websites from scratch, <em>at full prices</em>.</p>
+        <p class="piede-titolo">Italian copy and websites from scratch, <em>at fixed prices</em>.</p>
         <p class="azioni-piede"><a class="tasto chiaro" href="/en/first-reading/">The first reading, &euro;39 <span class="freccia" aria-hidden="true">&rarr;</span></a> <a class="tasto chiaro" href="/en/website/">The website, from &euro;290 <span class="freccia" aria-hidden="true">&rarr;</span></a></p>
       </div>
       <div class="piede-contatti">
-        <p class="ph">Write</p>
+        <p class="ph">Get in touch</p>
         <a href="mailto:ventoafavorecf@gmail.com">ventoafavorecf@gmail.com</a>
         <a href="/en/contact/">Contact form</a>
         <p class="breve">Modena, Italy. Remote work, list prices and stated lead times. A reply within one working day.</p>
@@ -205,7 +209,7 @@
       <nav aria-label="Other languages"><p class="ph">Other languages</p><a href="/documenti/" hreflang="it" lang="it"><img class="bandiera" src="/img/bandiere/it.svg" alt="" width="21" height="14">Italiano</a><a href="/de/dokumente/" hreflang="de" lang="de"><img class="bandiera" src="/img/bandiere/de.svg" alt="" width="21" height="14">Deutsch</a><a href="/fr/documents/" hreflang="fr" lang="fr"><img class="bandiera" src="/img/bandiere/fr.svg" alt="" width="21" height="14">Fran&ccedil;ais</a><a href="/es/documentos/" hreflang="es" lang="es"><img class="bandiera" src="/img/bandiere/es.svg" alt="" width="21" height="14">Espa&ntilde;ol</a></nav>
     </div>
     <div class="legale">
-      <p>Work carried out as occasional self-employment under article 2222 of the Italian Civil Code: a regular receipt is issued for every job, with 20&nbsp;% withholding tax when the client is an Italian withholding agent and a &euro;2 stamp duty on amounts above &euro;77.47. It is not a business activity, and the person who carries it out has no VAT number.</p>
+      <p>Work carried out as occasional self-employment under article 2222 of the Italian Civil Code: a regular receipt is issued for every job, with <span class="nb">20 %</span> withholding tax when the client is an Italian withholding agent and a &euro;2 stamp duty on amounts above &euro;77.47. It is not a business activity, and the person who carries it out has no VAT number.</p>
       <p>The examples on this site are for demonstration: the sentences and the literal renderings reproduce typical mistakes and do not belong to any particular company. Photos from Pexels.</p>
     </div>
     <p class="firma-grande" aria-hidden="true">Vento a Favore</p>

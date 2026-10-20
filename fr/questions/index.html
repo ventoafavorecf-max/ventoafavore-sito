@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Questions · Vento a Favore</title>
-<meta name="description" content="Prix, délais, paiement, ce qu’il faut envoyer, ce qui ne s’écrit pas : les questions que posent les entreprises avant de confier leurs textes en italien.">
+<meta name="description" content="Prix, délais, paiement, ce qu’il faut envoyer, ce qui ne s’écrit pas : les questions que posent les entreprises avant de confier leurs textes en italien.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#7B2D26">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
@@ -18,19 +18,23 @@
 <link rel="alternate" hreflang="es" href="https://ventoafavore.it/es/preguntas/">
 <link rel="alternate" hreflang="x-default" href="https://ventoafavore.it/domande/">
 <meta property="og:title" content="Questions">
-<meta property="og:description" content="Prix, délais, paiement, ce qu’il faut envoyer, ce qui ne s’écrit pas : les questions que posent les entreprises avant de confier leurs textes en italien.">
+<meta property="og:description" content="Prix, délais, paiement, ce qu’il faut envoyer, ce qui ne s’écrit pas : les questions que posent les entreprises avant de confier leurs textes en italien.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ventoafavore.it/fr/questions/">
 <meta property="og:image" content="https://ventoafavore.it/anteprima-social-fr.jpg">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:site_name" content="Vento a Favore">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="preload" href="/font/pagella-regular.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="/font/pagella-italic.woff" as="font" type="font/woff" crossorigin>
-<script>document.documentElement.classList.add("mv");</script>
+<script>document.documentElement.classList.add("mv");setTimeout(function(){if(!window.VAF_PRONTO)document.documentElement.classList.remove("mv")},2500);</script>
 <link rel="stylesheet" href="/stile.css">
+<script src="/sito.js" defer></script>
 <script src="/lib/gsap.min.js" defer></script>
 <script src="/lib/ScrollTrigger.min.js" defer></script>
-<script src="/sito.js" defer></script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://ventoafavore.it/fr/"}, {"@type": "ListItem", "position": 2, "name": "Questions", "item": "https://ventoafavore.it/fr/questions/"}]}</script>
 </head>
@@ -40,7 +44,7 @@
 
 <div class="lingue-su">
   <div class="wrap">
-    <a class="novita-su" href="/fr/exportateurs-italiens/">Une entreprise italienne qui exporte&nbsp;? <span aria-hidden="true">&rarr;</span></a>
+    <a class="novita-su" href="/fr/exportateurs-italiens/">Une entreprise italienne qui <span class="nb">exporte ?</span> <span aria-hidden="true">&rarr;</span></a>
     <a href="/domande/" hreflang="it" lang="it"><img class="bandiera" src="/img/bandiere/it.svg" alt="" width="21" height="14">Italiano</a><a href="/en/questions/" hreflang="en" lang="en"><img class="bandiera" src="/img/bandiere/gb.svg" alt="" width="21" height="14">English</a><a href="/de/fragen/" hreflang="de" lang="de"><img class="bandiera" src="/img/bandiere/de.svg" alt="" width="21" height="14">Deutsch</a><a href="/es/preguntas/" hreflang="es" lang="es"><img class="bandiera" src="/img/bandiere/es.svg" alt="" width="21" height="14">Espa&ntilde;ol</a>
   </div>
 </div>
@@ -48,14 +52,14 @@
 <header class="testata">
   <div class="wrap">
     <a class="marchio" href="/fr/" aria-label="Vento a Favore"><img src="/logo-email.png" width="50" height="50" alt=""><span class="nome">Vento a Favore</span></a>
-    <nav class="navigazione" aria-label="Pages du site"><ul class="menu"><li><a class="voce" href="/fr/premiere-lecture/">Première lecture</a></li><li><a class="voce" href="/fr/tarifs/">Tarifs</a></li><li><a class="voce" href="/fr/documents/">Documents</a></li><li><a class="voce" href="/fr/site-web/">Sites web</a></li><li><a class="voce punta-voce" href="/fr/chinois-arabe/" aria-label="Chinois et arabe"><span lang="zh-Hans">中文</span> · <span lang="ar">العربية</span></a></li><li><a class="voce" href="/fr/questions/" aria-current="page">Questions</a></li><li><a class="voce" href="/fr/contact/">Contact</a></li></ul></nav>
-    <a class="tasto" href="/fr/premiere-lecture/">Premi&egrave;re lecture, 39&nbsp;&euro;</a>
+    <nav class="navigazione" aria-label="Pages du site"><ul class="menu"><li><a class="voce" href="/fr/premiere-lecture/">Première lecture</a></li><li><a class="voce" href="/fr/tarifs/">Tarifs</a></li><li><a class="voce" href="/fr/documents/">Documents</a></li><li><a class="voce" href="/fr/site-web/">Sites web</a></li><li><a class="voce punta-voce" href="/fr/chinois-arabe/" aria-label="中文 · العربية, Chinois et arabe"><span lang="zh-Hans">中文</span> · <span lang="ar">العربية</span></a></li><li><a class="voce" href="/fr/questions/" aria-current="page">Questions</a></li><li><a class="voce" href="/fr/contact/">Contact</a></li></ul></nav>
+    <a class="tasto" href="/fr/premiere-lecture/">Premi&egrave;re lecture, <span class="nb">39 &euro;</span></a>
     <button class="apri-menu" type="button" aria-expanded="false" aria-controls="tendina">Menu <span class="righe" aria-hidden="true"></span></button>
   </div>
 </header>
 <nav class="tendina" id="tendina" aria-label="Menu" aria-hidden="true">
   <div class="tendina-dentro"><a class="tv tv-punta" href="/fr/chinois-arabe/">Chinois et arabe <span lang="zh-Hans">中文</span> <span lang="ar">العربية</span></a><a class="tv" href="/fr/premiere-lecture/">Première lecture</a><a class="tv" href="/fr/tarifs/">Tarifs</a><a class="tv" href="/fr/documents/">Documents</a><a class="tv" href="/fr/site-web/">Sites web</a><a class="tv" href="/fr/questions/">Questions</a><a class="tv" href="/fr/contact/">Contact</a>
-    <a class="tasto" href="/fr/premiere-lecture/">Premi&egrave;re lecture, 39&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a>
+    <a class="tasto" href="/fr/premiere-lecture/">Premi&egrave;re lecture, <span class="nb">39 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a>
   </div>
 </nav>
 <nav class="briciole" aria-label="Fil d&rsquo;Ariane"><div class="wrap"><a href="/fr/">Accueil</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Questions</span></div></nav>
@@ -65,7 +69,7 @@
     <div>
       <p class="occhiello rv">Avant de confier un travail</p>
       <h1 class="spezza">Les questions qui reviennent, <em>avec les réponses en entier</em></h1>
-      <p class="lede rv">Prix, délais, paiement, confidentialité, et les limites de ce que fait Vento a Favore. S’il manque quelque chose, il suffit de le demander&nbsp;: la réponse sera aussi précise.</p>
+      <p class="lede rv">Prix, délais, paiement, confidentialité, et les limites de ce que fait Vento a Favore. S’il manque quelque chose, il suffit de le <span class="nb">demander :</span> la réponse sera aussi précise.</p>
       <div class="azioni rv">
         <a class="tasto" href="/fr/contact/?lavoro=Autre">Poser une question <span class="freccia" aria-hidden="true">&rarr;</span></a>
         <a class="collegamento" href="/fr/tarifs/">Tous les tarifs</a>
@@ -75,7 +79,7 @@
       <div><dt>Réponses</dt><dd class="accento">14</dd></div>
       <div><dt>Sujets</dt><dd>prix, délais, langues, limites</dd></div>
       <div><dt>Réponse aux e-mails</dt><dd>sous un jour ouvré</dd></div>
-      <div><dt>Devis</dt><dd>aucun&nbsp;: le tarif fait foi</dd></div>
+      <div><dt>Devis</dt><dd><span class="nb">aucun :</span> le tarif fait foi</dd></div>
     </dl>
   </div>
 </section>
@@ -91,11 +95,11 @@
       <div class="faq-gruppo">
         <h3>Prix et paiement</h3>
         <div class="faq">
-          <details class="rv"><summary><span>Combien cela coûte-t-il&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Les prix sont fixes et figurent sur le site&nbsp;: première lecture de vos pages italiennes 39&nbsp;&euro;, fiche produit ou fiche technique 140&nbsp;&euro;, cinq fiches produit 550&nbsp;&euro;, page de présentation 180&nbsp;&euro;, descriptions e-commerce jusqu’à quinze produits 380&nbsp;&euro;, forfait salon 540&nbsp;&euro;, la même fiche dans une deuxième langue 84&nbsp;&euro;.</p><p>Pour le site&nbsp;: une page réécrite en italien 79&nbsp;&euro;, les pages d’un site existant (jusqu’à cinq) 349&nbsp;&euro;, le site créé à partir de zéro 590&nbsp;&euro;.</p><p>Pas de devis sur mesure&nbsp;: le prix est celui-là, et vous le connaissez avant la première ligne. <a href="/fr/tarifs/">Tous les tarifs</a>.</p></div></details>
-          <details class="rv"><summary><span>Comment se fait le paiement, et que recevez-vous&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>À la livraison, par virement. Un reçu en bonne et due forme est émis pour chaque travail&nbsp;; son régime fiscal est précisé en bas de chaque page.</p><p>Avant de commencer, ce qui est compris et la date de livraison sont convenus par écrit.</p></div></details>
-          <details class="rv"><summary><span>Votre entreprise est en Belgique ou en Suisse&nbsp;: cela change-t-il quelque chose&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
+          <details class="rv"><summary><span>Combien cela <span class="nb">coûte-t-il ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>Les prix sont fixes et figurent sur le <span class="nb">site :</span> première lecture de vos pages italiennes <span class="nb">39 &euro;</span>, fiche produit ou fiche technique <span class="nb">140 &euro;</span>, cinq fiches produit <span class="nb">550 &euro;</span>, page de présentation <span class="nb">180 &euro;</span>, descriptions e-commerce jusqu’à quinze produits <span class="nb">380 &euro;</span>, forfait salon <span class="nb">540 &euro;</span>, la même fiche dans une deuxième langue <span class="nb">84 &euro;</span>.</p><p>Pour le <span class="nb">site :</span> une page réécrite en italien <span class="nb">79 &euro;</span>, trois pages <span class="nb">225 &euro;</span>, les pages d’un site existant (jusqu’à cinq) <span class="nb">349 &euro;</span>, un site d’une seule page <span class="nb">290 &euro;</span>, le site créé à partir de zéro <span class="nb">590 &euro;</span>.</p><p>Pas de devis sur <span class="nb">mesure :</span> le prix est celui-là, et vous le connaissez avant la première ligne. <a href="/fr/tarifs/">Tous les tarifs</a>.</p></div></details>
+          <details class="rv"><summary><span>Comment se fait le paiement, et que <span class="nb">recevez-vous ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>À la livraison, par virement. Un reçu en bonne et due forme est émis pour chaque <span class="nb">travail ;</span> son régime fiscal est précisé en bas de chaque page.</p><p>Avant de commencer, ce qui est compris et la date de livraison sont convenus par écrit.</p></div></details>
+          <details class="rv"><summary><span>Votre entreprise est en Belgique ou en <span class="nb">Suisse :</span> cela change-t-il quelque <span class="nb">chose ?</span></span><span class="segno" aria-hidden="true"></span></summary>
             <div class="risposta"><p>Non. Le travail se fait entièrement à distance, les prix sont ceux du tarif, en euros, et le paiement se fait à la livraison, par virement. Il en va de même pour une entreprise établie en France ou ailleurs.</p></div></details>
         </div>
       </div>
@@ -103,46 +107,46 @@
       <div class="faq-gruppo">
         <h3>Le déroulement</h3>
         <div class="faq">
-          <details class="rv"><summary><span>Par où commencer&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Par un e-mail. Si vous avez déjà des pages en italien, la première étape logique est la <a href="/fr/premiere-lecture/">première lecture</a>&nbsp;: dix observations sur ce qui est publié, en 48&nbsp;heures, pour 39&nbsp;&euro;. Ces 39&nbsp;&euro; sont déduits en entier du premier travail confié dans les soixante jours&nbsp;: ce n’est pas une remise, c’est un acompte.</p><p>Si vous savez déjà ce qu’il vous faut, vous pouvez commander directement la fiche, les descriptions e-commerce ou la page de présentation.</p></div></details>
-          <details class="rv"><summary><span>Que faut-il envoyer&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Ce que vous avez déjà&nbsp;: le texte dans votre langue, les fiches techniques, les données produit, les certifications, les photos. Inutile de tout mettre en ordre.</p><p>S’il manque quelque chose (une dimension, un délai, une norme), Vento a Favore le demande une seule fois, dans une liste, plutôt que de revenir chaque jour avec une question.</p></div></details>
-          <details class="rv"><summary><span>En combien de temps&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Première lecture&nbsp;: 48&nbsp;heures. Fiche produit et page de présentation&nbsp;: cinq jours. Descriptions e-commerce et forfait salon&nbsp;: dix jours. Pages du site&nbsp;: de cinq à dix jours&nbsp;; site créé à partir de zéro&nbsp;: trois semaines.</p><p>Ce sont des jours ouvrés, comptés <strong>à partir de l’arrivée des documents</strong>, pas de la commande&nbsp;: c’est la seule façon d’annoncer une date et de la tenir.</p></div></details>
-          <details class="rv"><summary><span>Et si le texte ne vous convient pas&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Une série de corrections est comprise dans chaque travail. Elle sert à changer ce qui ne va pas, pas à tout refaire.</p><p>Si, après les corrections, le travail n’est toujours pas celui qu’il fallait, Vento a Favore le dit clairement, sans insister&nbsp;: mieux vaut perdre un travail que livrer une page dont personne ne se servira.</p></div></details>
+          <details class="rv"><summary><span>Par où <span class="nb">commencer ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>Par un e-mail. Si vous avez déjà des pages en italien, la première étape logique est la <a href="/fr/premiere-lecture/">première lecture</a> : dix observations sur ce qui est publié, en 48 heures, pour <span class="nb">39 &euro;</span>. Ces <span class="nb">39 &euro;</span> sont déduits en entier du premier travail confié dans les soixante <span class="nb">jours :</span> ce n’est pas une remise, c’est un acompte.</p><p>Si vous savez déjà ce qu’il vous faut, vous pouvez commander directement la fiche, les descriptions e-commerce ou la page de présentation.</p></div></details>
+          <details class="rv"><summary><span>Que faut-il <span class="nb">envoyer ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>Ce que vous avez <span class="nb">déjà :</span> le texte dans votre langue, les fiches techniques, les données produit, les certifications, les photos. Inutile de tout mettre en ordre.</p><p>S’il manque quelque chose (une dimension, un délai, une norme), Vento a Favore le demande une seule fois, dans une liste, plutôt que de revenir chaque jour avec une question.</p></div></details>
+          <details class="rv"><summary><span>En combien de <span class="nb">temps ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>Première <span class="nb">lecture :</span> 48 heures. Fiche produit et page de <span class="nb">présentation :</span> cinq jours. Descriptions e-commerce et forfait <span class="nb">salon :</span> dix jours. Pages du <span class="nb">site :</span> de cinq à dix <span class="nb">jours ;</span> site créé à partir de <span class="nb">zéro :</span> trois semaines.</p><p>Ce sont des jours ouvrés, comptés <strong>à partir de l’arrivée des documents</strong>, pas de la <span class="nb">commande :</span> c’est la seule façon d’annoncer une date et de la tenir.</p></div></details>
+          <details class="rv"><summary><span>Et si le texte ne vous convient <span class="nb">pas ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>Une série de corrections est comprise dans chaque travail. Elle sert à changer ce qui ne va pas, pas à tout refaire.</p><p>Si, après les corrections, le travail n’est toujours pas celui qu’il fallait, Vento a Favore le dit clairement, sans <span class="nb">insister :</span> mieux vaut perdre un travail que livrer une page dont personne ne se servira.</p></div></details>
         </div>
       </div>
 
       <div class="faq-gruppo">
         <h3>La méthode</h3>
         <div class="faq">
-          <details class="rv"><summary><span>Est-ce de la traduction&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Non, et toute la différence est là. Une traduction transpose les mêmes phrases dans une autre langue. Ici, le texte est réécrit pour celui qui le lit, en changeant l’ordre des informations et la place donnée aux données.</p><p>Une page traduite mot à mot arrive en Italie correcte et inutile à la fois&nbsp;: l’acheteur voit dès la première ligne qu’elle n’a pas été écrite pour lui.</p></div></details>
-          <details class="rv"><summary><span>Qui écrit, concrètement&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Une seule personne, toujours la même, à Modène&nbsp;: Francesco, qui signe les travaux. Il n’y a pas d’équipe derrière, et le travail n’est confié à personne d’autre. Pour le chinois et l’arabe s’ajoute la relecture experte, annoncée et comprise dans le prix.</p><p>Les outils automatiques servent à contrôler, pas à écrire&nbsp;: le texte que vous recevez a été pensé et relu par celui qui vous le remet.</p></div></details>
-          <details class="rv"><summary><span>Vos documents restent-ils confidentiels&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Oui. Tarifs, plans, fiches techniques et prix envoyés à Vento a Favore servent à écrire et ne vont nulle part ailleurs.</p><p>Aucun travail réalisé pour un client n’est publié comme exemple sans son accord écrit&nbsp;: <a href="/fr/documents/">les documents d’exemple</a> de ce site reposent, à dessein, sur des entreprises fictives.</p></div></details>
+          <details class="rv"><summary><span>Est-ce de la <span class="nb">traduction ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>Non, et toute la différence est là. Une traduction transpose les mêmes phrases dans une autre langue. Ici, le texte est réécrit pour celui qui le lit, en changeant l’ordre des informations et la place donnée aux données.</p><p>Une page traduite mot à mot arrive en Italie correcte et inutile à la <span class="nb">fois :</span> l’acheteur voit dès la première ligne qu’elle n’a pas été écrite pour lui.</p><p>Les textes commerciaux sont toujours réécrits. Pour un texte qui doit simplement être traduit, il existe la traduction relue, à <span class="nb">0,07 &euro;</span> le <span class="nb">mot :</span> voir les <a href="/fr/tarifs/">tarifs</a>.</p></div></details>
+          <details class="rv"><summary><span>Qui écrit, <span class="nb">concrètement ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>Vento a Favore, du début à la fin. Chaque texte est relu en entier avant la livraison, et vous n’avez qu’un seul interlocuteur. Pour le chinois et l’arabe s’ajoute la relecture experte, annoncée et comprise dans le prix.</p></div></details>
+          <details class="rv"><summary><span>Vos documents restent-ils <span class="nb">confidentiels ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>Oui. Tarifs, plans, fiches techniques et prix envoyés à Vento a Favore servent à écrire et ne vont nulle part ailleurs.</p><p>Aucun travail réalisé pour un client n’est publié comme exemple sans son accord <span class="nb">écrit :</span> <a href="/fr/documents/">les documents d’exemple</a> de ce site reposent, à dessein, sur des entreprises fictives.</p></div></details>
         </div>
       </div>
 
       <div class="faq-gruppo">
         <h3>Les langues</h3>
         <div class="faq">
-          <details class="rv"><summary><span>Dans quelles langues&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Pour les entreprises étrangères qui vendent en Italie, Vento a Favore écrit en italien, à partir des textes que vous avez déjà, quelle que soit leur langue. Si vous en avez besoin, le même texte s’écrit aussi en anglais, allemand, français, espagnol, chinois simplifié ou arabe&nbsp;: la même fiche dans une deuxième langue coûte 84&nbsp;&euro;, commandée avec la première.</p><p>Pour les entreprises italiennes qui exportent, c’est l’autre sens&nbsp;: anglais, allemand, français, espagnol, chinois simplifié et arabe. En chinois et en arabe, un relecteur expert relit le texte avant la livraison&nbsp;; cette relecture est comprise dans le prix, d’où les 50&nbsp;% et les cinq jours de plus. <a href="/fr/chinois-arabe/">Chinois et arabe</a>, et <a href="/fr/exportateurs-italiens/">la page des entreprises italiennes</a>.</p></div></details>
+          <details class="rv"><summary><span>Dans quelles <span class="nb">langues ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>Pour les entreprises étrangères qui vendent en Italie, Vento a Favore écrit en italien, à partir des textes que vous avez déjà, quelle que soit leur langue. Si vous en avez besoin, le même texte s’écrit aussi en anglais, allemand, français, espagnol, chinois simplifié ou <span class="nb">arabe :</span> la même fiche dans une deuxième langue coûte <span class="nb">84 &euro;</span>, commandée avec la première.</p><p>Pour les entreprises italiennes qui exportent, c’est l’autre <span class="nb">sens :</span> anglais, allemand, français, espagnol, chinois simplifié et arabe. En chinois et en arabe, un relecteur expert relit le texte avant la <span class="nb">livraison ;</span> cette relecture est comprise dans le prix, d’où les <span class="nb">50 %</span> et les cinq jours de plus. <a href="/fr/chinois-arabe/">Chinois et arabe</a>, et <a href="/fr/exportateurs-italiens/">la page des entreprises italiennes</a>.</p></div></details>
         </div>
       </div>
 
       <div class="faq-gruppo">
         <h3>Limites et autres services</h3>
         <div class="faq">
-          <details class="rv"><summary><span>Qu’est-ce qui ne s’écrit pas&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Les notices d’utilisation des machines, les étiquettes alimentaires, les déclarations de conformité, les fiches de données de sécurité. C’est une matière réglementée&nbsp;: la norme en fixe la langue, et la responsabilité reste celle du fabricant.</p><p>Vento a Favore le dit avant d’accepter un travail, pas après.</p></div></details>
-          <details class="rv"><summary><span>Les agences et les cabinets de traduction peuvent-ils faire appel à Vento a Favore&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Oui&nbsp;: Vento a Favore écrit, le travail est livré sous le nom de l’agence, et seule l’agence est en contact avec le client final.</p><p>Le tarif reste le même, pour que l’agence puisse chiffrer sans rien demander à personne.</p></div></details>
-          <details class="rv"><summary><span>Le site aussi&nbsp;?</span><span class="segno" aria-hidden="true"></span></summary>
-            <div class="risposta"><p>Les pages d’un site existant, réécrites en italien et livrées prêtes à mettre en ligne, ou le site créé à partir de zéro pour qui n’en a pas.</p><p>Pas de boutique en ligne, pas de réservations, pas d’interface à mettre à jour, pas de maintenance mensuelle&nbsp;: si l’une de ces choses est nécessaire, Vento a Favore le dit tout de suite et indique qui peut s’en charger. <a href="/fr/site-web/">La page du site</a>.</p></div></details>
+          <details class="rv"><summary><span>Qu’est-ce qui ne s’écrit <span class="nb">pas ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p>Les notices d’utilisation des machines, les étiquettes alimentaires, les déclarations de conformité, les fiches de données de sécurité. C’est une matière <span class="nb">réglementée :</span> la réglementation en fixe la formulation, et la responsabilité reste celle du fabricant.</p><p>Vento a Favore le dit avant d’accepter un travail, pas après.</p></div></details>
+          <details class="rv"><summary><span>Les agences et les cabinets de traduction peuvent-ils faire appel à Vento a <span class="nb">Favore ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p><span class="nb">Oui :</span> Vento a Favore écrit, le travail est livré sous le nom de l’agence, et seule l’agence est en contact avec le client final.</p><p>Le tarif reste le même, pour que l’agence puisse chiffrer sans rien demander à personne.</p></div></details>
+          <details class="rv"><summary><span>Le site <span class="nb">aussi ?</span></span><span class="segno" aria-hidden="true"></span></summary>
+            <div class="risposta"><p><span class="nb">Oui :</span> les pages d’un site existant, réécrites en italien et livrées prêtes à mettre en ligne, ou le site créé à partir de zéro pour qui n’en a pas.</p><p>Pas de boutique en ligne, pas de réservations, pas d’interface à mettre à jour, pas de maintenance <span class="nb">mensuelle :</span> si l’une de ces choses est nécessaire, Vento a Favore le dit tout de suite et indique qui peut s’en charger. <a href="/fr/site-web/">La page du site</a>.</p></div></details>
         </div>
       </div>
     </div>
@@ -171,7 +175,7 @@
     </div>
     <ol class="passi">
       <li class="passo rv"><span class="quando">D’abord</span><h3>Premier contact</h3><p>Le lien vers la page, ou la photo de l’étiquette, suffit. Aucun formulaire obligatoire.</p></li>
-      <li class="passo rv"><span class="quando">Sous un jour ouvré</span><h3>Trois lignes d’essai</h3><p>Un passage de votre texte actuel est réécrit gratuitement&nbsp;: vous jugez sur votre propre matière, pas sur un exemple.</p></li>
+      <li class="passo rv"><span class="quando">Sous un jour ouvré</span><h3>Trois lignes d’essai</h3><p>Un passage de votre texte actuel est réécrit <span class="nb">gratuitement :</span> vous jugez sur votre propre matière, pas sur un exemple.</p></li>
       <li class="passo rv"><span class="quando">Ensuite</span><h3>Les documents</h3><p>Le texte de départ et les données produit. Le décompte part d’ici, pas de la commande.</p></li>
       <li class="passo rv"><span class="quando">À la livraison</span><h3>Le travail fini</h3><p>Dans le délai annoncé, en PDF mis en page et en texte modifiable, avec une série de corrections comprise. Le reçu suit.</p></li>
     </ol>
@@ -187,11 +191,11 @@
       </div>
     </div>
     <div class="carte">
-      <a class="carta rv" href="/fr/premiere-lecture/"><span class="etich">Le point de départ</span><h3>Première lecture</h3><p>Dix observations sur vos pages italiennes, en 48&nbsp;heures.</p><div class="piede-carta"><span class="prezzo">39&nbsp;&euro;</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
-      <a class="carta rv" href="/fr/tarifs/"><span class="etich">Tarifs</span><h3>Tous les prix</h3><p>Documents, pages du site, chinois et arabe&nbsp;: tous les montants, avec les règles sur les délais et le paiement.</p><div class="piede-carta"><span class="prezzo">Les tarifs</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/fr/premiere-lecture/"><span class="etich">Le point de départ</span><h3>Première lecture</h3><p>Dix observations sur vos pages italiennes, en 48 heures.</p><div class="piede-carta"><span class="prezzo"><span class="nb">39 &euro;</span></span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/fr/tarifs/"><span class="etich">Tarifs</span><h3>Tous les prix</h3><p>Documents, pages du site, chinois et <span class="nb">arabe :</span> tous les montants, avec les règles sur les délais et le paiement.</p><div class="piede-carta"><span class="prezzo">Les tarifs</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
       <a class="carta rv" href="/fr/documents/"><span class="etich">Exemples</span><h3>Les documents</h3><p>Quatre documents finis à ouvrir, en italien, tels qu’ils sont livrés.</p><div class="piede-carta"><span class="prezzo">PDF</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
-      <a class="carta rv" href="/fr/site-web/"><span class="etich">Le site</span><h3>Vos pages en italien</h3><p>D’une page réécrite au site entier créé à partir de zéro.</p><div class="piede-carta"><span class="prezzo">dès 79&nbsp;&euro;</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
-      <a class="carta rv" href="/fr/contact/"><span class="etich">Contact</span><h3>Écrire</h3><p>Le lien vers la page suffit. Réponse sous un jour ouvré.</p><div class="piede-carta"><span class="prezzo">Francesco</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/fr/site-web/"><span class="etich">Le site</span><h3>Vos pages en italien</h3><p>D’une page réécrite au site entier créé à partir de zéro.</p><div class="piede-carta"><span class="prezzo">dès <span class="nb">79 &euro;</span></span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
+      <a class="carta rv" href="/fr/contact/"><span class="etich">Contact</span><h3>Écrire</h3><p>Le lien vers la page suffit. Réponse sous un jour ouvré.</p><div class="piede-carta"><span class="prezzo">E-mail</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
       <a class="carta rv" href="/fr/exportateurs-italiens/"><span class="etich">Entreprises italiennes</span><h3>Vous exportez depuis l’Italie</h3><p>Vos textes en six langues, dont le chinois et l’arabe.</p><div class="piede-carta"><span class="prezzo">six langues</span><span class="vai">Ouvrir <span aria-hidden="true">&rarr;</span></span></div></a>
     </div>
   </div>
@@ -200,8 +204,8 @@
 <section class="sez stretta-sez">
   <div class="wrap">
     <div class="richiamo rv">
-      <div><h3>Par où commencer</h3><p>Dix observations sur vos pages italiennes, en 48&nbsp;heures. 39&nbsp;&euro;, déduits du premier travail.</p></div>
-      <a class="tasto" href="/fr/premiere-lecture/">La première lecture, 39&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a>
+      <div><h3>Par où commencer</h3><p>Dix observations sur vos pages italiennes, en 48 heures. <span class="nb">39 &euro;</span>, déduits du premier travail.</p></div>
+      <a class="tasto" href="/fr/premiere-lecture/">La première lecture, <span class="nb">39 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -211,8 +215,8 @@
   <div class="wrap">
     <div class="piede-alto">
       <div>
-        <p class="piede-titolo">Textes en italien et sites cr&eacute;&eacute;s de z&eacute;ro, <em>&agrave; prix entiers</em>.</p>
-        <p class="azioni-piede"><a class="tasto chiaro" href="/fr/premiere-lecture/">La premi&egrave;re lecture, 39&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a> <a class="tasto chiaro" href="/fr/site-web/">Le site, d&egrave;s 290&nbsp;&euro; <span class="freccia" aria-hidden="true">&rarr;</span></a></p>
+        <p class="piede-titolo">Textes en italien et sites cr&eacute;&eacute;s &agrave; partir de z&eacute;ro, <em>&agrave; prix fixes</em>.</p>
+        <p class="azioni-piede"><a class="tasto chiaro" href="/fr/premiere-lecture/">La premi&egrave;re lecture, <span class="nb">39 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a> <a class="tasto chiaro" href="/fr/site-web/">Le site, d&egrave;s <span class="nb">290 &euro;</span> <span class="freccia" aria-hidden="true">&rarr;</span></a></p>
       </div>
       <div class="piede-contatti">
         <p class="ph">&Eacute;crire</p>
@@ -221,12 +225,12 @@
         <p class="breve">Mod&egrave;ne, Italie. Travail &agrave; distance, prix affich&eacute;s et d&eacute;lais annonc&eacute;s. R&eacute;ponse sous un jour ouvr&eacute;.</p>
       </div>
     </div>
-    <div class="piede-griglia"><nav aria-label="Vento a Favore"><p class="ph">Vento a Favore</p><a href="/fr/premiere-lecture/">Première lecture</a><a href="/fr/tarifs/">Tarifs</a><a href="/fr/documents/">Documents</a><a href="/fr/site-web/">Sites web</a><a href="/fr/chinois-arabe/">Chinois et arabe</a><a href="/fr/questions/">Questions</a><a href="/fr/contact/">Contact</a><a href="/fr/exportateurs-italiens/">Une entreprise italienne qui exporte&nbsp;?</a></nav>
+    <div class="piede-griglia"><nav aria-label="Vento a Favore"><p class="ph">Vento a Favore</p><a href="/fr/premiere-lecture/">Première lecture</a><a href="/fr/tarifs/">Tarifs</a><a href="/fr/documents/">Documents</a><a href="/fr/site-web/">Sites web</a><a href="/fr/chinois-arabe/">Chinois et arabe</a><a href="/fr/questions/">Questions</a><a href="/fr/contact/">Contact</a><a href="/fr/exportateurs-italiens/">Une entreprise italienne qui <span class="nb">exporte ?</span></a></nav>
       <nav aria-label="Autres langues"><p class="ph">Autres langues</p><a href="/domande/" hreflang="it" lang="it"><img class="bandiera" src="/img/bandiere/it.svg" alt="" width="21" height="14">Italiano</a><a href="/en/questions/" hreflang="en" lang="en"><img class="bandiera" src="/img/bandiere/gb.svg" alt="" width="21" height="14">English</a><a href="/de/fragen/" hreflang="de" lang="de"><img class="bandiera" src="/img/bandiere/de.svg" alt="" width="21" height="14">Deutsch</a><a href="/es/preguntas/" hreflang="es" lang="es"><img class="bandiera" src="/img/bandiere/es.svg" alt="" width="21" height="14">Espa&ntilde;ol</a></nav>
     </div>
     <div class="legale">
-      <p>Activit&eacute; exerc&eacute;e sous forme de prestation occasionnelle au sens de l&rsquo;article 2222 du Code civil italien&nbsp;: un re&ccedil;u en bonne et due forme est &eacute;mis pour chaque travail, avec une retenue &agrave; la source de 20&nbsp;% lorsque le client est un agent de retenue italien et un droit de timbre de 2&nbsp;&euro; au-del&agrave; de 77,47&nbsp;&euro;. Il ne s&rsquo;agit pas d&rsquo;une activit&eacute; commerciale&nbsp;; la personne qui l&rsquo;exerce n&rsquo;a pas de num&eacute;ro de TVA.</p>
-      <p>Les exemples de ce site sont des d&eacute;monstrations&nbsp;: les phrases et les traductions litt&eacute;rales reproduisent des erreurs courantes et n&rsquo;appartiennent &agrave; aucune entreprise en particulier. Photos&nbsp;: Pexels.</p>
+      <p>Activit&eacute; exerc&eacute;e sous forme de prestation occasionnelle au sens de l&rsquo;article 2222 du Code civil <span class="nb">italien :</span> un re&ccedil;u en bonne et due forme est &eacute;mis pour chaque travail, avec une retenue &agrave; la source de <span class="nb">20 %</span> lorsque le client est un agent de retenue italien et un droit de timbre de <span class="nb">2 &euro;</span> au-del&agrave; de <span class="nb">77,47 &euro;</span>. Il ne s&rsquo;agit pas d&rsquo;une activit&eacute; <span class="nb">commerciale ;</span> la personne qui l&rsquo;exerce n&rsquo;a pas de num&eacute;ro de TVA.</p>
+      <p>Les exemples de ce site sont des <span class="nb">d&eacute;monstrations :</span> les phrases et les traductions litt&eacute;rales reproduisent des erreurs courantes et n&rsquo;appartiennent &agrave; aucune entreprise en particulier. <span class="nb">Photos :</span> Pexels.</p>
     </div>
     <p class="firma-grande" aria-hidden="true">Vento a Favore</p>
   </div>
