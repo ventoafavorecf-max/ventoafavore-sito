@@ -113,8 +113,8 @@ p { text-wrap: pretty; }
 
 /* ---------- lingue in cima ---------- */
 .lingue-su { background: var(--band); color: var(--band-mut); font: 400 15px/1 var(--sans); }
-.lingue-su .wrap { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; min-height: 38px;
-                   padding-block: 6px; }
+.lingue-su .wrap { display: flex; flex-wrap: nowrap; gap: 6px 18px; align-items: center; min-height: 38px;
+                   padding-block: 6px; }   /* 27/10: una riga sola, bandiere comprese, a ogni larghezza */
 .lingue-su a { color: var(--band-ink); text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent;
                transition: border-color .3s ease; }
 .lingue-su a:hover { border-bottom-color: var(--band-accent); }
@@ -1031,3 +1031,44 @@ html.menu-aperto, html.menu-aperto body { overflow: hidden; }
 .menu > li:last-child > .pannello { left: auto; right: 0; transform: translateY(8px); min-width: 380px; }
 .menu > li:last-child.aperto > .pannello { transform: none; }
 .menu .voce .giu { margin-left: 3px; }
+
+
+/* 27/10, Francesco: le bandiere stavano metà in alto e metà sotto. Ora la barra resta su una riga a ogni larghezza:
+   sotto 1180 px sparisce la frase «azienda estera», sotto 1060 la frase breve del sito, sotto 700 restano le sole bandiere. */
+.lingue-su .novita-su { flex: 0 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lingue-su a:not(.novita-su), .lingue-su .dom { flex: 0 0 auto; white-space: nowrap; }
+@media (max-width: 1180px) { .lingue-su .dom { display: none; } .lingue-su .novita-su { margin-right: auto; } }
+@media (max-width: 1060px) { .lingue-su .novita-su .lungo { display: none; } .lingue-su .novita-su .breve { display: inline; } }
+@media (max-width: 700px) {
+  .lingue-su .wrap { gap: 6px 14px; }
+  .lingue-su .nl { display: none; }
+  .lingue-su .bandiera { margin-right: 0; width: 24px; height: 16px; }
+  .lingue-su .novita-su { padding: 7px 11px; font-size: 13px; margin-right: auto; }
+}
+
+/* pagine straniere: la frase lunga e le bandiere. Sul telefono il pulsante sta sulla sua riga e le bandiere tutte insieme sotto. */
+.lingue-su .lingue-gruppo { display: flex; align-items: center; gap: 18px; flex: 0 0 auto; }
+@media (max-width: 700px) {
+  .lingue-su .wrap-estero { flex-wrap: wrap; gap: 8px 14px; padding-block: 8px; }
+  .lingue-su .wrap-estero .novita-su { flex: 1 1 100%; white-space: normal; overflow: visible; text-overflow: clip;
+                                       margin-right: 0; border-radius: 14px; line-height: 1.3; }
+  .lingue-su .wrap-estero .lingue-gruppo { flex: 1 1 100%; justify-content: flex-start; }
+  .lingue-su .wrap-estero .nl { display: inline; }
+}
+@media (max-width: 420px) {
+  .lingue-su .wrap-estero .nl { display: none; }
+  .lingue-su .wrap-estero .lingue-gruppo { gap: 22px; }
+}
+/* telefoni molto stretti (320 px): la pillola italiana perde la freccia e si stringe */
+@media (max-width: 350px) { .lingue-su .novita-su [aria-hidden] { display: none; } .lingue-su .wrap { gap: 6px 10px; } }
+
+/* 27/10: i quattro numeri della home non possono allargare la pagina (home inglese a 360 px sforava di 2 px) */
+.fatti ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 860px) { .fatti ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 380px) { .fatti li { padding-inline: 14px; } .fatti li:first-child, .fatti li:nth-child(3) { padding-left: 0; } }
+
+/* telefoni a 320 px: testata più stretta, il pulsante Menu non esce dallo schermo */
+@media (max-width: 340px) {
+  .testata .wrap { padding-inline: 14px; gap: 8px; }
+  .testata .marchio .nome { font-size: 20px; }
+}
