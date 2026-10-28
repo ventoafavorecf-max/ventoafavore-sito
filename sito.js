@@ -92,6 +92,23 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
     oss.observe(el);
   });
 
+  /* 28/10: i confronti «tradotto / riscritto» si girano da soli una volta, per mostrare l'effetto; poi comanda chi tocca */
+  if (!fermo) {
+    var ioConf = new IntersectionObserver(function (voci) {
+      voci.forEach(function (v) {
+        if (!v.isIntersecting) return;
+        var c = v.target; ioConf.unobserve(c);
+        var toccato = false;
+        c.addEventListener("change", function () { toccato = true; });
+        setTimeout(function () {
+          var b = c.querySelector("input:nth-of-type(2)");
+          if (!toccato && b) b.checked = true;
+        }, 1100 + Math.random() * 500);
+      });
+    }, { threshold: 0.6 });
+    $$(".confronto").forEach(function (c) { ioConf.observe(c); });
+  }
+
   /* l'apertura parte subito, senza aspettare lo scorrimento */
   var h1 = document.querySelector("h1.spezza");
   requestAnimationFrame(function () { requestAnimationFrame(function () {

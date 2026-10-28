@@ -1,6 +1,6 @@
 /* «La stessa frase»: nell'apertura della home, una frase italiana, la sua traduzione
    letterale che viene barrata, la riscrittura che entra parola per parola.
-   Gli esempi si prendono dalla sezione .pairs della stessa pagina: si scrivono una volta sola.
+   Gli esempi si prendono dalla sezione .confronti della stessa pagina: si scrivono una volta sola.
    Da solo gira un esempio ogni dieci secondi; con le frecce comanda chi legge. si ferma al passaggio del mouse, fuori vista e a
    scheda nascosta. Chi chiede meno movimento vede l'esempio fermo e completo, con i tasti. */
 (function () {
@@ -11,12 +11,13 @@
   var barra = box.querySelector(".prova-tempo span");
   var fermo = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  var esempi = Array.prototype.map.call(document.querySelectorAll(".pairs .pair"), function (p) {
+  var esempi = Array.prototype.map.call(document.querySelectorAll(".confronti .confronto, .pairs .pair"), function (p) {
+    var nuovo = p.classList.contains("confronto");   /* home italiana (confronti) o home straniere (pairs) */
     return {
       chi: p.querySelector(".who").textContent,
       it: p.querySelector(".it").textContent,
-      prima: p.querySelector(".before p").textContent,
-      dopo: p.querySelector(".after p:not(.why)").textContent
+      prima: (nuovo ? p.querySelector(".conf-testi .before") : p.querySelector(".before p")).textContent,
+      dopo: (nuovo ? p.querySelector(".conf-testi .after") : p.querySelector(".after p:not(.why)")).textContent
     };
   });
   if (!esempi.length) return;
@@ -42,6 +43,7 @@
     scena.querySelector(".prova-prima .barra").textContent = e.prima;
     scena.querySelector(".prova-dopo p").innerHTML = parole(e.dopo);
     conta.textContent = (i + 1) + " / " + esempi.length;
+    box.setAttribute("data-i", i);
   }
   function fasi(tutte) {
     ["f1", "f2", "f3", "f4"].forEach(function (f, k) {

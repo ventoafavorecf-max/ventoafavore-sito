@@ -1072,3 +1072,76 @@ html.menu-aperto, html.menu-aperto body { overflow: hidden; }
   .testata .wrap { padding-inline: 14px; gap: 8px; }
   .testata .marchio .nome { font-size: 20px; }
 }
+
+/* ---------- 28/10: più immagini e interazione in home ---------- */
+/* confronto tradotto / riscritto: la foto passa dal grigio al colore (interruttore senza JavaScript) */
+.confronti { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(18px, 2.4vw, 32px); margin-top: clamp(34px, 5vw, 58px); }
+.confronto { position: relative; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--rule-soft);
+             border-radius: 4px; overflow: hidden; transition: box-shadow .5s ease, transform .6s var(--curva); }
+.confronto:hover { box-shadow: 0 30px 60px -44px rgba(var(--ombra), .5); transform: translateY(-3px); }
+.confronto > input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.conf-foto { position: relative; margin: 0; aspect-ratio: 4 / 3; overflow: hidden; background: var(--band); }
+.conf-foto picture { display: block; height: 100%; }
+.conf-foto img, .conf-grafica { width: 100%; height: 100%; object-fit: cover; transition: filter 1s ease, transform 1.6s var(--curva); }
+.conf-foto figcaption { position: absolute; inset: auto 0 0 0; padding: 56px 20px 16px; color: #F7F2EA;
+                        background: linear-gradient(transparent, rgba(18, 14, 10, .82)); }
+.conf-foto .who { display: block; font: 400 12.5px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: rgba(247, 242, 234, .72); }
+.conf-foto .it { display: block; margin-top: 5px; font-style: italic; font-size: 16.5px; line-height: 1.4; }
+.conf-grafica { background: linear-gradient(165deg, #2B1613, #7B2D26 68%, #A5503F); }
+.conf-grafica svg { display: block; width: 100%; height: 100%; }
+.conf-grafica circle { fill: none; stroke: rgba(255, 236, 226, .7); stroke-width: 1.4; transform-box: fill-box; transform-origin: center; }
+.confronto > input:first-of-type:checked ~ .conf-foto :is(img, .conf-grafica) { filter: grayscale(1) contrast(.86) brightness(.92); }
+.confronto > input:nth-of-type(2):checked ~ .conf-foto :is(img, .conf-grafica) { transform: scale(1.05); }
+.confronto > input:nth-of-type(2):checked ~ .conf-foto .conf-grafica circle { animation: sale 4.6s ease-in infinite; }
+.conf-grafica circle:nth-child(3n) { animation-delay: -1.4s !important; }
+.conf-grafica circle:nth-child(3n+1) { animation-delay: -3s !important; }
+.conf-grafica circle:nth-child(2n) { animation-duration: 5.8s !important; }
+@keyframes sale { from { transform: translateY(18px); opacity: .9; } to { transform: translateY(-70px); opacity: 0; } }
+.conf-corpo { display: flex; flex-direction: column; padding: 20px 22px 24px; flex: 1; }
+.conf-scelta { display: inline-grid; grid-auto-flow: column; align-self: flex-start; padding: 3px; border: 1px solid var(--rule);
+               border-radius: 99px; background: var(--paper-2); }
+.conf-scelta label { cursor: pointer; padding: 9px 17px; border-radius: 99px; font: 400 13px/1 var(--mono); letter-spacing: .1em;
+                     text-transform: uppercase; color: var(--mut); transition: background .35s ease, color .35s ease; user-select: none; }
+.conf-scelta label:hover { color: var(--ink); }
+.confronto > input:first-of-type:checked ~ .conf-corpo .conf-scelta label:nth-child(1) { background: var(--ink); color: var(--paper); }
+.confronto > input:nth-of-type(2):checked ~ .conf-corpo .conf-scelta label:nth-child(2) { background: var(--moss); color: var(--paper); }
+.confronto > input:first-of-type:focus-visible ~ .conf-corpo .conf-scelta label:nth-child(1),
+.confronto > input:nth-of-type(2):focus-visible ~ .conf-corpo .conf-scelta label:nth-child(2) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.conf-testi { display: grid; margin-top: 18px; }
+.conf-testi > p { grid-area: 1 / 1; margin: 0; font-size: 17.5px; line-height: 1.55; color: var(--ink);
+                  transition: opacity .5s ease, transform .8s var(--curva), visibility 0s; }
+.conf-testi .before { color: var(--mut); }
+.confronto > input:first-of-type:checked ~ .conf-corpo .after,
+.confronto > input:nth-of-type(2):checked ~ .conf-corpo .before { opacity: 0; visibility: hidden; transform: translateY(10px); }
+.confronto .why { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid var(--rule-soft); font: 400 15px/1.5 var(--sans); color: var(--mut);
+                  transition: opacity .6s ease; }
+.confronto > input:first-of-type:checked ~ .conf-corpo .why { opacity: .35; }
+@media (max-width: 900px) { .confronti { grid-template-columns: 1fr; } .conf-foto { aspect-ratio: 16 / 10; } }
+
+/* passaggi con icona */
+.passo-ico { display: block; margin: 0 0 14px; color: var(--accent); }
+
+/* contatti con foto */
+.contatti-griglia { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(30px, 5vw, 72px); align-items: start; }
+.contatti-griglia .contatti-righe { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 26px; }
+.contatti-foto { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 3px; background: var(--band); position: sticky; top: 100px; }
+.contatti-foto .par { height: 118%; margin-top: -9%; will-change: transform; }
+.contatti-foto picture { display: block; height: 100%; }
+.contatti-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; transition: transform 1.6s var(--curva); }
+.contatti-foto:hover img { transform: scale(1.04); }
+@media (max-width: 900px) { .contatti-griglia { grid-template-columns: 1fr; } .contatti-foto { aspect-ratio: 16 / 10; position: static; } }
+@media (prefers-reduced-motion: reduce) {
+  .confronto, .conf-foto img, .conf-grafica, .conf-testi > p { transition: none !important; }
+  .conf-grafica circle { animation: none !important; }
+}
+
+/* foto nell'apertura: cambia insieme all'esempio, e si colora quando la frase è riscritta */
+.prova-foto { position: relative; height: 138px; margin: -22px -28px 18px; overflow: hidden; border-radius: 3px 3px 0 0; background: var(--band); }
+.prova-foto > * { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; object-fit: cover; transition: opacity .8s ease, filter 1.2s ease; }
+.prova-foto picture img { width: 100%; height: 100%; object-fit: cover; }
+.prova-foto > :first-child { opacity: 1; }
+.prova[data-i="0"] .prova-foto > :nth-child(1), .prova[data-i="1"] .prova-foto > :nth-child(2), .prova[data-i="2"] .prova-foto > :nth-child(3) { opacity: 1; }
+.prova[data-i="1"] .prova-foto > :first-child, .prova[data-i="2"] .prova-foto > :first-child { opacity: 0; }
+.prova:has(.prova-scena:not(.f4)) .prova-foto > * { filter: grayscale(1) contrast(.88) brightness(.92); }
+.prova:has(.prova-scena.f4) .prova-foto .conf-grafica circle { animation: sale 4.6s ease-in infinite; }
+@media (prefers-reduced-motion: reduce) { .prova-foto > * { transition: none; } .prova-foto .conf-grafica circle { animation: none !important; } }
