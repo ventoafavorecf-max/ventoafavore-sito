@@ -1210,8 +1210,8 @@ html:has(.g-zoom[open]) { overflow: hidden; }
 .bf picture, .bf img { display: block; width: 100%; height: 100%; }
 .bf img { object-fit: cover; transition: transform 1.4s var(--curva), filter .6s ease; filter: saturate(.85); }
 .bf:hover img { transform: scale(1.06); filter: saturate(1.05); }
-.bf figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 38px 16px 14px; color: #fff; font-weight: 600; font-size: .95rem;
-                 background: linear-gradient(to top, rgba(28,25,23,.78), rgba(28,25,23,0)); }
+.bf figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 62px 16px 14px; color: #fff; font-weight: 600; font-size: .95rem; text-shadow: 0 1px 8px rgba(0,0,0,.5);
+                 background: linear-gradient(to top, rgba(20,17,15,.9) 0%, rgba(20,17,15,.72) 45%, rgba(20,17,15,0)); }
 .bf figcaption small { display: block; font-weight: 400; opacity: .85; font-size: .8rem; margin-top: 2px; }
 @media (max-width: 700px) { .bf-griglia { grid-template-columns: 1fr; } .bf, .bf-land, .bf-griglia:has(.bf-land) .bf { aspect-ratio: 16 / 10; } }
 @media (prefers-reduced-motion: reduce) { .bf img { transition: none; } }
