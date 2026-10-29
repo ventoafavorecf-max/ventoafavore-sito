@@ -342,6 +342,9 @@ p { text-wrap: pretty; }
 .cens-legenda b { font: 400 30px/1 var(--serif); color: var(--band-ink); min-width: 1.6em; }
 .cens-legenda .sw { width: 12px; height: 12px; flex: none; border-radius: 1px; align-self: center; }
 .censimento .nota { color: #A39B8E; margin-top: 34px; }
+.scura .nota { color: #B5AD9F; }
+.scura .collegamento { color: var(--band-ink); }
+.scura .collegamento:hover { color: var(--band-accent); }
 @media (max-width: 760px) {
   .cens-testa { grid-template-columns: 1fr; }
   .cens-legenda { grid-template-columns: 1fr; }
@@ -525,6 +528,7 @@ p { text-wrap: pretty; }
 .invito h2 { max-width: 14ch; font-size: clamp(2.5rem, 6vw, 5.2rem); }
 .invito .azioni { margin-top: 42px; }
 .invito .azioni span { font: 400 15.5px/1.5 var(--mono); color: var(--band-mut); }
+.invito .azioni .tasto span { font: inherit; color: inherit; }
 .invito .fondo { position: absolute; right: 0; top: 0; bottom: 0; width: 46%; z-index: 0; opacity: .22;
                  -webkit-mask-image: linear-gradient(90deg, transparent, #000 60%); mask-image: linear-gradient(90deg, transparent, #000 60%); }
 .invito .fondo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.4) contrast(1.05); }
@@ -662,10 +666,10 @@ p { text-wrap: pretty; }
 
 /* ---------- manifesto: le parole si accendono mentre si scorre ---------- */
 .manifesto { font: 400 clamp(1.9rem, 4.2vw, 3.6rem)/1.18 var(--serif); letter-spacing: -.02em; max-width: 24ch; margin: 0; }
-.manifesto .mp { color: var(--rule); transition: color .2s linear; }
+.manifesto .mp { color: #857D71; transition: color .2s linear; }
 .manifesto .mp.acceso { color: var(--ink); }
 .manifesto em .mp.acceso { color: var(--accent); }
-.scura .manifesto .mp { color: #3E3831; }
+.scura .manifesto .mp { color: #7C7469; }
 .scura .manifesto .mp.acceso { color: var(--band-ink); }
 .scura .manifesto em .mp.acceso { color: var(--band-accent); }
 .no-mv .manifesto .mp, .no-gsap .manifesto .mp { color: inherit; }
@@ -1225,8 +1229,9 @@ html:has(.g-zoom[open]) { overflow: hidden; }
 .ap-foto picture.on { opacity: 1; }
 .ap-foto img { width: 100%; height: 100%; object-fit: cover; }
 .ap-foto::after { content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(90deg, rgba(14, 11, 8, .84) 0%, rgba(14, 11, 8, .6) 52%, rgba(14, 11, 8, .34) 100%),
+  background: linear-gradient(90deg, rgba(14, 11, 8, .9) 0%, rgba(14, 11, 8, .72) 52%, rgba(14, 11, 8, .42) 100%),
               linear-gradient(0deg, rgba(14, 11, 8, .55), transparent 38%); }
+@media (max-width: 900px) { .ap-foto::after { background: linear-gradient(rgba(14, 11, 8, .78), rgba(14, 11, 8, .78)); } }
 .apertura .occhiello { color: rgba(247, 242, 234, .82); }
 .apertura h1 em { color: var(--band-accent); }
 .apertura .lede { color: rgba(247, 242, 234, .9); }
@@ -1270,8 +1275,8 @@ html:has(.g-zoom[open]) { overflow: hidden; }
 .cf-prima .cf-tag { color: #A9A195; }
 .cf-dopo { background: var(--paper); color: var(--ink); }
 .cf-dopo .cf-tag { color: var(--moss); }
-.cf-cap { position: absolute; left: 0; right: 0; top: 0; margin: 0; padding: 22px clamp(20px, 3.2vw, 44px) 70px; color: #F7F2EA; z-index: 2; pointer-events: none;
-  background: linear-gradient(rgba(14, 11, 8, .74), transparent); }
+.cf-cap { position: absolute; left: 0; right: 0; top: 0; margin: 0; padding: 22px clamp(20px, 3.2vw, 44px) 96px; color: #F7F2EA; z-index: 2; pointer-events: none;
+  background: linear-gradient(rgba(14, 11, 8, .86) 0, rgba(14, 11, 8, .78) 55%, transparent); text-shadow: 0 1px 10px rgba(0, 0, 0, .55); }
 .cf-cap .who { display: block; font: 400 12.5px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgba(247, 242, 234, .74); }
 .cf-cap .it { display: block; margin-top: 6px; max-width: 54ch; font-style: italic; font-size: clamp(1.05rem, 1.7vw, 1.3rem); line-height: 1.4; }
 .cf-manico { position: absolute; top: 0; bottom: 0; left: var(--p); width: 0; z-index: 3; pointer-events: none; }
@@ -1293,7 +1298,7 @@ html:has(.g-zoom[open]) { overflow: hidden; }
 .foto-banda .par { position: absolute; left: 0; right: 0; top: -10%; height: 120%; will-change: transform; }
 .foto-banda .par img, .foto-banda .par picture { display: block; width: 100%; height: 100%; object-fit: cover; }
 .foto-banda::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(0deg, rgba(14, 11, 8, .78) 0%, rgba(14, 11, 8, .18) 55%, rgba(14, 11, 8, 0) 100%); }
+  background: linear-gradient(0deg, rgba(14, 11, 8, .9) 0%, rgba(14, 11, 8, .62) 48%, rgba(14, 11, 8, .3) 100%); }
 .foto-banda .wrap { position: absolute; left: 0; right: 0; bottom: clamp(26px, 5vw, 60px); z-index: 2; }
 .fb-testo { margin: 0; max-width: 20ch; font: 400 clamp(2rem, 5.2vw, 4.4rem)/1.04 var(--serif); letter-spacing: -.02em; text-wrap: balance; }
 
