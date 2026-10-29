@@ -1204,6 +1204,7 @@ html:has(.g-zoom[open]) { overflow: hidden; }
 /* banda di foto nelle pagine interne */
 .banda-foto { padding: clamp(10px, 2vw, 24px) 0 clamp(20px, 3vw, 40px); }
 .bf-griglia { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: clamp(10px, 1.6vw, 20px); }
+.bf-griglia.bf-due { grid-template-columns: 1fr 1fr; }
 .bf { margin: 0; position: relative; overflow: hidden; border-radius: 3px; background: var(--band); aspect-ratio: 4 / 5; }
 .bf-land { aspect-ratio: 3 / 2; }
 .bf-griglia:has(.bf-land) .bf { aspect-ratio: 4 / 3; }
