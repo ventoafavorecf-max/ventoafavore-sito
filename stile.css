@@ -330,7 +330,7 @@ p { text-wrap: pretty; }
 .censimento .wrap { display: grid; grid-template-columns: minmax(0, 1fr); }
 .cens-testa { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 16px 44px; align-items: end; }
 .cens-numero { font: 400 clamp(8rem, 19vw, 16.5rem)/.8 var(--serif); letter-spacing: -.05em; color: var(--band-accent);
-               font-variant-numeric: tabular-nums; }
+               font-variant-numeric: tabular-nums; margin-top: clamp(24px, 3.4vw, 52px); }
 .cens-frase { font: 400 clamp(1.5rem, 2.6vw, 2.25rem)/1.2 var(--serif); letter-spacing: -.012em; max-width: 20ch; margin: 0 0 .3em; }
 .tacche { display: grid; grid-template-columns: repeat(92, 1fr); gap: clamp(2px, .35vw, 5px); height: clamp(70px, 9vw, 120px);
           margin-top: clamp(40px, 5vw, 64px); align-items: end; }
@@ -1124,6 +1124,8 @@ html.menu-aperto, html.menu-aperto body { overflow: hidden; }
 /* contatti con foto */
 .contatti-griglia { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(30px, 5vw, 72px); align-items: start; }
 .contatti-griglia .contatti-righe { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 26px; }
+.contatti-righe dd { overflow-wrap: anywhere; }
+@media (max-width: 560px) { .contatti-griglia .contatti-righe { grid-template-columns: minmax(0, 1fr); gap: 0; } }
 .contatti-foto { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 3px; background: var(--band); position: sticky; top: 100px; }
 .contatti-foto .par { height: 118%; margin-top: -9%; will-change: transform; }
 .contatti-foto picture { display: block; height: 100%; }

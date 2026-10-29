@@ -152,6 +152,7 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
     var dlg = gal.querySelector(".g-zoom"), dimg = dlg && dlg.querySelector("img"), dcap = dlg && dlg.querySelector("figcaption");
     var nome = gal.getAttribute("data-n") || "";
     var visibili = function () { return voci.filter(function (v) { return !v.hidden; }); };
+    if (conta) conta.textContent = voci.length + " " + nome;   /* il numero scritto nell'HTML non segue le foto: lo conta la pagina */
     /* frecce */
     $$(".g-freccia", gal).forEach(function (b) {
       b.addEventListener("click", function () {
