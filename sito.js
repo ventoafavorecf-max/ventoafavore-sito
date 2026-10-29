@@ -92,22 +92,124 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
     oss.observe(el);
   });
 
-  /* 28/10: i confronti «tradotto / riscritto» si girano da soli una volta, per mostrare l'effetto; poi comanda chi tocca */
-  if (!fermo) {
-    var ioConf = new IntersectionObserver(function (voci) {
-      voci.forEach(function (v) {
-        if (!v.isIntersecting) return;
-        var c = v.target; ioConf.unobserve(c);
-        var toccato = false;
-        c.addEventListener("change", function () { toccato = true; });
-        setTimeout(function () {
-          var b = c.querySelector("input:nth-of-type(2)");
-          if (!toccato && b) b.checked = true;
-        }, 1100 + Math.random() * 500);
-      });
+  /* 28/10 notte: i confronti sono cursori da trascinare; arrivando in vista, la maniglia passa una volta da «tradotto» a «riscritto» */
+  $$(".cf").forEach(function (c) {
+    var r = c.querySelector(".cf-range"); if (!r) return;
+    var fisso = fermo, toccato = false;
+    function metti(v) { c.style.setProperty("--p", v + "%"); r.value = v; }
+    r.addEventListener("input", function () { toccato = true; c.style.setProperty("--p", r.value + "%"); });
+    if (fisso) { metti(0); return; }
+    metti(100);
+    var io = new IntersectionObserver(function (voci) {
+      if (!voci[0].isIntersecting) return; io.disconnect();
+      var t0 = performance.now(), dur = 2300;
+      (function passo(ora) {
+        if (toccato) return;
+        var k = Math.min(1, ((ora || performance.now()) - t0) / dur), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
+        metti(Math.round(100 - 100 * e));
+        if (k < 1) requestAnimationFrame(passo);
+      })();
     }, { threshold: 0.6 });
-    $$(".confronto").forEach(function (c) { ioConf.observe(c); });
+    io.observe(c);
+  });
+
+  /* 28/10 notte: le foto dell'apertura cambiano piano, una ogni sei secondi */
+  var apFoto = $$(".ap-foto picture");
+  if (!fermo && apFoto.length > 1) {
+    var apI = 0;
+    setInterval(function () {
+      if (document.hidden) return;
+      apFoto[apI].classList.remove("on"); apI = (apI + 1) % apFoto.length; apFoto[apI].classList.add("on");
+    }, 6000);
   }
+
+  /* 28/10 notte: strisce di foto da scorrere o da trascinare, con la barra di avanzamento */
+  $$(".settori").forEach(function (st) {
+    var prog = document.createElement("div"); prog.className = "strip-prog"; prog.setAttribute("aria-hidden", "true");
+    prog.innerHTML = "<span></span>"; st.parentNode.insertBefore(prog, st.nextSibling);
+    var barra = prog.firstChild;
+    function aggiorna() {
+      var max = st.scrollWidth - st.clientWidth; if (max <= 0) { prog.hidden = true; return; }
+      var w = st.clientWidth / st.scrollWidth * 100;
+      barra.style.setProperty("--w", w.toFixed(1) + "%");
+      barra.style.setProperty("--l", ((100 - w) * st.scrollLeft / max).toFixed(1) + "%");
+    }
+    st.addEventListener("scroll", aggiorna, { passive: true }); addEventListener("resize", aggiorna); aggiorna();
+    var giu = false, x0 = 0, s0 = 0, mosso = false;
+    st.addEventListener("pointerdown", function (e) { if (e.pointerType !== "mouse") return; giu = true; mosso = false; x0 = e.clientX; s0 = st.scrollLeft; });
+    addEventListener("pointermove", function (e) {
+      if (!giu) return; var d = e.clientX - x0;
+      if (Math.abs(d) > 4) { mosso = true; st.classList.add("trascina"); }
+      if (mosso) st.scrollLeft = s0 - d;
+    });
+    addEventListener("pointerup", function () { if (!giu) return; giu = false; st.classList.remove("trascina"); });
+    st.addEventListener("click", function (e) { if (mosso) { e.preventDefault(); e.stopPropagation(); mosso = false; } }, true);
+  });
+
+  /* 28/10: galleria di foto: si scorre (anche trascinando), si filtra per tema, si ingrandisce */
+  $$(".galleria").forEach(function (gal) {
+    var scorri = gal.querySelector(".g-scorri"), voci = $$(".g-voce", gal), conta = gal.querySelector(".g-conta");
+    var dlg = gal.querySelector(".g-zoom"), dimg = dlg && dlg.querySelector("img"), dcap = dlg && dlg.querySelector("figcaption");
+    var nome = gal.getAttribute("data-n") || "";
+    var visibili = function () { return voci.filter(function (v) { return !v.hidden; }); };
+    /* frecce */
+    $$(".g-freccia", gal).forEach(function (b) {
+      b.addEventListener("click", function () {
+        scorri.scrollBy({ left: +b.getAttribute("data-v") * scorri.clientWidth * 0.8, behavior: fermo ? "auto" : "smooth" });
+      });
+    });
+    /* temi */
+    $$(".g-filtro", gal).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var f = b.getAttribute("data-f");
+        $$(".g-filtro", gal).forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        var k = 0;
+        voci.forEach(function (v) {
+          v.hidden = !(f === "tutte" || v.getAttribute("data-cat") === f);
+          v.classList.remove("entra");
+          if (!v.hidden && !fermo) { void v.offsetWidth; v.style.setProperty("--i", k++); v.classList.add("entra"); }
+        });
+        scorri.scrollLeft = 0;
+        conta.textContent = visibili().length + " " + nome;
+      });
+    });
+    /* trascinare col mouse */
+    var giu = false, x0 = 0, s0 = 0, mosso = false;
+    scorri.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      giu = true; mosso = false; x0 = e.clientX; s0 = scorri.scrollLeft;
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!giu) return;
+      var d = e.clientX - x0;
+      if (Math.abs(d) > 5) { mosso = true; scorri.classList.add("trascina"); }
+      if (mosso) scorri.scrollLeft = s0 - d;
+    });
+    window.addEventListener("pointerup", function () { if (giu) { giu = false; scorri.classList.remove("trascina"); } });
+    scorri.addEventListener("click", function (e) { if (mosso) { e.preventDefault(); e.stopPropagation(); mosso = false; } }, true);
+    /* ingrandimento */
+    if (!dlg || !dlg.showModal) return;
+    var corrente = null;
+    function mostra(v) {
+      var a = v.querySelector(".g-foto"), im = v.querySelector("img");
+      corrente = v; dimg.src = a.getAttribute("href"); dimg.alt = im.alt; dcap.textContent = a.getAttribute("data-did");
+    }
+    function vai(passo) {
+      var l = visibili(); if (!l.length) return;
+      mostra(l[(l.indexOf(corrente) + passo + l.length) % l.length]);
+    }
+    voci.forEach(function (v) {
+      v.querySelector(".g-foto").addEventListener("click", function (e) { e.preventDefault(); mostra(v); dlg.showModal(); });
+    });
+    dlg.querySelector(".g-chiudi").addEventListener("click", function () { dlg.close(); });
+    dlg.querySelector(".g-prec").addEventListener("click", function () { vai(-1); });
+    dlg.querySelector(".g-succ").addEventListener("click", function () { vai(1); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); vai(-1); } else if (e.key === "ArrowRight") { e.preventDefault(); vai(1); }
+    });
+    dlg.addEventListener("close", function () { dimg.removeAttribute("src"); });
+  });
 
   /* l'apertura parte subito, senza aspettare lo scorrimento */
   var h1 = document.querySelector("h1.spezza");

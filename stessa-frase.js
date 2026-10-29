@@ -16,8 +16,8 @@
     return {
       chi: p.querySelector(".who").textContent,
       it: p.querySelector(".it").textContent,
-      prima: (nuovo ? p.querySelector(".conf-testi .before") : p.querySelector(".before p")).textContent,
-      dopo: (nuovo ? p.querySelector(".conf-testi .after") : p.querySelector(".after p:not(.why)")).textContent
+      prima: (nuovo ? p.querySelector("p.before") : p.querySelector(".before p")).textContent,
+      dopo: (nuovo ? p.querySelector("p.after") : p.querySelector(".after p:not(.why)")).textContent
     };
   });
   if (!esempi.length) return;

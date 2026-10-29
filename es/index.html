@@ -68,6 +68,15 @@
 <main id="contenuto">
 <!-- ============ APERTURA ============ -->
 <section class="apertura">
+  <div class="ap-foto" aria-hidden="true">
+    <picture class="on"><source type="image/avif" srcset="/img/settore-agroalimentare-1600.avif"><img src="/img/settore-agroalimentare-1600.jpg" alt="" width="1600" height="1067" decoding="async" fetchpriority="high"></picture>
+    <picture><source type="image/avif" srcset="/img/settore-ceramica-1600.avif"><img src="/img/settore-ceramica-1600.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async"></picture>
+    <picture><img src="/img/settore-meccanica-1600.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async"></picture>
+    <picture><source type="image/avif" srcset="/img/settore-arredo-1600.avif"><img src="/img/settore-arredo-1600.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async"></picture>
+    <picture><img src="/img/foto-vigneto-tramonto-1600.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async"></picture>
+    <picture><img src="/img/foto-stabilimento-1600.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async"></picture>
+    <picture><img src="/img/foto-colline-toscane-1600.jpg" alt="" width="1600" height="1067" loading="lazy" decoding="async"></picture>
+  </div>
   <div class="wrap">
     <div>
       <p class="occhiello rv">Textos en italiano &middot; sitios desde cero &middot; para vender en Italia</p>
@@ -82,7 +91,7 @@
 
     <aside class="prova rv" aria-label="Ejemplo: la misma frase, traducida al pie de la letra y reescrita">
       <div class="prova-foto" aria-hidden="true">
-        <picture><source type="image/avif" srcset="/img/settore-agroalimentare-800.avif 800w" sizes="(max-width: 900px) 100vw, 500px"><picture><source type="image/avif" srcset="/img/settore-agroalimentare-800.avif"><img src="/img/settore-agroalimentare-800.jpg" alt="" width="800" height="533" decoding="async"></picture></picture>
+        <picture><source type="image/avif" srcset="/img/settore-agroalimentare-800.avif 800w" sizes="(max-width: 900px) 100vw, 500px"><img src="/img/settore-agroalimentare-800.jpg" alt="" width="800" height="533" decoding="async"></picture>
         <div class="conf-grafica"><svg viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice" focusable="false"><g class="bolle"><circle cx="38" cy="214" r="5"/><circle cx="70" cy="176" r="3"/><circle cx="96" cy="230" r="7"/><circle cx="130" cy="150" r="4"/><circle cx="150" cy="205" r="6"/><circle cx="182" cy="118" r="3"/><circle cx="214" cy="188" r="5"/><circle cx="240" cy="92" r="4"/><circle cx="262" cy="160" r="7"/><circle cx="286" cy="226" r="4"/><circle cx="60" cy="98" r="5"/><circle cx="118" cy="64" r="3"/><circle cx="190" cy="52" r="6"/><circle cx="250" cy="40" r="3"/><circle cx="30" cy="40" r="4"/><circle cx="300" cy="120" r="5"/></g></svg></div>
         <img src="/img/settore-meccanica-800.jpg" alt="" width="800" height="534" loading="lazy" decoding="async" style="object-position:22% 50%">
       </div>
@@ -238,7 +247,70 @@
   </div>
 </section>
 
+<!-- ============ GALLERIA ============ -->
+<section class="foto-banda" aria-label="Quien compra en el extranjero decide por lo que lee.">
+  <div class="par" data-par="-.14"><picture><source type="image/avif" srcset="/img/foto-vigneto-tramonto-800.avif 800w, /img/foto-vigneto-tramonto-1600.avif 1600w" sizes="100vw"><img src="/img/foto-vigneto-tramonto-1600.jpg" srcset="/img/foto-vigneto-tramonto-800.jpg 800w, /img/foto-vigneto-tramonto-1600.jpg 1600w" sizes="100vw" alt="" width="1600" height="1067" loading="lazy" decoding="async"></picture></div>
+  <div class="wrap"><p class="fb-testo rv">Quien compra en el extranjero decide por lo que lee.</p></div>
+</section>
+
+<section class="sez galleria" id="galleria" aria-labelledby="t-galleria" data-n="fotos">
+  <div class="wrap">
+    <div class="testa-sez">
+      <div>
+        <p class="occhiello rv">Donde llegan los textos</p>
+        <h2 class="spezza" id="t-galleria">Mesas, talleres, <em>campos y plazas</em></h2>
+      </div>
+      <p class="lede rv">Elija un tema y las fotos se reordenan. Toque una foto para ampliarla.</p>
+    </div>
+    <div class="g-filtri rv" role="group" aria-label="Elegir un tema"><button type="button" class="g-filtro" data-f="tutte" aria-pressed="true">Todas</button><button type="button" class="g-filtro" data-f="cibo" aria-pressed="false">Cocina y campo</button><button type="button" class="g-filtro" data-f="locali" aria-pressed="false">Locales y B&amp;B</button><button type="button" class="g-filtro" data-f="mestieri" aria-pressed="false">Oficios</button></div>
+  </div>
+  <div class="g-scorri" role="region" aria-label="Fotos para desplazar">
+    <ul class="g-lista">
+      <li class="g-voce g-p" data-cat="cibo"><a class="g-foto" href="/img/gal/pasta-mani-b.jpg" data-did="Pasta estirada a mano"><picture><source type="image/avif" srcset="/img/gal/pasta-mani-t.avif"><img src="/img/gal/pasta-mani-t.jpg" alt="Pasta estirada a mano" width="720" height="960" loading="lazy" decoding="async"></picture><span class="g-did">Pasta estirada a mano</span></a></li>
+      <li class="g-voce g-l" data-cat="cibo"><a class="g-foto" href="/img/gal/vigneto-b.jpg" data-did="Vi&ntilde;edo y tractor"><picture><source type="image/avif" srcset="/img/gal/vigneto-t.avif"><img src="/img/gal/vigneto-t.jpg" alt="Vi&ntilde;edo y tractor" width="1050" height="700" loading="lazy" decoding="async"></picture><span class="g-did">Vi&ntilde;edo y tractor</span></a></li>
+      <li class="g-voce g-p" data-cat="locali"><a class="g-foto" href="/img/gal/colazione-b.jpg" data-did="Mesa de desayuno puesta"><picture><source type="image/avif" srcset="/img/gal/colazione-t.avif"><img src="/img/gal/colazione-t.jpg" alt="Mesa de desayuno puesta" width="720" height="960" loading="lazy" decoding="async"></picture><span class="g-did">Mesa de desayuno puesta</span></a></li>
+      <li class="g-voce g-l" data-cat="mestieri"><a class="g-foto" href="/img/gal/ceramica-b.jpg" data-did="Horno de cer&aacute;mica"><picture><source type="image/avif" srcset="/img/gal/ceramica-t.avif"><img src="/img/gal/ceramica-t.jpg" alt="Horno de cer&aacute;mica" width="1050" height="700" loading="lazy" decoding="async"></picture><span class="g-did">Horno de cer&aacute;mica</span></a></li>
+      <li class="g-voce g-p" data-cat="cibo"><a class="g-foto" href="/img/gal/pasta-sfoglia-b.jpg" data-did="L&aacute;mina de pasta plegada"><picture><source type="image/avif" srcset="/img/gal/pasta-sfoglia-t.avif"><img src="/img/gal/pasta-sfoglia-t.jpg" alt="L&aacute;mina de pasta plegada" width="720" height="960" loading="lazy" decoding="async"></picture><span class="g-did">L&aacute;mina de pasta plegada</span></a></li>
+      <li class="g-voce g-l" data-cat="locali"><a class="g-foto" href="/img/gal/piazza-b.jpg" data-did="Una plaza de provincia"><picture><source type="image/avif" srcset="/img/gal/piazza-t.avif"><img src="/img/gal/piazza-t.jpg" alt="Una plaza de provincia" width="1050" height="700" loading="lazy" decoding="async"></picture><span class="g-did">Una plaza de provincia</span></a></li>
+      <li class="g-voce g-l" data-cat="mestieri"><a class="g-foto" href="/img/gal/arredo-b.jpg" data-did="Madera y form&oacute;n"><picture><source type="image/avif" srcset="/img/gal/arredo-t.avif"><img src="/img/gal/arredo-t.jpg" alt="Madera y form&oacute;n" width="1050" height="700" loading="lazy" decoding="async"></picture><span class="g-did">Madera y form&oacute;n</span></a></li>
+      <li class="g-voce g-p" data-cat="locali"><a class="g-foto" href="/img/gal/caffe-centro-b.jpg" data-did="Un caf&eacute; en el centro"><picture><source type="image/avif" srcset="/img/gal/caffe-centro-t.avif"><img src="/img/gal/caffe-centro-t.jpg" alt="Un caf&eacute; en el centro" width="720" height="960" loading="lazy" decoding="async"></picture><span class="g-did">Un caf&eacute; en el centro</span></a></li>
+      <li class="g-voce g-l" data-cat="cibo"><a class="g-foto" href="/img/gal/agroalimentare-b.jpg" data-did="Barricas en la bodega"><picture><source type="image/avif" srcset="/img/gal/agroalimentare-t.avif"><img src="/img/gal/agroalimentare-t.jpg" alt="Barricas en la bodega" width="1050" height="700" loading="lazy" decoding="async"></picture><span class="g-did">Barricas en la bodega</span></a></li>
+      <li class="g-voce g-l" data-cat="mestieri"><a class="g-foto" href="/img/gal/scrivere-b.jpg" data-did="Manos en una m&aacute;quina de escribir"><picture><source type="image/avif" srcset="/img/gal/scrivere-t.avif"><img src="/img/gal/scrivere-t.jpg" alt="Manos en una m&aacute;quina de escribir" width="1050" height="700" loading="lazy" decoding="async"></picture><span class="g-did">Manos en una m&aacute;quina de escribir</span></a></li>
+      <li class="g-voce g-l" data-cat="cibo"><a class="g-foto" href="/img/foto-vigneto-tramonto-1600.jpg" data-did="Hileras de vi&ntilde;a al atardecer, con un pueblo en la colina al fondo"><picture><source type="image/avif" srcset="/img/foto-vigneto-tramonto-800.avif"><img src="/img/foto-vigneto-tramonto-800.jpg" alt="Hileras de vi&ntilde;a al atardecer, con un pueblo en la colina al fondo" width="1600" height="1067" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-l" data-cat="cibo"><a class="g-foto" href="/img/foto-colline-toscane-1600.jpg" data-did="Colinas toscanas cubiertas de vi&ntilde;as y bosques"><picture><source type="image/avif" srcset="/img/foto-colline-toscane-800.avif"><img src="/img/foto-colline-toscane-800.jpg" alt="Colinas toscanas cubiertas de vi&ntilde;as y bosques" width="1600" height="1069" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-l" data-cat="cibo"><a class="g-foto" href="/img/foto-vigna-nuvole-1600.jpg" data-did="Un vi&ntilde;edo en primavera bajo un cielo de nubes"><picture><source type="image/avif" srcset="/img/foto-vigna-nuvole-800.avif"><img src="/img/foto-vigna-nuvole-800.jpg" alt="Un vi&ntilde;edo en primavera bajo un cielo de nubes" width="1600" height="900" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-l" data-cat="cibo"><a class="g-foto" href="/img/foto-colline-sole-1600.jpg" data-did="Colinas y vi&ntilde;edos bajo un cielo azul"><picture><source type="image/avif" srcset="/img/foto-colline-sole-800.avif"><img src="/img/foto-colline-sole-800.jpg" alt="Colinas y vi&ntilde;edos bajo un cielo azul" width="1600" height="900" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-p" data-cat="cibo"><a class="g-foto" href="/img/foto-olive-olio-1600.jpg" data-did="Aceitunas en aceite dorado"><picture><source type="image/avif" srcset="/img/foto-olive-olio-800.avif"><img src="/img/foto-olive-olio-800.jpg" alt="Aceitunas en aceite dorado" width="1600" height="2400" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-p" data-cat="cibo"><a class="g-foto" href="/img/foto-bottiglia-olio-1600.jpg" data-did="Botella de aceite con una rama de olivo"><picture><source type="image/avif" srcset="/img/foto-bottiglia-olio-800.avif"><img src="/img/foto-bottiglia-olio-800.jpg" alt="Botella de aceite con una rama de olivo" width="1600" height="2402" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-l" data-cat="mestieri"><a class="g-foto" href="/img/foto-stabilimento-1600.jpg" data-did="L&iacute;nea de producci&oacute;n en una planta, con una m&aacute;quina amarilla"><picture><source type="image/avif" srcset="/img/foto-stabilimento-800.avif"><img src="/img/foto-stabilimento-800.jpg" alt="L&iacute;nea de producci&oacute;n en una planta, con una m&aacute;quina amarilla" width="1600" height="1067" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-p" data-cat="mestieri"><a class="g-foto" href="/img/foto-struttura-acciaio-1600.jpg" data-did="Estructura de acero y tuber&iacute;as de una instalaci&oacute;n"><picture><source type="image/avif" srcset="/img/foto-struttura-acciaio-800.avif"><img src="/img/foto-struttura-acciaio-800.jpg" alt="Estructura de acero y tuber&iacute;as de una instalaci&oacute;n" width="1600" height="2400" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-p" data-cat="mestieri"><a class="g-foto" href="/img/foto-rocchetti-1600.jpg" data-did="Bobinas de hilo blanco en estantes rojos"><picture><source type="image/avif" srcset="/img/foto-rocchetti-800.avif"><img src="/img/foto-rocchetti-800.jpg" alt="Bobinas de hilo blanco en estantes rojos" width="1600" height="2400" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-p" data-cat="mestieri"><a class="g-foto" href="/img/foto-mani-argilla-1600.jpg" data-did="Manos modelando una vasija de arcilla en el torno"><picture><source type="image/avif" srcset="/img/foto-mani-argilla-800.avif"><img src="/img/foto-mani-argilla-800.jpg" alt="Manos modelando una vasija de arcilla en el torno" width="1600" height="1665" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-p" data-cat="mestieri"><a class="g-foto" href="/img/foto-pelle-1600.jpg" data-did="Primer plano de pieles de distintos colores"><picture><source type="image/avif" srcset="/img/foto-pelle-800.avif"><img src="/img/foto-pelle-800.jpg" alt="Primer plano de pieles de distintos colores" width="1600" height="2396" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-l" data-cat="mestieri"><a class="g-foto" href="/img/foto-cava-blocchi-1600.jpg" data-did="Bloques de m&aacute;rmol en una cantera, vistos desde arriba"><picture><source type="image/avif" srcset="/img/foto-cava-blocchi-800.avif"><img src="/img/foto-cava-blocchi-800.jpg" alt="Bloques de m&aacute;rmol en una cantera, vistos desde arriba" width="1600" height="900" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-p" data-cat="mestieri"><a class="g-foto" href="/img/foto-cava-marmo-1600.jpg" data-did="Pared de m&aacute;rmol veteado en una cantera"><picture><source type="image/avif" srcset="/img/foto-cava-marmo-800.avif"><img src="/img/foto-cava-marmo-800.jpg" alt="Pared de m&aacute;rmol veteado en una cantera" width="1600" height="2844" loading="lazy" decoding="async"></picture></a></li>
+      <li class="g-voce g-p" data-cat="mestieri"><a class="g-foto" href="/img/foto-marmo-venato-1600.jpg" data-did="M&aacute;rmol claro con sus vetas"><picture><source type="image/avif" srcset="/img/foto-marmo-venato-800.avif"><img src="/img/foto-marmo-venato-800.jpg" alt="M&aacute;rmol claro con sus vetas" width="1600" height="2400" loading="lazy" decoding="async"></picture></a></li>
+    </ul>
+  </div>
+  <div class="wrap g-comandi">
+    <button type="button" class="g-freccia" data-v="-1" aria-label="Anterior">&larr;</button>
+    <button type="button" class="g-freccia" data-v="1" aria-label="Siguiente">&rarr;</button>
+    <span class="g-conta" aria-live="polite">10 fotos</span>
+  </div>
+  <dialog class="g-zoom" aria-label="Foto ampliada">
+    <figure><img alt="" width="1200" height="800"><figcaption></figcaption></figure>
+    <button type="button" class="g-chiudi" aria-label="Cerrar">&times;</button>
+    <button type="button" class="g-prec" aria-label="Anterior">&larr;</button>
+    <button type="button" class="g-succ" aria-label="Siguiente">&rarr;</button>
+  </dialog>
+</section>
+
 <!-- ============ DOCUMENTI VERI ============ -->
+<section class="foto-banda" aria-label="De la vi&ntilde;a a la f&aacute;brica, cada texto tiene un lector concreto.">
+  <div class="par" data-par="-.12"><picture><source type="image/avif" srcset="/img/foto-stabilimento-800.avif 800w, /img/foto-stabilimento-1600.avif 1600w" sizes="100vw"><img src="/img/foto-stabilimento-1600.jpg" srcset="/img/foto-stabilimento-800.jpg 800w, /img/foto-stabilimento-1600.jpg 1600w" sizes="100vw" alt="" width="1600" height="1067" loading="lazy" decoding="async"></picture></div>
+  <div class="wrap"><p class="fb-testo rv">De la vi&ntilde;a a la f&aacute;brica, cada texto tiene un lector concreto.</p></div>
+</section>
+
 <section class="sez" id="ejemplos">
   <div class="wrap">
     <div class="testa-sez">
@@ -389,6 +461,11 @@
 </section>
 
 <!-- ============ CONTATTI ============ -->
+<section class="foto-banda" aria-label="Basta con enviar el texto.">
+  <div class="par" data-par="-.14"><picture><source type="image/avif" srcset="/img/foto-colline-toscane-800.avif 800w, /img/foto-colline-toscane-1600.avif 1600w" sizes="100vw"><img src="/img/foto-colline-toscane-1600.jpg" srcset="/img/foto-colline-toscane-800.jpg 800w, /img/foto-colline-toscane-1600.jpg 1600w" sizes="100vw" alt="" width="1600" height="1067" loading="lazy" decoding="async"></picture></div>
+  <div class="wrap"><p class="fb-testo rv">Basta con enviar el texto.</p></div>
+</section>
+
 <section class="sez" id="como">
   <div class="wrap">
     <p class="occhiello rv">Contacto</p>
