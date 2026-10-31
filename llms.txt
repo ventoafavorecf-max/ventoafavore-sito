@@ -20,6 +20,10 @@ e-commerce, pagine del sito, materiali per le fiere.
 - Pagina di presentazione: 180 €, 5 giorni
 - Descrizioni e-commerce, fino a 15 prodotti: 380 €, 10 giorni
 - Pacchetto fiera, pagina di presentazione e tre schede: 540 €, 10 giorni
+- Pacchetto fiera leggero, tre schede prodotto in una lingua: 190 €, 10 giorni
+- Schede per Amazon ed Etsy (titolo, punti elenco e descrizione di un prodotto, in una lingua a scelta): 29 € a scheda, cinque schede 119 €, 3 giorni
+- Profilo azienda per directory B2B (Europages, Kompass e simili), in una lingua: 89 €, 3 giorni lavorativi; l'iscrizione all'elenco resta all'azienda
+- Dieci email commerciali per l'estero, scritte per il vostro prodotto, in una lingua: 149 €, seconda lingua 84 €, 5 giorni lavorativi
 - La stessa scheda in una seconda lingua (tedesco, francese o spagnolo): 84 €, 3 giorni
 
 ## Il sito, fatto da zero
@@ -46,6 +50,7 @@ cinese o arabo: una pagina 435 €, fino a sei pagine 885 €.
 - Menù del ristorante in inglese, pronto da stampare: 49 €, con il tedesco 79 €, 48 ore
 - Annuncio per Booking, Airbnb o agriturismo, in italiano, inglese e tedesco: 69 €, 48 ore
 - Menù digitale con codice QR, in due o tre lingue: 99 €, 3 giorni
+- Accoglienza ospiti per cantine e agriturismi, cinque messaggi in inglese e tedesco: 99 €, 4 giorni lavorativi
 - Scheda Google dell'attività: 59 €, 3 giorni
 - Social del mese, 8 post e 2 video brevi: 149 € al mese
 - Video breve per i social, 30 secondi: 79 €, tre video 199 €, 3 giorni
@@ -74,4 +79,5 @@ materia regolamentata, il testo lo fissa la norma e la responsabilità resta del
 Vento a Favore (Modena, Italy) writes sales copy in English, German, French, Spanish, Simplified Chinese and Arabic
 for Italian exporters, and Italian copy for foreign companies selling in Italy. It also builds websites from
 scratch, from €290. Fixed prices, stated lead times, payment on delivery.
+Full English version of this file: https://ventoafavore.it/en/llms.txt
 [English](https://ventoafavore.it/en/) · [Deutsch](https://ventoafavore.it/de/) · [Français](https://ventoafavore.it/fr/) · [Español](https://ventoafavore.it/es/)

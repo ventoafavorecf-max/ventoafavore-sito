@@ -317,6 +317,8 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
   $$("form.modulo:not([data-tipo])").forEach(function (f) {
     var chiesto = new URLSearchParams(location.search).get("lavoro");     /* arriva da «Chiedere…» */
     if (chiesto) $$("input[name=lavoro]", f).forEach(function (r) { if (r.value === chiesto) r.checked = true; });
+    var codiceUrl = new URLSearchParams(location.search).get("codice");   /* il venditore può mandare il link con il codice già dentro */
+    if (codiceUrl && f.elements.codice) f.elements.codice.value = codiceUrl.slice(0, 24);
     f.addEventListener("submit", function (ev) {
       ev.preventDefault();
       var ok = true;
@@ -333,6 +335,7 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
         d.saluto || "Buongiorno,", "",
         v("messaggio") || d.predefinito || "vorrei sapere come lavora Vento a Favore sui nostri testi.", "",
         (d.azienda || "Azienda") + ": " + v("azienda"),
+        v("codice") ? "Codice: " + v("codice") : "",
         v("pagina") ? (d.pagina || "Pagina da leggere") + ": " + v("pagina") : "",
         scelta ? (d.interesse || "Mi interessa") + ": " + scelta : "",
         v("lingua") ? (d.lingua || "Lingua") + ": " + v("lingua") : "", "",
@@ -347,7 +350,7 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
       if (!INVIO || !window.fetch) { conPosta(); return; }
       /* dal 12/10/2026: il modulo spedisce davvero, tramite lo script strumenti/invio-email/Modulo.gs */
       var dati = new URLSearchParams();
-      ["nome", "azienda", "email", "telefono", "pagina", "lingua", "messaggio", "sito_web"].forEach(function (n) { dati.append(n, v(n)); });
+      ["nome", "azienda", "email", "telefono", "pagina", "lingua", "messaggio", "sito_web"].forEach(function (n) { dati.append(n, n === "messaggio" && v("codice") ? v(n) + "\n\nCodice: " + v("codice") : v(n)); });
       dati.append("lavoro", scelta);
       dati.append("provenienza", location.pathname);
       var tasto = f.querySelector("button[type=submit]");
