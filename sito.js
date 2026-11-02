@@ -353,6 +353,8 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
       ["nome", "azienda", "email", "telefono", "pagina", "lingua", "messaggio", "sito_web"].forEach(function (n) { dati.append(n, n === "messaggio" && v("codice") ? v(n) + "\n\nCodice: " + v("codice") : v(n)); });
       dati.append("lavoro", scelta);
       dati.append("provenienza", location.pathname);
+      var cons = f.querySelector("input[name=consenso]");                 /* 02/11/2026: consenso facoltativo a ricevere altre email, registrato nel messaggio */
+      if (cons && cons.checked) dati.set("messaggio", (dati.get("messaggio") || "") + "\n\nCONSENSO a ricevere altre email di Vento a Favore: si (" + new Date().toISOString().slice(0, 10) + ")");
       var tasto = f.querySelector("button[type=submit]");
       if (tasto) tasto.disabled = true;
       if (esito) esito.textContent = d.invio || "Invio in corso…";

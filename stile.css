@@ -1363,3 +1363,7 @@ html:has(.g-zoom[open]) { overflow: hidden; }
 .mv .gr .gr-seg i:nth-child(2) { transition-delay: .45s; } .mv .gr .gr-seg i:nth-child(3) { transition-delay: .7s; } .mv .gr .gr-seg i:nth-child(4) { transition-delay: .95s; }
 .mv .gr.in .gr-seg i { transform: none; }
 @media (prefers-reduced-motion: reduce) { .mv .gr .gr-seg i { transform: none; transition: none; } }
+
+/* 02/11/2026: consenso facoltativo ai messaggi di Vento a Favore, nel modulo di contatto */
+.modulo label.consenso { display: flex; gap: 12px; align-items: flex-start; font-weight: 400; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.modulo label.consenso input { margin-top: 4px; flex: 0 0 auto; width: 18px; height: 18px; }
