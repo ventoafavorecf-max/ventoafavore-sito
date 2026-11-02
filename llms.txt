@@ -47,13 +47,13 @@ Il testo si costruisce qui e prima della consegna lo rilegge un revisore esperto
 prezzo. Cinese semplificato per la Cina continentale, arabo standard moderno con le pagine da destra a sinistra.
 Prezzi: le righe del listino con il 50 % in più e cinque giorni in più. Prima lettura 59 €, scheda prodotto
 210 €, cinque schede 825 €, pagina di presentazione 270 €, descrizioni e-commerce 570 €, pacchetto fiera 810 €,
-una pagina del sito 119 €, tre pagine 339 €, fino a cinque 525 €, ogni lingua in più 480 €. Il sito fatto da zero in
+una pagina del sito 119 €, tre pagine 338 €, fino a cinque 524 €, ogni lingua in più 480 €. Il sito fatto da zero in
 cinese o arabo: una pagina 435 €, fino a sei pagine 885 €.
 
 ## Servizi rapidi (ristoranti, B&B, negozi)
 - Traduzione rivista, italiano e inglese, tedesco, francese, spagnolo: 0,07 € a parola, minimo 25 €, 2-3 giorni
-- Menù del ristorante in inglese, pronto da stampare: 49 €, con il tedesco 79 €, 48 ore
-- Annuncio per Booking, Airbnb o agriturismo, in italiano, inglese e tedesco: 69 €, 48 ore
+- Menù del ristorante in inglese, pronto da stampare: 49 €, con il tedesco 79 €, due giorni lavorativi
+- Annuncio per Booking, Airbnb o agriturismo, in italiano, inglese e tedesco: 69 €, due giorni lavorativi
 - Menù digitale con codice QR, in due o tre lingue: 99 €, 3 giorni
 - Accoglienza ospiti per cantine e agriturismi, cinque messaggi in inglese e tedesco: 99 €, 4 giorni lavorativi
 - Pagina visite e degustazioni, in inglese e tedesco: 79 €, con l'accoglienza ospiti 159 €, 3-4 giorni
@@ -61,7 +61,7 @@ cinese o arabo: una pagina 435 €, fino a sei pagine 885 €.
 - Scheda Google dell'attività: 59 €, 3 giorni
 - Social del mese, 8 post e 2 video brevi: 149 € al mese
 - Video breve per i social, 30 secondi: 79 €, tre video 199 €, 3 giorni
-- Curriculum e profilo LinkedIn in inglese: 39 €, 48 ore
+- Curriculum e profilo LinkedIn in inglese: 39 €, due giorni lavorativi
 - Controllo del sito già online, base (una lingua, fino a sei pagine, rapporto in italiano): 59 €, 3 giorni lavorativi; completo (fino a tre lingue, con la parte tecnica): 129 €; con correzioni sul sito: su misura
 
 ## Che cosa non si scrive
