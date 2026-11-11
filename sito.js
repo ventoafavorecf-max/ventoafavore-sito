@@ -425,6 +425,39 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
     });
   });
 
+  /* ---------- 10-quater. newsletter (11/11/2026): iscrizione in due passaggi, consenso mai spuntato in anticipo ----------
+     Il modulo manda i dati al servizio di invio (data-endpoint) solo al clic sul tasto. Con l'indirizzo vuoto non spedisce niente. */
+  $$("form.modulo[data-tipo=newsletter]").forEach(function (f) {
+    var esito = f.parentNode.querySelector(".modulo-esito");
+    var cons = f.querySelector("input[name=consenso]"), mail = f.elements.EMAIL;
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var bad = !mail.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail.value);
+      mail.setAttribute("aria-invalid", String(bad));
+      cons.setAttribute("aria-invalid", String(!cons.checked));
+      var ec = document.getElementById("e-n-consenso"); if (ec) ec.style.display = cons.checked ? "none" : "block";   /* l'errore della casella non segue la regola degli altri campi */
+      if (bad) { mail.focus(); return; }
+      if (!cons.checked) { cons.focus(); return; }
+      if (f.elements.email_address_check.value) return;                   /* campo trappola per i programmi automatici */
+      var url = f.getAttribute("data-endpoint");
+      if (!url || !window.fetch) { if (esito) esito.textContent = "Il modulo non è ancora attivo. Si può scrivere a ventoafavorecf@gmail.com."; return; }
+      var dati = new URLSearchParams();
+      dati.append("EMAIL", mail.value.trim());
+      dati.append("FIRSTNAME", (f.elements.FIRSTNAME.value || "").trim());
+      dati.append("email_address_check", "");
+      dati.append("locale", "it");
+      dati.append("html_type", "simple");
+      var tasto = f.querySelector("button[type=submit]");
+      if (tasto) tasto.disabled = true;
+      if (esito) esito.textContent = "Invio in corso…";
+      fetch(url, { method: "POST", mode: "no-cors", body: dati })
+        .then(function () { f.reset(); if (esito) esito.textContent = "Controlli la posta: è arrivata una email con un collegamento da aprire per confermare. Senza conferma l’iscrizione non parte."; })
+        .catch(function () { if (esito) esito.textContent = "Non è andata a buon fine. Si può riprovare o scrivere a ventoafavorecf@gmail.com."; })
+        .then(function () { if (tasto) tasto.disabled = false; });
+    });
+    [mail, cons].forEach(function (c) { c.addEventListener("input", function () { c.removeAttribute("aria-invalid"); }); c.addEventListener("change", function () { c.removeAttribute("aria-invalid"); var ec = document.getElementById("e-n-consenso"); if (ec && cons.checked) ec.style.display = "none"; }); });
+  });
+
   /* ---------- 10-bis. la fila sul telefono: segno di avanzamento e frecce (si sfoglia col dito) ---------- */
   var ETICHETTE = { it: ["Scheda precedente", "Scheda successiva"], en: ["Previous card", "Next card"],
                     de: ["Vorherige Karte", "N\u00e4chste Karte"], fr: ["Fiche pr\u00e9c\u00e9dente", "Fiche suivante"],
