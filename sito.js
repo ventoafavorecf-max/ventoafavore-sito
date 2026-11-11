@@ -299,12 +299,29 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
                              li.classList.add("aperto"); a.setAttribute("aria-expanded", "true"); };
     var chiudiP = function (x) { x.classList.remove("aperto"); x.querySelector(".voce").setAttribute("aria-expanded", "false"); };
     li.addEventListener("mouseenter", apri);
-    li.addEventListener("mouseleave", function () { timer = setTimeout(function () { chiudiP(li); }, 180); });
+    li.addEventListener("mouseleave", function () { timer = setTimeout(function () { chiudiP(li); }, 240); });
     a.addEventListener("click", function (ev) {             /* primo clic apre, secondo segue il collegamento */
       if (!li.classList.contains("aperto")) { ev.preventDefault(); apri(); }
     });
     li.addEventListener("focusout", function (ev) { if (!li.contains(ev.relatedTarget)) chiudiP(li); });
     li.addEventListener("keydown", function (ev) { if (ev.key === "Escape") { chiudiP(li); a.focus(); } });
+    /* 11/11: frecce da tastiera. Giù apre e entra nel pannello, su e giù scorrono le voci, destra e sinistra passano alla voce vicina del menu. */
+    li.addEventListener("keydown", function (ev) {
+      var k = ev.key; if (k !== "ArrowDown" && k !== "ArrowUp" && k !== "ArrowLeft" && k !== "ArrowRight") return;
+      var voci = $$(".pannello a", li), su = document.activeElement, i = voci.indexOf(su);
+      if (k === "ArrowDown" || k === "ArrowUp") {
+        ev.preventDefault();
+        if (su === a) { if (k === "ArrowDown" && voci.length) { apri(); voci[0].focus(); } return; }
+        if (i < 0) return;
+        var n = i + (k === "ArrowDown" ? 1 : -1);
+        if (n < 0) { a.focus(); return; }
+        if (n < voci.length) voci[n].focus();
+      } else {
+        var lis = $$(".menu > li"), pos = lis.indexOf(li), vicino = lis[pos + (k === "ArrowRight" ? 1 : -1)];
+        var t = vicino && vicino.querySelector(".voce"); if (!t) return;
+        ev.preventDefault(); chiudiP(li); t.focus(); if (vicino.classList.contains("con-pannello")) vicino.dispatchEvent(new Event("mouseenter"));
+      }
+    });
   });
   document.addEventListener("click", function (ev) {
     if (!ev.target.closest(".con-pannello")) $$(".menu .aperto").forEach(function (x) { x.classList.remove("aperto"); x.querySelector(".voce").setAttribute("aria-expanded", "false"); });
