@@ -100,6 +100,9 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
     r.addEventListener("input", function () { toccato = true; c.style.setProperty("--p", r.value + "%"); });
     if (fisso) { metti(0); return; }
     metti(100);
+    /* 13/11: con GSAP il passaggio da «tradotto» a «riscritto» lo guida lo scorrimento della pagina (vedi più sotto); senza, resta il passaggio a tempo */
+    c._guida = { metti: metti, tocco: function () { return toccato; } };
+    if (window.gsap && window.ScrollTrigger) return;
     var io = new IntersectionObserver(function (voci) {
       if (!voci[0].isIntersecting) return; io.disconnect();
       var t0 = performance.now(), dur = 2300;
@@ -269,12 +272,27 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
       // nello stile) e le voci partono subito sotto e scorrono sotto di lei; la pagina dietro non scorre.
       yMenu = scrollY;
       var testata = document.querySelector(".testata");
-      if (testata) tendina.style.paddingTop = (testata.offsetHeight + 28) + "px";
-      tendina.scrollTop = 0;
+      if (testata) tendina.style.paddingTop = testata.offsetHeight + "px";   // lo spazio sopra le voci e' nel riquadro che scorre (stile.css)
+      tendina.scrollTop = 0; var scorreT = tendina.querySelector(".tendina-dentro"); if (scorreT) scorreT.scrollTop = 0;
       radice.classList.add("menu-aperto"); apriT.setAttribute("aria-expanded", "true");
       tendina.setAttribute("aria-hidden", "false"); fuori(true);
       var primo = tendina.querySelector("a, summary"); if (primo) primo.focus({ preventScroll: true });
     });
+    // 11/11: nel menu del telefono entrano anche le lingue e l'offerta del sito, copiate dalla striscia in cima (che sul telefono
+    // sparisce): così le lingue si toccano con tasti grandi. Si vedono solo sul telefono (stile.css, fine del file).
+    var strisciaL = document.querySelector(".lingue-su .wrap"), dentroT = tendina.querySelector(".tendina-dentro");
+    if (strisciaL && dentroT) {
+      var offerta = strisciaL.querySelector(".novita-su");
+      if (offerta) { var po = offerta.cloneNode(true); po.className = "tendina-promo"; dentroT.appendChild(po); }
+      var scatola = document.createElement("div"); scatola.className = "tendina-lingue"; scatola.setAttribute("role", "group");
+      scatola.setAttribute("aria-label", (strisciaL.parentNode.getAttribute("aria-label") || "Lingue"));
+      $$("a:not(.novita-su)", strisciaL).forEach(function (a) {
+        var c = a.cloneNode(true);
+        if (a.getAttribute("hreflang") && (document.documentElement.lang || "").indexOf(a.getAttribute("hreflang")) === 0) c.setAttribute("aria-current", "true");
+        scatola.appendChild(c);
+      });
+      if (scatola.children.length) dentroT.appendChild(scatola);
+    }
     $$("a", tendina).forEach(function (a) { a.addEventListener("click", function () { chiudi(false); }); });   // si va altrove: niente ritorno
     addEventListener("keydown", function (e) { if (e.key === "Escape" && radice.classList.contains("menu-aperto")) { chiudi(true); apriT.focus(); } });
     addEventListener("resize", function () { if (innerWidth > 1320) chiudi(true); });
@@ -292,40 +310,7 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
     });
   });
 
-  /* ---------- 9. menu con pannelli ---------- */
-  $$(".menu .con-pannello").forEach(function (li) {
-    var a = li.querySelector(".voce"), timer;
-    var apri = function () { clearTimeout(timer); $$(".menu .aperto").forEach(function (x) { if (x !== li) chiudiP(x); });
-                             li.classList.add("aperto"); a.setAttribute("aria-expanded", "true"); };
-    var chiudiP = function (x) { x.classList.remove("aperto"); x.querySelector(".voce").setAttribute("aria-expanded", "false"); };
-    li.addEventListener("mouseenter", apri);
-    li.addEventListener("mouseleave", function () { timer = setTimeout(function () { chiudiP(li); }, 240); });
-    a.addEventListener("click", function (ev) {             /* primo clic apre, secondo segue il collegamento */
-      if (!li.classList.contains("aperto")) { ev.preventDefault(); apri(); }
-    });
-    li.addEventListener("focusout", function (ev) { if (!li.contains(ev.relatedTarget)) chiudiP(li); });
-    li.addEventListener("keydown", function (ev) { if (ev.key === "Escape") { chiudiP(li); a.focus(); } });
-    /* 11/11: frecce da tastiera. Giù apre e entra nel pannello, su e giù scorrono le voci, destra e sinistra passano alla voce vicina del menu. */
-    li.addEventListener("keydown", function (ev) {
-      var k = ev.key; if (k !== "ArrowDown" && k !== "ArrowUp" && k !== "ArrowLeft" && k !== "ArrowRight") return;
-      var voci = $$(".pannello a", li), su = document.activeElement, i = voci.indexOf(su);
-      if (k === "ArrowDown" || k === "ArrowUp") {
-        ev.preventDefault();
-        if (su === a) { if (k === "ArrowDown" && voci.length) { apri(); voci[0].focus(); } return; }
-        if (i < 0) return;
-        var n = i + (k === "ArrowDown" ? 1 : -1);
-        if (n < 0) { a.focus(); return; }
-        if (n < voci.length) voci[n].focus();
-      } else {
-        var lis = $$(".menu > li"), pos = lis.indexOf(li), vicino = lis[pos + (k === "ArrowRight" ? 1 : -1)];
-        var t = vicino && vicino.querySelector(".voce"); if (!t) return;
-        ev.preventDefault(); chiudiP(li); t.focus(); if (vicino.classList.contains("con-pannello")) vicino.dispatchEvent(new Event("mouseenter"));
-      }
-    });
-  });
-  document.addEventListener("click", function (ev) {
-    if (!ev.target.closest(".con-pannello")) $$(".menu .aperto").forEach(function (x) { x.classList.remove("aperto"); x.querySelector(".voce").setAttribute("aria-expanded", "false"); });
-  });
+  /* ---------- 9. (13/11) le tendine non ci sono più: la barra ha collegamenti diretti, l'Indice sta in movimento.js ---------- */
 
   /* indirizzo dell'app web che riceve il modulo (strumenti/invio-email/Modulo.gs); vuoto = si apre la posta */
   var INVIO = "https://script.google.com/macros/s/AKfycbxPcA9uTJ1WhuptbTQZJjLeDqvwOoDypayg280ZtceJ_sPQq6qT5tNI6hy_K1HRo0gGzg/exec";
@@ -439,20 +424,19 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
       if (bad) { mail.focus(); return; }
       if (!cons.checked) { cons.focus(); return; }
       if (f.elements.email_address_check.value) return;                   /* campo trappola per i programmi automatici */
-      var url = f.getAttribute("data-endpoint");
-      if (!url || !window.fetch) { if (esito) esito.textContent = "Il modulo non è ancora attivo. Si può scrivere a ventoafavorecf@gmail.com."; return; }
+      var url = f.getAttribute("data-endpoint"), d = f.dataset;           /* le pagine straniere danno le frasi nella loro lingua */
+      if (!url || !window.fetch) { if (esito) esito.textContent = d.nonattivo || "Il modulo non è ancora attivo. Si può scrivere a ventoafavorecf@gmail.com."; return; }
       var dati = new URLSearchParams();
       dati.append("EMAIL", mail.value.trim());
-      dati.append("FIRSTNAME", (f.elements.FIRSTNAME.value || "").trim());
       dati.append("email_address_check", "");
-      dati.append("locale", "it");
+      dati.append("locale", (document.documentElement.lang || "it").slice(0, 2));   /* la lingua della pagina: il modulo Brevo di quella lingua manda la sua email di conferma */
       dati.append("html_type", "simple");
       var tasto = f.querySelector("button[type=submit]");
       if (tasto) tasto.disabled = true;
-      if (esito) esito.textContent = "Invio in corso…";
+      if (esito) esito.textContent = d.invio || "Invio in corso…";
       fetch(url, { method: "POST", mode: "no-cors", body: dati })
-        .then(function () { f.reset(); if (esito) esito.textContent = "Controlli la posta: è arrivata una email con un collegamento da aprire per confermare. Senza conferma l’iscrizione non parte."; })
-        .catch(function () { if (esito) esito.textContent = "Non è andata a buon fine. Si può riprovare o scrivere a ventoafavorecf@gmail.com."; })
+        .then(function () { f.reset(); if (esito) esito.textContent = d.ok || "Controlli la posta: è arrivata una email con un collegamento da aprire per confermare. Senza conferma l’iscrizione non parte."; })
+        .catch(function () { if (esito) esito.textContent = d.errore || "Non è andata a buon fine. Si può riprovare o scrivere a ventoafavorecf@gmail.com."; })
         .then(function () { if (tasto) tasto.disabled = false; });
     });
     [mail, cons].forEach(function (c) { c.addEventListener("input", function () { c.removeAttribute("aria-invalid"); }); c.addEventListener("change", function () { c.removeAttribute("aria-invalid"); var ec = document.getElementById("e-n-consenso"); if (ec && cons.checked) ec.style.display = "none"; }); });
@@ -461,7 +445,8 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
   /* ---------- 10-bis. la fila sul telefono: segno di avanzamento e frecce (si sfoglia col dito) ---------- */
   var ETICHETTE = { it: ["Scheda precedente", "Scheda successiva"], en: ["Previous card", "Next card"],
                     de: ["Vorherige Karte", "N\u00e4chste Karte"], fr: ["Fiche pr\u00e9c\u00e9dente", "Fiche suivante"],
-                    es: ["Ficha anterior", "Ficha siguiente"] };
+                    es: ["Ficha anterior", "Ficha siguiente"],
+                    zh: ["\u4e0a\u4e00\u5f20\u5361\u7247", "\u4e0b\u4e00\u5f20\u5361\u7247"], ar: ["\u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0633\u0627\u0628\u0642\u0629", "\u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u062a\u0627\u0644\u064a\u0629"] };
   $$(".fila").forEach(function (fila) {
     var schede = $$(".carta", fila); if (schede.length < 2) return;
     var et = ETICHETTE[(document.documentElement.lang || "it").slice(0, 2)] || ETICHETTE.it;
@@ -520,6 +505,22 @@ window.VAF_PRONTO = true;   // 20/10: la rete di sicurezza del modello toglie «
       ScrollTrigger.create({ trigger: m, start: "top 80%", end: "bottom 45%", scrub: true,
         onUpdate: function (st) { var k = Math.round(st.progress * parole.length);
           parole.forEach(function (p, i) { p.classList.toggle("acceso", i < k); }); } });
+    });
+
+    /* 13/11: il confronto «tradotto → riscritto» scorre con la pagina: mentre scendi la frase cambia davanti a te; se trascini tu la maniglia, comandi tu */
+    if (!fermo) $$(".cf").forEach(function (cf) {
+      if (!cf._guida) return;
+      ScrollTrigger.create({ trigger: cf, start: "top 78%", end: "bottom 38%", scrub: 0.4,
+        onUpdate: function (st) { if (!cf._guida.tocco()) cf._guida.metti(Math.round(100 - 100 * st.progress)); } });
+    });
+
+    /* 13/11: i passaggi (Uno, Due, Tre…): la linea si disegna con lo scorrimento e ogni tappa si accende quando la raggiungi */
+    if (!fermo) $$(".passi").forEach(function (ol) {
+      var tappe = $$(".passo", ol); if (!tappe.length) return;
+      ol.classList.add("guida");
+      ScrollTrigger.create({ trigger: ol, start: "top 82%", end: "bottom 58%", scrub: 0.3,
+        onUpdate: function (st) { ol.style.setProperty("--k", st.progress.toFixed(3));
+          tappe.forEach(function (t, i) { t.classList.toggle("acceso", st.progress >= (i / tappe.length) - 0.02); }); } });
     });
 
     mm.add({ largo: "(min-width: 900px)", mosso: "(prefers-reduced-motion: no-preference)" }, function (c) {

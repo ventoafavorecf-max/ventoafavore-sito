@@ -1,0 +1,232 @@
+/* Vento a Favore — navigazione e movimento, 13/11/2026 (ordine di Fre via Regia, solo copia locale).
+   1. barra con collegamenti diretti; 2. Indice a tutto schermo (al posto delle tendine); 3. riga «In questa sezione»;
+
+/* ---------- 1. barra: collegamenti diretti, filetto che scorre ---------- */
+.menu { gap: 2px; }
+.menu .voce:not(.punta-voce) { gap: 0; padding: 12px 13px; border-radius: 0; background: none; color: var(--ink-2); }
+.menu .voce:not(.punta-voce):hover { background: none; color: var(--ink); }
+.menu .voce .ico { display: none; }
+.menu .voce:not(.punta-voce)::after { content: ""; position: absolute; left: 13px; right: 13px; bottom: 5px; height: 1.5px; background: var(--accent);
+                                      transform: scaleX(0); transform-origin: right; transition: transform .55s var(--curva); }
+.menu .voce:not(.punta-voce):hover::after, .menu .voce:not(.punta-voce):focus-visible::after,
+.menu .voce:not(.punta-voce)[aria-current]::after { transform: scaleX(1); transform-origin: left; }
+.menu .voce:not(.punta-voce)[aria-current] { color: var(--accent); }
+/* 13/11: nelle lingue straniere il menu in riga ha sette voci; con logo e nome piu' grandi si stringono un poco gli spazi fra le voci,
+   cosi' il tasto in fondo resta dentro il margine della pagina */
+.nav-lunga .menu { gap: 0; }
+.nav-lunga .menu .voce:not(.punta-voce) { padding-inline: 8px; }
+.nav-lunga .menu .voce:not(.punta-voce)::after { left: 8px; right: 8px; }
+.nav-lunga .menu .voce.punta-voce { padding-inline: 10px; }
+.nav-lunga ~ .tasto { padding-inline: 16px; margin-left: 6px; }
+/* francese e spagnolo hanno le voci piu' lunghe: ancora un filo piu' strette (la regola di stile.css, riga 959, dava gia' 6 px) */
+html[lang="fr"] .nav-lunga .menu .voce:not(.punta-voce), html[lang="es"] .nav-lunga .menu .voce:not(.punta-voce) { padding-inline: 6px; font-size: 16px; }
+html[lang="fr"] .nav-lunga .menu .voce:not(.punta-voce)::after, html[lang="es"] .nav-lunga .menu .voce:not(.punta-voce)::after { left: 6px; right: 6px; }
+/* ... e in quelle due lingue, sul computer, logo e nome un filo meno grandi (90 e 38 px invece di 98 e 42; prima del 13/11 erano 88 e 38):
+   senza questo il tasto «Première lecture / Primera lectura» usciva dal margine destro della pagina */
+@media (min-width: 1321px) {
+  html[lang="fr"] .testata .marchio, html[lang="es"] .testata .marchio { --mc: clamp(84px, 6.2vw, 90px); font-size: clamp(34px, 2.62vw, 38px); }
+}
+
+/* ---------- pulsanti «Indice» e «Chiudi» ---------- */
+.apri-indice { display: none; }
+.apri-indice, .chiudi-indice { align-items: center; gap: 12px; min-height: 44px; padding: 0 16px 0 18px; border: 1px solid var(--rule); border-radius: 999px;
+                               background: transparent; color: var(--ink); font: 500 16px/1 var(--sans); cursor: pointer;
+                               transition: border-color .3s ease, background-color .3s ease; }
+.apri-indice:hover, .chiudi-indice:hover { border-color: var(--ink); background: var(--rule-soft); }
+.apri-indice .righe { position: relative; width: 22px; height: 9px; }
+.apri-indice .righe::before, .apri-indice .righe::after { content: ""; position: absolute; left: 0; right: 0; height: 1.5px; background: currentColor;
+                                                           transition: transform .5s var(--curva); }
+.apri-indice .righe::before { top: 0; } .apri-indice .righe::after { top: 7.5px; right: 6px; }
+.apri-indice:hover .righe::after { right: 0; }
+.chiudi-indice .croce { position: relative; width: 18px; height: 18px; }
+.chiudi-indice .croce::before, .chiudi-indice .croce::after { content: ""; position: absolute; left: 0; right: 0; top: 8.25px; height: 1.5px; background: currentColor;
+                                                               transition: transform .5s var(--curva); }
+.chiudi-indice .croce::before { transform: rotate(45deg); } .chiudi-indice .croce::after { transform: rotate(-45deg); }
+.chiudi-indice:hover .croce::before { transform: rotate(135deg); } .chiudi-indice:hover .croce::after { transform: rotate(45deg); }
+
+/* ---------- 2. Indice a tutto schermo (solo da 1321 px in su; sotto resta il pannello laterale scelto da Fre) ---------- */
+.indice { display: none; }
+@media (min-width: 1321px) {
+  html.mv .apri-indice { display: inline-flex; margin-left: 10px; }
+  .indice { display: flex; flex-direction: column; position: fixed; inset: 0; z-index: 70; background: var(--paper); color: var(--ink); overflow: auto;
+            overscroll-behavior: contain; visibility: hidden; clip-path: inset(0 0 100% 0);
+            transition: clip-path .8s var(--curva-io), visibility 0s linear .8s; }
+  html.indice-aperto { overflow: hidden; }
+  html.indice-aperto .indice { visibility: visible; clip-path: inset(0 0 0 0); transition: clip-path .8s var(--curva-io), visibility 0s; }
+  .indice-testa { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 86px; flex: none; }
+  .it-az { display: flex; align-items: center; gap: 12px; }
+  .it-az .tasto { min-height: 44px; padding: 0 20px; font-size: 16px; }
+  .indice-corpo { flex: 1; display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: 0 clamp(40px, 5vw, 90px); align-items: center;
+                  width: 100%; padding-block: 1.5vh; }
+  .indice-voci { list-style: none; margin: 0; padding: 0; }
+  .indice-voci li { opacity: 0; transform: translateY(36px); transition: opacity .35s ease, transform .5s var(--curva); }
+  html.indice-aperto .indice-voci li { opacity: 1; transform: none; transition: opacity .7s ease calc(.32s + var(--i) * .055s), transform 1s var(--curva) calc(.32s + var(--i) * .055s); }
+  .iv { display: flex; align-items: baseline; gap: 22px; padding: .45vh 0; color: var(--ink); text-decoration: none;
+        font: 400 clamp(2rem, 5.4vh, 3.6rem)/1.08 var(--serif); letter-spacing: -.015em;
+        transition: color .3s ease, transform .7s var(--curva), opacity .3s ease; }
+  .iv .num { min-width: 2ch; font: 400 13px/1 var(--mono); letter-spacing: .12em; color: var(--accent); }
+  .iv:hover, .iv:focus-visible, .iv.sel { color: var(--accent); transform: translateX(14px); }
+  .iv:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+  .indice-voci:has(.iv:hover) .iv:not(:hover), .indice-voci:has(.iv:focus-visible) .iv:not(:focus-visible) { opacity: .32; }
+  .iv [lang="ar"] { font-family: var(--serif); }
+
+  .indice-anteprime { display: grid; align-self: stretch; align-items: center; border-left: 1px solid var(--rule); padding-left: clamp(36px, 4.5vw, 72px); }
+  .av { grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(16px);
+        transition: opacity .3s ease, transform .5s var(--curva), visibility 0s linear .3s; }
+  .av.attiva { opacity: 1; visibility: visible; transform: none; transition: opacity .5s ease .08s, transform .8s var(--curva) .08s, visibility 0s; }
+  .av-desc { max-width: 42ch; margin: 0 0 26px; font: 400 clamp(1.15rem, 1.6vw, 1.45rem)/1.5 var(--serif); color: var(--ink-2); }
+  .av-gruppi { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 22px 36px; }
+  .av-gruppi { grid-auto-flow: dense; }
+  .av-gruppi .gruppo:nth-child(2):not(:last-child) { grid-row: span 2; }
+  .av .gt { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font: 400 12.5px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mut); }
+  .av .gt::before { content: ""; width: 18px; height: 1px; background: var(--accent); flex: none; }
+  .av ul { list-style: none; margin: 0; padding: 0; }
+  .av li a { display: block; padding: 7px 12px 8px; margin: 0 -12px; border-radius: 8px; text-decoration: none; transition: background-color .25s ease; }
+  .av li a:hover, .av li a:focus-visible { background: var(--card); }
+  .av li a:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .av .n { display: block; font: 400 19px/1.25 var(--serif); color: var(--ink); transition: color .25s ease; }
+  .av .d { display: block; margin-top: 2px; font: 400 14px/1.4 var(--sans); color: var(--mut); font-variant-numeric: tabular-nums; }
+  .av li a:hover .n, .av li a:focus-visible .n { color: var(--accent); }
+  .av-tutto { display: inline-flex; align-items: center; gap: 8px; margin-top: 30px; padding-bottom: 3px; font: 500 16px/1.3 var(--sans); color: var(--accent);
+              text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .3s ease, gap .4s var(--curva); }
+  .av-tutto:hover, .av-tutto:focus-visible { border-bottom-color: var(--accent); gap: 13px; }
+
+  .indice-piede { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 40px; width: 100%; flex: none; padding-block: 20px 26px;
+                  border-top: 1px solid var(--rule); font: 400 15px/1.4 var(--sans); color: var(--mut); }
+  .indice-piede p { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; }
+  .indice-piede a:not(.tasto) { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color .3s ease, color .3s ease; }
+  .indice-piede a:not(.tasto):hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .ip-legale { margin-left: auto !important; }
+  .ip-lingue a { display: inline-flex; align-items: center; }
+  .indice-testa, .indice-corpo, .indice-piede { opacity: 0; transition: opacity .3s ease; }
+  html.indice-aperto .indice-testa, html.indice-aperto .indice-corpo, html.indice-aperto .indice-piede { opacity: 1; transition: opacity .6s ease .25s; }
+  /* se la finestra è bassa le voci si stringono, ma restano tutte visibili */
+  @media (max-height: 700px) { .iv { font-size: 2rem; padding: 0; } .indice-testa { min-height: 70px; } }
+}
+
+/* ---------- 3. riga «In questa sezione» ---------- */
+.sezione-nav { border-bottom: 1px solid var(--rule); background: var(--paper); }
+.sezione-nav .wrap { display: flex; align-items: center; gap: 18px; min-height: 54px; overflow-x: auto; scrollbar-width: none; }
+.sezione-nav .wrap::-webkit-scrollbar { display: none; }
+@media (max-width: 899px) { .sezione-nav .wrap { -webkit-mask-image: linear-gradient(to right, #000 86%, transparent); mask-image: linear-gradient(to right, #000 86%, transparent); } }
+.sn-t { flex: none; margin: 0; padding-right: 18px; border-right: 1px solid var(--rule); font: 400 12.5px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mut); }
+.sezione-nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.sezione-nav a { display: block; white-space: nowrap; padding: 9px 14px; border-radius: 999px; font: 500 15.5px/1 var(--sans); color: var(--ink-2); text-decoration: none;
+                 transition: background-color .3s ease, color .3s ease; }
+.sezione-nav a:hover { background: var(--rule-soft); color: var(--ink); }
+.sezione-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sezione-nav a[aria-current] { background: var(--ink); color: var(--paper); }
+
+.testa-pagina .wrap { position: relative; z-index: 1; }
+.apertura > .wrap { position: relative; z-index: 1; }
+
+/* ---------- 5. reazioni al mouse (solo con mouse; il movimento si spegne con «meno movimento») ---------- */
+@media (hover: hover) and (pointer: fine) {
+  .tasto { translate: var(--tx, 0) var(--ty, 0); transition-property: transform, box-shadow, translate; }
+  .lume-i { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .45s ease; z-index: 2;
+            background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(123, 45, 38, .10), transparent 62%); }
+  .lume:hover > .lume-i { opacity: 1; }
+}
+
+/* etichetta che segue il mouse (solo con mouse): «Trascina» sui confronti, «Scorri» sulle strisce di foto */
+.cursore { position: fixed; left: 0; top: 0; z-index: 80; pointer-events: none; display: grid; place-items: center; width: 84px; height: 84px; border-radius: 50%;
+           background: var(--accent); color: var(--su-accento); font: 500 14px/1 var(--sans); letter-spacing: .02em; opacity: 0;
+           transition: opacity .25s ease; will-change: transform; }
+.cursore.su { opacity: .94; }
+.cursore.preme { background: var(--ink); color: var(--paper); }
+@media (hover: none), (pointer: coarse) { .cursore { display: none; } }
+
+@media (min-width: 900px) {   /* a schermo largo la riga va a capo invece di scorrere */
+  .sezione-nav .wrap { flex-wrap: wrap; overflow: visible; padding-block: 9px; row-gap: 4px; }
+  .sezione-nav ul { flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indice, html.indice-aperto .indice, .indice-voci li, html.indice-aperto .indice-voci li, .av, .av.attiva, .iv, .menu .voce::after,
+  .indice-testa, .indice-corpo, .indice-piede { transition-duration: .01s !important; transition-delay: 0s !important; }
+  .tasto { translate: none; }
+}
+
+/* telefono: la foto dell'apertura si vede in alto, il velo si scurisce dove sta il testo piccolo (13/11) */
+@media (max-width: 1100px) { .ap-foto::after { background: linear-gradient(rgba(14, 11, 8, .82) 0%, rgba(14, 11, 8, .76) 42%, rgba(14, 11, 8, .42) 100%); } }
+
+/* telefono in orizzontale: la testata non resta attaccata in alto, altrimenti mangia un settimo dello schermo (13/11) */
+@media (max-height: 480px) and (orientation: landscape) { .testata { position: static; } }
+/* schermi senza mouse (tablet grandi in orizzontale): niente effetti che dipendono dal passaggio del mouse restano «appiccicati» */
+@media (hover: none) { .menu .voce:not(.punta-voce):not([aria-current])::after { display: none; } .lume-i, .cursore { display: none; } }
+
+.sez.scura > .wrap { position: relative; z-index: 1; }
+
+/* ---------- pagine lunghe: indice laterale che segue la lettura (privacy, condizioni) ---------- */
+@media (min-width: 1100px) {
+  .con-toc { display: grid; grid-template-columns: minmax(0, 68ch) 250px; justify-content: space-between; align-items: start; gap: 0 56px; }
+  .toc { position: sticky; top: 118px; padding-left: 22px; border-left: 1px solid var(--rule); }
+  .toc-t { margin: 0 0 14px; font: 400 13.5px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mut); }
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  .toc a { display: block; position: relative; padding: 7px 0; font: 400 15.5px/1.35 var(--sans); color: var(--mut); text-decoration: none; transition: color .3s ease, translate .35s var(--curva-io, ease); }
+  .toc a:hover { color: var(--ink); }
+  .toc a[aria-current] { color: var(--accent); translate: 10px 0; }
+  .toc a[aria-current]::before { content: ""; position: absolute; left: -33px; top: 50%; width: 3px; height: 22px; margin-top: -11px; background: var(--accent); border-radius: 2px; }
+  .toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+}
+
+/* i passaggi: la linea si disegna con lo scorrimento e ogni tappa si accende quando la raggiungi */
+.mv .passi.guida::after { transform: scaleX(var(--k, 0)); transition: none; }
+@media (max-width: 900px) { .mv .passi.guida::after { transform: scaleY(var(--k, 0)); } }
+.passi.guida .passo::before { transition: background-color .4s ease, transform .5s var(--curva-io, ease); }
+.passi.guida .passo.acceso::before { background: var(--accent); transform: scale(1.18); }
+.passi.guida .passo { opacity: .55; transition: opacity .5s ease; }
+.passi.guida .passo.acceso { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .passi.guida .passo { opacity: 1; } }
+
+/* le domande si aprono piano (dove il browser lo sa fare); altrove si aprono di scatto, come prima */
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+  .faq details::details-content { block-size: 0; overflow: clip; transition: block-size .45s var(--curva-io, ease), content-visibility .45s allow-discrete; }
+  .faq details[open]::details-content { block-size: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .faq details::details-content { transition: none; } }
+
+/* il listino: con il mouse, la riga che guardi resta in primo piano e le altre si abbassano (dove il browser conosce :has) */
+@media (hover: hover) and (pointer: fine) {
+  .listino:has(.voce:hover) .voce:not(:hover) { opacity: .62; transition: opacity .35s ease; }
+  .listino .voce:hover .prezzo { color: var(--accent); }
+  .listino .voce .prezzo { transition: color .3s ease, transform .4s var(--curva-io, ease); }
+  .listino .voce:hover .prezzo { transform: translateX(-4px); }
+}
+
+/* riepilogo in testa alla pagina dei prezzi */
+.riepilogo { padding-block: clamp(40px, 5vw, 72px) 0; }
+.rie-occ { margin: 0 0 18px; font: 400 13.5px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mut); }
+.rie-g { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+.rie-c { display: grid; gap: 10px; padding: 22px 22px 20px; border: 1px solid var(--rule); border-radius: 4px; background: var(--card); text-decoration: none; color: var(--ink);
+         transition: border-color .3s ease, transform .4s var(--curva-io, ease), box-shadow .4s ease; }
+.rie-c:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 24px 40px -30px rgba(var(--ombra, 28, 25, 23), .45); }
+.rie-c:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.rie-p { font: 400 clamp(1.7rem, 2.6vw, 2.3rem)/1 var(--serif); color: var(--accent); font-variant-numeric: tabular-nums; }
+.rie-p small { font: 400 13px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--mut); margin-right: 4px; }
+.rie-t { font: 400 16px/1.35 var(--sans); color: var(--ink-2); }
+@media (prefers-reduced-motion: reduce) { .rie-c { transition: none; } .rie-c:hover { transform: none; } }
+
+
+/* il marchio: un cerchio grande, ben visibile; la barchetta e' un'immagine a parte e al clic si stacca e naviga (vedi movimento.js) */
+.marchio { --mc: clamp(84px, 6.6vw, 98px); cursor: pointer; }   /* 13/11, Fre: logo e nome piu' grandi, testata riproporzionata su ogni schermo */
+@media (min-width: 901px) { .testata .marchio { font-size: clamp(34px, 2.9vw, 42px); gap: clamp(14px, 1.2vw, 18px); } }
+.marchio .mc { width: var(--mc); height: var(--mc); overflow: visible; }
+.marchio .mc-base { box-shadow: 0 0 0 1px rgba(194, 122, 107, .3); }
+.marchio .mc-barca { z-index: 3; pointer-events: none; will-change: transform, opacity; }
+/* 13/11, filtro Gemini: il nome resta sempre nero e intero. Sta sopra la barca e il mare (che gli passano dietro),
+   con un filo di alone color carta che stacca le lettere quando la barca e' li' dietro.
+   top .11em: il nome non ha lettere che scendono sotto la riga, quindi a occhio stava alto; cosi' il suo centro e' quello del logo e del tasto Menu. */
+.marchio .nome { position: relative; top: .11em; z-index: 5; text-shadow: 0 0 2px var(--paper), 0 0 5px var(--paper); }
+.marchio .mc-onda { position: absolute; left: calc(var(--mc) / 2); top: calc(var(--mc) / 2); overflow: visible; pointer-events: none; z-index: 2; }
+.testata .wrap { min-height: clamp(104px, 7.9vw, 118px); }
+html { scroll-padding-top: 128px; }
+/* tablet */
+@media (max-width: 900px) { .marchio { --mc: 74px; } .testata .marchio { font-size: 34px; gap: 12px; } .testata .wrap { min-height: 98px; } html { scroll-padding-top: 104px; } }
+/* telefono: logo 66, nome 27; sotto i 390 px si stringono a scalini, cosi' logo, nome e tasto Menu stanno sempre dentro con i loro margini */
+@media (max-width: 560px) { .marchio { --mc: 66px; } .testata .marchio { font-size: 27px; gap: 9px; } .testata .wrap { min-height: 90px; gap: 8px; } html { scroll-padding-top: 96px; } }
+@media (max-width: 389px) { .marchio { --mc: 60px; } .testata .marchio { font-size: 24px; } .testata .wrap { min-height: 84px; } }
+@media (max-width: 374px) { .marchio { --mc: 58px; } .testata .marchio { font-size: 23px; } }
+@media (max-width: 359px) { .marchio { --mc: 54px; } .testata .marchio { font-size: 21px; } .testata .wrap { min-height: 78px; } }
+@media (max-width: 340px) { .marchio { --mc: 52px; } .testata .marchio { font-size: 20px; } }
