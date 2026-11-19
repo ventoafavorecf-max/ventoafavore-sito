@@ -1023,8 +1023,8 @@ html.menu-aperto, html.menu-aperto body { overflow: hidden; }
    sotto 1180 px sparisce la frase «azienda estera», sotto 1060 la frase breve del sito, sotto 700 restano le sole bandiere. */
 .lingue-su .novita-su { flex: 0 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .lingue-su a:not(.novita-su), .lingue-su .dom { flex: 0 0 auto; white-space: nowrap; }
-@media (max-width: 1180px) { .lingue-su .dom { display: none; } .lingue-su .novita-su { margin-right: auto; } }
-@media (max-width: 1060px) { .lingue-su .novita-su .lungo { display: none; } .lingue-su .novita-su .breve { display: inline; } }
+@media (max-width: 1500px) { .lingue-su .dom { display: none; } .lingue-su .novita-su { margin-right: auto; } }
+@media (max-width: 1280px) { .lingue-su .novita-su .lungo { display: none; } .lingue-su .novita-su .breve { display: inline; } }
 @media (max-width: 700px) {
   .lingue-su .wrap { gap: 6px 14px; }
   .lingue-su .nl { display: none; }
@@ -1418,3 +1418,67 @@ html:has(.g-zoom[open]) { overflow: hidden; }
 @media (max-width: 359px) {
   .apri-menu { padding: 0 12px 0 14px; font-size: 16px; }
 }
+
+/* Cura di lettura per prezzi, servizi rapidi e privacy (18/11): grigi piu chiari, testi piu grandi, voci piu spaziate */
+.pag-listino { --mut: #5A544C; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pag-listino { --mut: #B3AB9E; } }
+:root[data-theme="dark"] .pag-listino { --mut: #B3AB9E; }
+.pag-listino .listino .voce { padding: 28px 0; }
+.pag-listino .listino .voce .dettaglio { font-size: 15.5px; line-height: 1.6; margin-top: 8px; }
+.pag-listino .lede, .pag-listino .testa-pagina p { color: var(--ink-2); }
+@media (max-width: 640px) {
+  .pag-listino .azioni { flex-direction: column; align-items: stretch; gap: 14px; }
+  .pag-listino .azioni .tasto { justify-content: center; width: 100%; }
+  .pag-listino .azioni .collegamento { display: flex; justify-content: center; align-items: center; min-height: 48px; border: 1.5px solid var(--rule); border-radius: 999px; text-decoration: none; background-image: none; padding-bottom: 0; }
+}
+/* Foto d'apertura di prezzi: il margine in percentuale contava sulla larghezza e lasciava una striscia scura sotto la foto */
+.pag-listino .bf figcaption { font-size: 1.05rem; padding-top: 80px; background: linear-gradient(to top, rgba(0,0,0,.78), transparent); }
+.pag-listino .bf figcaption small { font-size: .92rem; opacity: .95; }
+.pag-listino .testa-foto .par { position: relative; height: 140%; margin-top: 0; top: -15%; }
+
+/* 19/11: galleria dei servizi piu vicina al testo; riquadro dati a 3 colonne quando le voci sono tre */
+@media (min-width: 900px) {
+  .pag-listino .banda-foto { margin-top: -40px; margin-bottom: -28px; }
+  .pag-listino .dati-rapidi:has(div:nth-child(3):last-child) { grid-template-columns: 1fr; }
+  .pag-listino .dati-rapidi:has(div:nth-child(3):last-child) div { padding: 16px 0 14px; border-left: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 18px; }
+  .pag-listino .dati-rapidi:has(div:nth-child(3):last-child) dd { margin: 0; text-align: right; }
+}
+/* 19/11: su telefono il riquadro dati con tre voci diventa una lista, senza cella orfana */
+@media (max-width: 899px) {
+  .pag-listino .dati-rapidi:has(div:nth-child(3):last-child) { grid-template-columns: 1fr; }
+  .pag-listino .dati-rapidi:has(div:nth-child(3):last-child) div { padding: 14px 0 12px; border-left: 0; }
+}
+/* 19/11: bottoni su telefono in griglia 2x2 (scelta di Fre), testo introduttivo piu compatto, foto della camera con toni piu caldi */
+@media (max-width: 899px) {
+  .pag-listino .azioni { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pag-listino .azioni .tasto, .pag-listino .azioni .collegamento { min-height: 48px; font-size: 15px; padding: 0 8px; width: 100%; }
+  .pag-listino .lede { font-size: 1.04rem; line-height: 1.6; }
+}
+@media (min-width: 900px) { .pag-listino .testa-pagina .dati-rapidi { align-self: center; } }
+.pag-listino .bf-land img { filter: saturate(.82) brightness(.9) sepia(.12); }
+@media (max-width: 899px) {
+  .pag-listino .azioni:not(:has(.tasto + .tasto)) .tasto { grid-column: 1 / -1; }
+}
+@media (max-width: 899px) {
+  .pag-listino .azioni:not(:has(.tasto + .tasto)) .collegamento { grid-column: 1 / -1; }
+}
+
+/* 19/11 giro 6: i tre difetti ricorrenti (blocco dati disallineato, troppi bottoni pieni, dettagli tipografici) */
+@media (min-width: 900px) {
+  .pag-listino .testa-pagina .dati-rapidi { align-self: start; margin-top: 46px; }
+  .pag-listino .lede { max-width: 52ch; }
+  .pag-listino .dati-rapidi dd { font-size: 1.75rem; }
+}
+.pag-listino h1 em { display: inline-block; }
+.pag-listino .dati-rapidi { border-top-color: rgba(247, 242, 234, .38); }
+.pag-listino .bf img { filter: saturate(.8) brightness(.92) sepia(.12); }
+.pag-listino .azioni:has(.tasto + .tasto) .tasto { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+@media (max-width: 899px) {
+  .pag-listino .azioni .tasto, .pag-listino .azioni .collegamento { min-height: 44px; }
+  .pag-listino .azioni { gap: 8px; }
+}
+.pag-listino .bf-land img { filter: saturate(.55) brightness(.74) sepia(.28); }
+.pag-listino .bf figcaption { background: linear-gradient(to top, rgba(0,0,0,.88), transparent); }
+.pag-listino .bf-land img { filter: saturate(.42) brightness(.7) sepia(.38); }
+.pag-listino .bf-land img { filter: saturate(.5) brightness(.72) sepia(.5) hue-rotate(-22deg); }
+@media (max-width: 899px) { .pag-listino .azioni .collegamento, .pag-listino .azioni:has(.tasto + .tasto) .tasto { border-color: rgba(247, 242, 234, .55); border-width: 1px; border-style: solid; } }
